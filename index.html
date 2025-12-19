@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name — Portfolio</title>
+  <meta name="description" content="Portfolio of Your Name — projects, experience, and contact." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Go to top">
+        <span class="brand-mark">YN</span>
+        <span class="brand-name">Your Name</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
+          <span class="sr-only">Toggle menu</span>
+          <span class="burger" aria-hidden="true"></span>
+        </button>
+
+        <ul class="nav-menu" id="navMenu">
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#projects">Projects</a></li>
+          <li><a class="nav-link" href="#skills">Skills</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
+          <li><a class="nav-link nav-cta" href="#contact">Hire Me</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="section hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Marketing + Creative Ops + Video</p>
+          <h1>Building brands people trust — with sharp systems and storytelling.</h1>
+          <p class="subhead">
+            I’m <strong>Your Name</strong>. I deliver clean creative, strong execution, and measurable results —
+            from campaigns to content to web.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn" href="#contact">Contact</a>
+            <a class="btn ghost" href="https://github.com/yourusername" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+
+          <div class="hero-metrics" role="list">
+            <div class="metric" role="listitem">
+              <div class="metric-num">5+</div>
+              <div class="metric-label">Years Marketing</div>
+            </div>
+            <div class="metric" role="listitem">
+              <div class="metric-num">50+</div>
+              <div class="metric-label">Projects Shipped</div>
+            </div>
+            <div class="metric" role="listitem">
+              <div class="metric-num">10+</div>
+              <div class="metric-label">Brands Supported</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="card">
+            <div class="avatar" aria-hidden="true">
+              <!-- Optional: replace with <img src="assets/avatar.jpg" alt="Your Name" /> -->
+              <span>🙂</span>
+            </div>
+            <h2 class="card-title">Quick Snapshot</h2>
+            <ul class="card-list">
+              <li><span>Location</span><strong>Atlanta, GA</strong></li>
+              <li><span>Focus</span><strong>Brand, Video, Ops</strong></li>
+              <li><span>Tools</span><strong>Adobe, Figma, Zapier</strong></li>
+            </ul>
+            <a class="btn full" href="#contact">Let’s work</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head">
+          <h2>About</h2>
+          <p>What I do and how I work.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="panel">
+            <h3>My approach</h3>
+            <p>
+              I combine creative direction with operational discipline. That means tight messaging, consistent design,
+              and delivery systems that scale—so teams move faster and customers feel confident.
+            </p>
+            <p>
+              If you need someone who can handle brand, video, events, and “make it actually happen,” that’s my lane.
+            </p>
+          </div>
+
+          <div class="panel">
+            <h3>Highlights</h3>
+            <ul class="bullets">
+              <li>Owned end-to-end creative deliverables across multiple teams</li>
+              <li>Built reusable templates, processes, and documentation to reduce rework</li>
+              <li>Produced customer-facing video and content that improved clarity + conversion</li>
+            </ul>
+
+            <div class="inline-actions">
+              <a class="btn" href="#projects">See proof</a>
+              <a class="btn ghost" href="assets/YourName-Resume.pdf" target="_blank" rel="noreferrer">Resume PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section alt" id="projects">
+      <div class="container">
+        <div class="section-head">
+          <h2>Projects</h2>
+          <p>Selected work. Filter by category.</p>
+        </div>
+
+        <div class="filters" role="toolbar" aria-label="Project filters">
+          <button class="chip active" data-filter="all" type="button">All</button>
+          <button class="chip" data-filter="web" type="button">Web</button>
+          <button class="chip" data-filter="video" type="button">Video</button>
+          <button class="chip" data-filter="ops" type="button">Ops</button>
+          <button class="chip" data-filter="brand" type="button">Brand</button>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-head">
+          <h2>Skills</h2>
+          <p>Tools + strengths I bring to a team.</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>Marketing + Brand</h3>
+            <ul>
+              <li>Campaign planning</li>
+              <li>Messaging + positioning</li>
+              <li>Creative direction</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Video + Content</h3>
+            <ul>
+              <li>Scripting + storyboarding</li>
+              <li>Editing + motion basics</li>
+              <li>Short-form systems</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Ops + Delivery</h3>
+            <ul>
+              <li>Templates + documentation</li>
+              <li>Automation (Zapier)</li>
+              <li>Stakeholder management</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section alt" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <h2>Contact</h2>
+          <p>Send a message. This opens your email client with everything filled in.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="panel">
+            <h3>Let’s build something clean and effective.</h3>
+            <p class="muted">
+              Prefer email? <a href="mailto:youremail@example.com">youremail@example.com</a>
+            </p>
+
+            <div class="contact-links">
+              <a class="btn" href="https://www.linkedin.com/in/yourhandle" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a class="btn ghost" href="https://github.com/yourusername" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </div>
+
+          <form class="form" id="contactForm">
+            <label>
+              Name
+              <input name="name" type="text" autocomplete="name" required />
+            </label>
+
+            <label>
+              Email
+              <input name="email" type="email" autocomplete="email" required />
+            </label>
+
+            <label>
+              Message
+              <textarea name="message" rows="6" required placeholder="What are you building? What’s the deadline?"></textarea>
+            </label>
+
+            <button class="btn primary" type="submit">Create Email Draft</button>
+            <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Your Name. Built with HTML/CSS/JS.</p>
+      <a class="back-top" href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
