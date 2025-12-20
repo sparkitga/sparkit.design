@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Your Name — Portfolio</title>
-  <meta name="description" content="Portfolio of Your Name — projects, experience, and contact." />
+  <meta name="description" content="Portfolio of Your Name — brand, ops, video, and web." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -25,122 +25,114 @@
         </button>
 
         <ul class="nav-menu" id="navMenu">
-          <li><a class="nav-link" href="#about">About</a></li>
-          <li><a class="nav-link" href="#projects">Projects</a></li>
+          <li><a class="nav-link" href="#work">Work</a></li>
+          <li><a class="nav-link" href="#about">Approach</a></li>
           <li><a class="nav-link" href="#skills">Skills</a></li>
           <li><a class="nav-link" href="#contact">Contact</a></li>
-          <li><a class="nav-link nav-cta" href="#contact">Hire Me</a></li>
+          <li><a class="nav-link nav-cta" href="#contact">Let’s talk</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <!-- HERO -->
-    <section class="section hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">Marketing + Creative Ops + Video</p>
-          <h1>Building brands people trust — with sharp systems and storytelling.</h1>
+
+    <!-- HERO (Simple Apple-like intro + “service” tone) -->
+    <section class="section hero-lite" id="work">
+      <div class="container">
+        <div class="hero-lite-top">
+          <p class="eyebrow">Brand + Video + Ops</p>
+          <h1>Work that feels easy for customers and teams.</h1>
           <p class="subhead">
-            I’m <strong>Your Name</strong>. I deliver clean creative, strong execution, and measurable results —
-            from campaigns to content to web.
+            I build clean brand systems and customer-first content—so the experience stays consistent, fast, and trustworthy.
           </p>
 
           <div class="hero-actions">
-            <a class="btn primary" href="#projects">View Projects</a>
-            <a class="btn" href="#contact">Contact</a>
+            <a class="btn primary" href="#contact">Start a project</a>
+            <a class="btn" href="#gallery">View gallery</a>
             <a class="btn ghost" href="https://github.com/yourusername" target="_blank" rel="noreferrer">GitHub</a>
           </div>
 
-          <div class="hero-metrics" role="list">
-            <div class="metric" role="listitem">
-              <div class="metric-num">5+</div>
-              <div class="metric-label">Years Marketing</div>
-            </div>
-            <div class="metric" role="listitem">
-              <div class="metric-num">50+</div>
-              <div class="metric-label">Projects Shipped</div>
-            </div>
-            <div class="metric" role="listitem">
-              <div class="metric-num">10+</div>
-              <div class="metric-label">Brands Supported</div>
-            </div>
+          <div class="pill-row" aria-label="Quick highlights">
+            <span class="pill">Service-first mindset</span>
+            <span class="pill">Fast execution</span>
+            <span class="pill">Clear systems</span>
+            <span class="pill">Premium simplicity</span>
           </div>
         </div>
 
-        <div class="hero-card">
-          <div class="card">
-            <div class="avatar" aria-hidden="true">
-              <!-- Optional: replace with <img src="assets/avatar.jpg" alt="Your Name" /> -->
-              <span>🙂</span>
+        <!-- GALLERY SLIDER -->
+        <div class="gallery-shell" id="gallery" aria-label="Work gallery">
+          <div class="gallery-head">
+            <div>
+              <h2 class="h2">Featured work</h2>
+              <p class="muted">Swipe or use arrows. Each card can link to a live page, video, or repo.</p>
             </div>
-            <h2 class="card-title">Quick Snapshot</h2>
-            <ul class="card-list">
-              <li><span>Location</span><strong>Atlanta, GA</strong></li>
-              <li><span>Focus</span><strong>Brand, Video, Ops</strong></li>
-              <li><span>Tools</span><strong>Adobe, Figma, Zapier</strong></li>
-            </ul>
-            <a class="btn full" href="#contact">Let’s work</a>
+
+            <div class="gallery-controls">
+              <button class="icon-btn" type="button" id="galleryPrev" aria-label="Previous">
+                ‹
+              </button>
+              <button class="icon-btn" type="button" id="galleryNext" aria-label="Next">
+                ›
+              </button>
+            </div>
           </div>
+
+          <div class="gallery-track" id="galleryTrack" tabindex="0" aria-label="Scrollable gallery">
+            <!-- JS will render cards here -->
+          </div>
+        </div>
+
+        <!-- Optional: small “more work” section -->
+        <div class="mini-grid">
+          <a class="mini-card" href="#contact">
+            <h3>Need something shipped fast?</h3>
+            <p class="muted">I can help with brand polish, video systems, and portals that save time.</p>
+            <span class="mini-link">Send details →</span>
+          </a>
+
+          <a class="mini-card" href="assets/YourName-Resume.pdf" target="_blank" rel="noreferrer">
+            <h3>Resume</h3>
+            <p class="muted">One page. Straight to the point.</p>
+            <span class="mini-link">Open PDF →</span>
+          </a>
+
+          <a class="mini-card" href="#about">
+            <h3>How I work</h3>
+            <p class="muted">A customer experience approach: clarity, speed, consistency.</p>
+            <span class="mini-link">View approach →</span>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section class="section" id="about">
+    <!-- ABOUT (Secondary, calmer) -->
+    <section class="section alt" id="about">
       <div class="container">
         <div class="section-head">
-          <h2>About</h2>
-          <p>What I do and how I work.</p>
+          <h2>Approach</h2>
+          <p>Customer-first, team-friendly, and built to scale.</p>
         </div>
 
         <div class="grid-2">
           <div class="panel">
-            <h3>My approach</h3>
+            <h3>Customer experience lens</h3>
             <p>
-              I combine creative direction with operational discipline. That means tight messaging, consistent design,
-              and delivery systems that scale—so teams move faster and customers feel confident.
-            </p>
-            <p>
-              If you need someone who can handle brand, video, events, and “make it actually happen,” that’s my lane.
+              Every deliverable should reduce confusion, feel intentional, and build trust.
+              I aim for “easy to say yes to”—clean design, clear messaging, and consistent execution.
             </p>
           </div>
 
           <div class="panel">
-            <h3>Highlights</h3>
+            <h3>How you’ll experience working with me</h3>
             <ul class="bullets">
-              <li>Owned end-to-end creative deliverables across multiple teams</li>
-              <li>Built reusable templates, processes, and documentation to reduce rework</li>
-              <li>Produced customer-facing video and content that improved clarity + conversion</li>
+              <li>Fast alignment on what “good” looks like</li>
+              <li>Simple plan with clear deadlines</li>
+              <li>Proactive updates, minimal back-and-forth</li>
             </ul>
-
-            <div class="inline-actions">
-              <a class="btn" href="#projects">See proof</a>
-              <a class="btn ghost" href="assets/YourName-Resume.pdf" target="_blank" rel="noreferrer">Resume PDF</a>
-            </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section class="section alt" id="projects">
-      <div class="container">
-        <div class="section-head">
-          <h2>Projects</h2>
-          <p>Selected work. Filter by category.</p>
-        </div>
-
-        <div class="filters" role="toolbar" aria-label="Project filters">
-          <button class="chip active" data-filter="all" type="button">All</button>
-          <button class="chip" data-filter="web" type="button">Web</button>
-          <button class="chip" data-filter="video" type="button">Video</button>
-          <button class="chip" data-filter="ops" type="button">Ops</button>
-          <button class="chip" data-filter="brand" type="button">Brand</button>
-        </div>
-
-        <div class="projects-grid" id="projectsGrid" aria-live="polite"></div>
       </div>
     </section>
 
@@ -149,31 +141,31 @@
       <div class="container">
         <div class="section-head">
           <h2>Skills</h2>
-          <p>Tools + strengths I bring to a team.</p>
+          <p>What I bring to a team.</p>
         </div>
 
         <div class="skills-grid">
           <div class="skill-card">
-            <h3>Marketing + Brand</h3>
+            <h3>Brand + Marketing</h3>
             <ul>
-              <li>Campaign planning</li>
-              <li>Messaging + positioning</li>
-              <li>Creative direction</li>
+              <li>Campaign clarity</li>
+              <li>Messaging systems</li>
+              <li>Brand consistency</li>
             </ul>
           </div>
           <div class="skill-card">
             <h3>Video + Content</h3>
             <ul>
-              <li>Scripting + storyboarding</li>
-              <li>Editing + motion basics</li>
+              <li>Story + scripting</li>
+              <li>Editing workflows</li>
               <li>Short-form systems</li>
             </ul>
           </div>
           <div class="skill-card">
             <h3>Ops + Delivery</h3>
             <ul>
-              <li>Templates + documentation</li>
-              <li>Automation (Zapier)</li>
+              <li>Templates + process</li>
+              <li>Automation basics</li>
               <li>Stakeholder management</li>
             </ul>
           </div>
@@ -186,12 +178,12 @@
       <div class="container">
         <div class="section-head">
           <h2>Contact</h2>
-          <p>Send a message. This opens your email client with everything filled in.</p>
+          <p>Clear details in. Clear next steps out.</p>
         </div>
 
         <div class="contact-grid">
           <div class="panel">
-            <h3>Let’s build something clean and effective.</h3>
+            <h3>Let’s build something customers actually enjoy using.</h3>
             <p class="muted">
               Prefer email? <a href="mailto:youremail@example.com">youremail@example.com</a>
             </p>
@@ -215,7 +207,7 @@
 
             <label>
               Message
-              <textarea name="message" rows="6" required placeholder="What are you building? What’s the deadline?"></textarea>
+              <textarea name="message" rows="6" required placeholder="What do you need? Timeline? Link(s) to examples?"></textarea>
             </label>
 
             <button class="btn primary" type="submit">Create Email Draft</button>
