@@ -406,3 +406,85 @@ body {
   .mini-grid { grid-template-columns: 1fr; }
   .gallery-track { grid-auto-columns: minmax(240px, 85vw); }
 }
+/* ================================
+   OPEN / WHITE MODE OVERRIDES
+   Paste at the bottom of styles.css
+   ================================ */
+
+:root{
+  --bg: #ffffff;
+  --bg-soft: #ffffff; /* make alt sections white too */
+  --border: rgba(0,0,0,0.08); /* softer border */
+}
+
+body{
+  background: #ffffff;
+}
+
+/* Remove the big gray blocks */
+.section.alt{
+  background: #ffffff;
+}
+
+/* More “breathing room” like Apple */
+.section{
+  padding: 110px 0;
+}
+
+/* Make containers feel less boxed */
+.container{
+  max-width: 1120px;
+}
+
+/* Make cards lighter + calmer */
+.panel,
+.card,
+.skill-card,
+.gallery-shell,
+.mini-card{
+  border: 1px solid rgba(0,0,0,0.08);
+  background: #ffffff;
+}
+
+/* Reduce visual noise inside the gallery */
+.gallery-media{
+  background: #fafafa; /* near-white instead of gray */
+  color: var(--muted);
+}
+
+/* Softer nav background */
+.site-header{
+  background: rgba(255,255,255,0.92);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+/* Increase hero clarity */
+.hero-lite-top h1{
+  letter-spacing: -0.02em;
+}
+
+/* Make pills look cleaner */
+.pill,
+.meta-chip,
+.tag{
+  background: rgba(0,0,0,0.03);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Subtle focus ring, Apple-like */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus{
+  outline: 3px solid rgba(0,113,227,0.18);
+  outline-offset: 2px;
+}
+
+/* Optional: remove hover “gray fill” if you want cleaner feel */
+.btn:hover,
+.nav-link:hover,
+.mini-card:hover,
+.icon-btn:hover{
+  background: rgba(0,0,0,0.03);
+}
+
