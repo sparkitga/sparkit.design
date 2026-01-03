@@ -602,3 +602,8 @@ a {
   height: 28px;
   width: auto;
 }
+
+.footer-logo img {
+  height: 24px;
+  opacity: 0.9;
+}
