@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-94JDJYFKGY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- GA4 (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-94JDJYFKGY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-94JDJYFKGY');
+  </script>
 
-  gtag('config', 'G-94JDJYFKGY');
-</script>
   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PKBD5PZQ');</script>
-<!-- End Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];
+      w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PKBD5PZQ');
+  </script>
+  <!-- End Google Tag Manager -->
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,7 +30,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="stylesheet" href="styles.css" />
 
   <link rel="icon" href="assets/favicon/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-50x50.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-50x50.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png" />
   <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png" />
@@ -41,10 +45,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <body id="top">
   <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKBD5PZQ"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  <!-- Skip link for keyboard users -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKBD5PZQ"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="header" role="banner">
@@ -56,49 +62,73 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <nav class="nav" aria-label="Primary">
         <a href="#video" class="nav-link">Video Packages</a>
         <a href="#about" class="nav-link">About</a>
-        <a href="tel:+14706021753" class="nav-link nav-cta">Call</a>
+
+        <!-- Primary “booking” actions -->
+        <a class="nav-link nav-cta" href="mailto:hello@sparkitdesign.com?subject=Video%20Package%20Inquiry&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0APackage%20interested%20in%3A%0AGoal%20for%20the%20video%3A%0ADeadline%3A%0ABudget%20range%3A%0A"
+           onclick="gtag('event','lead_email_click',{'location':'nav'});">
+          Email
+        </a>
+        <a class="nav-link nav-cta" href="tel:+14706021753"
+           onclick="gtag('event','lead_phone_click',{'location':'nav'});">
+          Call
+        </a>
+        <a class="nav-link nav-cta" href="https://instagram.com/sparkit.ga"
+           target="_blank" rel="noopener"
+           onclick="gtag('event','lead_instagram_click',{'location':'nav'});">
+          Instagram
+        </a>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-bg" aria-hidden="true"></div>
+    <!-- APPLE-STYLE HERO IMAGE -->
+    <section class="hero hero-image" aria-labelledby="hero-title">
+      <picture class="hero-media" aria-hidden="true">
+        <source srcset="assets/images/hero-apple-mobile.jpg" media="(max-width: 700px)">
+        <img src="assets/images/hero-apple.jpg" alt="" loading="eager" fetchpriority="high">
+      </picture>
+
+      <div class="hero-overlay" aria-hidden="true"></div>
+
       <div class="container hero-content">
-        <p class="eyebrow">Georgia-based creative studio</p>
-        <h1 id="hero-title" class="hero-headline">Spark It. Sell It ;)</h1>
+        <h1 id="hero-title" class="hero-headline">Branded Video Packages</h1>
         <p class="hero-subheadline">
-          We create clear, premium video packages that build trust, explain value fast, and help your team win more yeses.
+          Premium videos that build trust fast, explain value clearly, and help your team win more yeses.
         </p>
 
-        <div class="hero-actions">
-          <a href="#video" class="btn btn-primary">See Video Packages</a>
-          <a href="#contact" class="btn btn-secondary">Get a Quote</a>
+        <div class="hero-actions" role="group" aria-label="Primary actions">
+          <a href="#video" class="btn btn-pill btn-light"
+             onclick="gtag('event','cta_click',{'cta':'learn_more','location':'hero'});">
+            Learn more
+          </a>
+
+          <a href="mailto:hello@sparkitdesign.com?subject=Quote%20Request%20-%20SparkIt%20Video%20Packages&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0APackage%20interested%20in%3A%0AGoal%20for%20the%20video%3A%0ADeadline%3A%0ABudget%20range%3A%0A"
+             class="btn btn-pill btn-dark"
+             onclick="gtag('event','cta_click',{'cta':'get_quote','location':'hero'});">
+            Get a quote
+          </a>
         </div>
 
-        <ul class="hero-highlights" aria-label="Highlights">
-          <li>Strategy + scripting included</li>
-          <li>Fast turnaround options</li>
-          <li>Built for web, ads, and social</li>
-        </ul>
+        <p class="hero-services">Web • Social • Ads</p>
       </div>
     </section>
 
-    <!-- VIDEO PACKAGES (PRIMARY) -->
+    <!-- VIDEO PACKAGES -->
     <section id="video" class="section" aria-labelledby="video-title">
       <div class="container">
         <header class="section-header">
           <h2 id="video-title" class="section-title">Video Packages</h2>
           <p class="section-subtitle">
-            Choose a package. Get a clear deliverable. Start using it everywhere—website, social, proposals, ads.
+            Choose a package. Get a clear deliverable. Use it everywhere—website, social, proposals, ads.
           </p>
         </header>
 
         <div class="pricing-grid" role="list">
+          <!-- Starter -->
           <article class="pricing-card" role="listitem" aria-labelledby="pkg-starter">
             <h3 id="pkg-starter" class="pricing-title">Starter</h3>
-            <p class="pricing-use">Best for a first impression that looks premium.</p>
+            <p class="pricing-use">Best for a premium first impression.</p>
 
             <ul class="pricing-list">
               <li>1 core brand video (30–45s)</li>
@@ -108,15 +138,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </ul>
 
             <div class="pricing-cta">
-              <a class="btn btn-primary" href="#contact">Book Starter</a>
+              <a class="btn btn-primary"
+                 href="mailto:hello@sparkitdesign.com?subject=Starter%20Package%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%20for%20the%20video%3A%0ADeadline%3A%0ABudget%20range%3A%0A"
+                 onclick="gtag('event','lead_email_click',{'package':'starter','location':'pricing'});">
+                Email to Book
+              </a>
               <a class="btn btn-outline" href="#faq">Questions?</a>
             </div>
           </article>
 
+          <!-- Growth -->
           <article class="pricing-card featured" role="listitem" aria-labelledby="pkg-growth">
             <div class="badge" aria-label="Most chosen package">Most chosen</div>
             <h3 id="pkg-growth" class="pricing-title">Growth</h3>
-            <p class="pricing-use">Best for consistent content and stronger conversion.</p>
+            <p class="pricing-use">Best for consistent content + stronger conversion.</p>
 
             <ul class="pricing-list">
               <li>1 core brand video (45–60s)</li>
@@ -126,14 +161,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </ul>
 
             <div class="pricing-cta">
-              <a class="btn btn-primary" href="#contact">Book Growth</a>
+              <a class="btn btn-primary"
+                 href="mailto:hello@sparkitdesign.com?subject=Growth%20Package%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%20for%20the%20video%3A%0ADeadline%3A%0ABudget%20range%3A%0A"
+                 onclick="gtag('event','lead_email_click',{'package':'growth','location':'pricing'});">
+                Email to Book
+              </a>
               <a class="btn btn-secondary" href="#process">How it works</a>
             </div>
           </article>
 
+          <!-- Pro -->
           <article class="pricing-card" role="listitem" aria-labelledby="pkg-pro">
             <h3 id="pkg-pro" class="pricing-title">Pro</h3>
-            <p class="pricing-use">Best for campaigns, launches, and high-impact storytelling.</p>
+            <p class="pricing-use">Best for campaigns + high-impact storytelling.</p>
 
             <ul class="pricing-list">
               <li>1 flagship video (60–90s)</li>
@@ -143,15 +183,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </ul>
 
             <div class="pricing-cta">
-              <a class="btn btn-primary" href="#contact">Book Pro</a>
-              <a class="btn btn-outline" href="tel:+14706021753">Call</a>
+              <a class="btn btn-primary"
+                 href="mailto:hello@sparkitdesign.com?subject=Pro%20Package%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%20for%20the%20video%3A%0ADeadline%3A%0ABudget%20range%3A%0A"
+                 onclick="gtag('event','lead_email_click',{'package':'pro','location':'pricing'});">
+                Email to Book
+              </a>
+              <a class="btn btn-outline"
+                 href="tel:+14706021753"
+                 onclick="gtag('event','lead_phone_click',{'package':'pro','location':'pricing'});">
+                Call
+              </a>
             </div>
           </article>
         </div>
 
         <div class="note-card" role="note" aria-label="Retainers note">
-          <p><strong>Need ongoing content?</strong> Monthly video drops are available for teams who want consistency without hiring in-house.</p>
-          <a class="btn btn-secondary" href="#contact">Ask about retainers</a>
+          <p><strong>Want ongoing content?</strong> Monthly video drops available for teams that want consistency without hiring in-house.</p>
+          <div class="note-actions">
+            <a class="btn btn-secondary"
+               href="mailto:hello@sparkitdesign.com?subject=Monthly%20Video%20Drops%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%3A%0AContent%20volume%20needed%3A%0A">
+              Email about retainers
+            </a>
+            <a class="btn btn-outline"
+               href="https://instagram.com/sparkit.ga"
+               target="_blank" rel="noopener">
+              DM on Instagram
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -161,7 +219,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="container">
         <header class="section-header">
           <h2 id="process-title" class="section-title">A simple process that respects your time</h2>
-          <p class="section-subtitle">We keep it clear, fast, and collaborative—so you can stay focused on running the business.</p>
+          <p class="section-subtitle">Clear, fast, collaborative—so you can stay focused on the business.</p>
         </header>
 
         <ol class="steps">
@@ -175,18 +233,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </li>
           <li class="step">
             <h3 class="step-title">3) Deliver</h3>
-            <p class="step-text">You get final videos optimized for your website, social, and ads—ready to publish.</p>
+            <p class="step-text">Final videos optimized for your website, social, and ads—ready to publish.</p>
           </li>
         </ol>
       </div>
     </section>
 
-    <!-- PROOF / RESULTS -->
+    <!-- PROOF -->
     <section id="proof" class="section" aria-labelledby="proof-title">
       <div class="container">
         <header class="section-header">
           <h2 id="proof-title" class="section-title">Results that matter</h2>
-          <p class="section-subtitle">Video should do more than “look cool.” It should drive clarity, confidence, and action.</p>
+          <p class="section-subtitle">Video should do more than look cool. It should drive clarity, confidence, and action.</p>
         </header>
 
         <div class="proof-grid" role="list">
@@ -196,22 +254,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </article>
           <article class="proof-card" role="listitem">
             <h3 class="proof-title">Stronger trust</h3>
-            <p class="proof-text">Show real people, real work, and real standards. Trust goes up. Friction goes down.</p>
+            <p class="proof-text">Show real people, real work, real standards. Trust up. Friction down.</p>
           </article>
           <article class="proof-card" role="listitem">
             <h3 class="proof-title">More usable assets</h3>
-            <p class="proof-text">One shoot becomes many deliverables—website, social, ads, proposals, and follow-ups.</p>
+            <p class="proof-text">One shoot becomes many deliverables—web, social, ads, proposals, follow-ups.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- OTHER SERVICES (SECONDARY) -->
+    <!-- OTHER SERVICES -->
     <section id="services" class="section alt" aria-labelledby="services-title">
       <div class="container">
         <header class="section-header">
           <h2 id="services-title" class="section-title">Other ways we help</h2>
-          <p class="section-subtitle">Video is the lead offer. These support the full brand experience when you’re ready.</p>
+          <p class="section-subtitle">Video is the lead offer. These support the brand experience when you’re ready.</p>
         </header>
 
         <div class="services-grid">
@@ -263,12 +321,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="faq">
           <details class="faq-item">
             <summary>Do you travel or work remote?</summary>
-            <p>Both. We’re based in Georgia and can shoot locally. We also build packages with client-provided footage.</p>
+            <p>Both. We’re based in Georgia and can shoot locally. We can also build packages from client-provided footage.</p>
           </details>
 
           <details class="faq-item">
             <summary>What do you need from me?</summary>
-            <p>A short kickoff call, your goal, and any existing brand assets. We handle structure, scripting, and editing.</p>
+            <p>A short kickoff call, your goal, and any brand assets. We handle structure, scripting, and editing.</p>
           </details>
 
           <details class="faq-item">
@@ -285,14 +343,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="about-content">
           <h2 id="about-title" class="about-headline">About SparkIt</h2>
           <p class="about-text">
-            We're a local team of Georgia creatives almost as passionate as you are about your people. Our mission to make each day better than the last informs the next step our partnership will take with your team. Reach out when you're ready to launch monthly video conent or new marketing materials.
+            We’re Georgia creatives building premium, practical assets that help your team communicate clearly.
+            Reach out when you’re ready to launch monthly video content or upgrade your marketing materials.
           </p>
 
-          <div class="about-actions">
-            <a href="tel:+14706021753" class="btn btn-secondary">
-              <span aria-hidden="true">📞</span> Call (470) 602-1753
+          <div class="about-actions" role="group" aria-label="Contact options">
+            <a href="mailto:hello@sparkitdesign.com?subject=SparkIt%20Video%20Packages&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%3A%0A"
+               class="btn btn-primary"
+               onclick="gtag('event','lead_email_click',{'location':'about'});">
+              Email
             </a>
-            <a href="#contact" class="btn btn-primary">Book a Call</a>
+
+            <a href="tel:+14706021753"
+               class="btn btn-secondary"
+               onclick="gtag('event','lead_phone_click',{'location':'about'});">
+              Call (470) 602-1753
+            </a>
+
+            <a href="https://instagram.com/sparkit.ga"
+               class="btn btn-outline"
+               target="_blank" rel="noopener"
+               onclick="gtag('event','lead_instagram_click',{'location':'about'});">
+              Instagram DM
+            </a>
           </div>
         </div>
 
@@ -301,21 +374,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="about-badge-title">THINK WITH YOUR HANDS</span>
             <span class="about-badge-sub">Design • Systems • Video</span>
           </div>
-        </div>
-      </div>
-    </section>
-        </header>
-
-        <!-- Option A: mailto (fastest). Option B: replace with your form handler later -->
-        <div class="contact-card">
-          <div class="contact-actions">
-            <a class="btn btn-primary" href="mailto:hello@sparkitdesign.com?subject=Video%20Package%20Inquiry&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%20for%20the%20video%3A%0ADeadline%3A%0ABudget%20range%3A%0A">Email for a Quote</a>
-            <a class="btn btn-secondary" href="tel:+14706021753">Call Now</a>
-          </div>
-
-          <p class="contact-fineprint">
-            Prefer text? Add your number in the email and we’ll follow up.
-          </p>
         </div>
       </div>
     </section>
@@ -329,7 +387,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="#video" class="footer-link">Video Packages</a>
         <a href="#process" class="footer-link">Process</a>
         <a href="#services" class="footer-link">Other Services</a>
-        <a href="#contact" class="footer-link">Contact</a>
+        <a href="mailto:hello@sparkitdesign.com?subject=SparkIt%20Video%20Packages" class="footer-link">Email</a>
+        <a href="tel:+14706021753" class="footer-link">Call</a>
+        <a href="https://instagram.com/sparkit.ga" target="_blank" rel="noopener" class="footer-link">Instagram</a>
       </nav>
 
       <div class="footer-brand">
@@ -350,7 +410,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     "logo": "https://sparkitdesign.com/assets/logos/sparkit-logo.png",
     "telephone": "+1-470-602-1753",
     "areaServed": "Georgia",
-    "sameAs": []
+    "sameAs": ["https://instagram.com/sparkit.ga"]
   }
   </script>
 </body>
