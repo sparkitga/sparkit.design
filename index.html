@@ -2,34 +2,30 @@
 <html lang="en">
 <head>
   <!-- Consent defaults (must come BEFORE any Google tags) -->
+<!-- Consent defaults -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){ dataLayer.push(arguments); }
 
-  // Default: no cookies until user opts into Analytics
   gtag('consent', 'default', {
     analytics_storage: 'denied',
     ad_storage: 'denied',
     ad_user_data: 'denied',
     ad_personalization: 'denied'
   });
-
-  // Optional: helps with compliance timing
-  gtag('set', 'ads_data_redaction', true);
 </script>
 
-<!-- GA4 (gtag.js) -->
+<!-- GA4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-94JDJYFKGY"></script>
 <script>
   gtag('js', new Date());
-
-  // SparkIt premium defaults: privacy-forward
   gtag('config', 'G-94JDJYFKGY', {
     anonymize_ip: true,
     allow_google_signals: false,
     allow_ad_personalization_signals: false
   });
 </script>
+
 
 
   <meta charset="UTF-8" />
