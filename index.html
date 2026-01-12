@@ -1,26 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- GA4 (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-94JDJYFKGY"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-94JDJYFKGY');
-  </script>
+  <!-- Consent defaults (must come BEFORE any Google tags) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
 
-  <!-- Google Tag Manager -->
-  <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];
-      w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-      var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-      j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-      f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PKBD5PZQ');
-  </script>
-  <!-- End Google Tag Manager -->
+  // Default: no cookies until user opts into Analytics
+  gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied'
+  });
+
+  // Optional: helps with compliance timing
+  gtag('set', 'ads_data_redaction', true);
+</script>
+
+<!-- GA4 (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-94JDJYFKGY"></script>
+<script>
+  gtag('js', new Date());
+
+  // SparkIt premium defaults: privacy-forward
+  gtag('config', 'G-94JDJYFKGY', {
+    anonymize_ip: true,
+    allow_google_signals: false,
+    allow_ad_personalization_signals: false
+  });
+</script>
+
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
