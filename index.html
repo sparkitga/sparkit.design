@@ -55,6 +55,119 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://sparkitdesign.com/assets/images/og.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Mobile-first helpers (no copy changes) -->
+  <style>
+    /* Prevent random horizontal scroll on mobile */
+    html, body { max-width: 100%; overflow-x: hidden; }
+    img, svg { max-width: 100%; height: auto; }
+    .nav-link, .btn { -webkit-tap-highlight-color: transparent; }
+
+    /* Accessible hamburger (only affects small screens) */
+    .nav-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(0,0,0,0.12);
+      color: inherit;
+      cursor: pointer;
+    }
+    .nav-toggle:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 2px;
+    }
+    .nav-toggle-icon {
+      width: 22px;
+      height: 16px;
+      position: relative;
+      display: inline-block;
+    }
+    .nav-toggle-icon span {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: currentColor;
+      border-radius: 2px;
+      transition: transform .2s ease, top .2s ease, opacity .2s ease;
+    }
+    .nav-toggle-icon span:nth-child(1){ top: 0; }
+    .nav-toggle-icon span:nth-child(2){ top: 7px; }
+    .nav-toggle-icon span:nth-child(3){ top: 14px; }
+
+    /* Mobile nav panel behavior (progressive enhancement) */
+    @media (max-width: 860px) {
+      .header-inner { gap: 12px; }
+      .nav-toggle { display: inline-flex; margin-left: auto; }
+      .nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 12px 16px 16px 16px;
+        background: rgba(15, 15, 18, 0.92);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255,255,255,0.10);
+        display: none;              /* hidden by default */
+        flex-direction: column;
+        gap: 10px;
+        z-index: 1000;
+      }
+      .header { position: sticky; top: 0; z-index: 999; }
+      .nav-link {
+        display: block;
+        padding: 12px 12px;
+        border-radius: 12px;
+      }
+      .nav-cta {
+        width: 100%;
+        text-align: center;
+        padding: 12px 14px;
+      }
+      .nav.is-open { display: flex; }
+    }
+
+    /* Make hero + buttons stack nicely on phones */
+    @media (max-width: 700px) {
+      .hero-content { padding-top: 18px; padding-bottom: 18px; }
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .btn { width: 100%; }
+    }
+
+    /* Pricing cards: single column on small screens */
+    @media (max-width: 900px) {
+      .pricing-grid { grid-template-columns: 1fr !important; }
+      .pricing-card { width: 100%; }
+      .pricing-cta .btn { width: 100%; }
+    }
+
+    /* Services + proof grids: single column on mobile */
+    @media (max-width: 900px) {
+      .services-grid { grid-template-columns: 1fr !important; }
+      .proof-grid { grid-template-columns: 1fr !important; }
+    }
+
+    /* Footer links wrap cleanly */
+    @media (max-width: 700px) {
+      .footer-nav {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px 12px;
+      }
+      .footer-link { padding: 6px 0; }
+    }
+    @media (max-width: 420px) {
+      .footer-nav { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 
 <body id="top">
@@ -66,7 +179,19 @@
         <img src="assets/logos/sparkit-logo.svg" alt="SparkIt" />
       </a>
 
-      <nav class="nav" aria-label="Primary">
+      <!-- Mobile menu toggle (no copy changes) -->
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-label="Open menu"
+        aria-controls="primary-nav"
+        aria-expanded="false">
+        <span class="nav-toggle-icon" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+
+      <nav class="nav" id="primary-nav" aria-label="Primary">
         <a href="#video" class="nav-link">Video Packages</a>
         <a href="#about" class="nav-link">About</a>
 
@@ -417,6 +542,48 @@
     "areaServed": "Georgia",
     "sameAs": ["https://instagram.com/sparkit.ga"]
   }
+  </script>
+
+  <!-- Mobile menu logic (no copy changes) -->
+  <script>
+    (function () {
+      const btn = document.querySelector('.nav-toggle');
+      const nav = document.getElementById('primary-nav');
+      if (!btn || !nav) return;
+
+      function closeNav() {
+        nav.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-label', 'Open menu');
+      }
+
+      function openNav() {
+        nav.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+        btn.setAttribute('aria-label', 'Close menu');
+      }
+
+      btn.addEventListener('click', function () {
+        const isOpen = nav.classList.contains('is-open');
+        isOpen ? closeNav() : openNav();
+      });
+
+      // Close when a nav link is clicked (better UX on mobile)
+      nav.addEventListener('click', function (e) {
+        const target = e.target;
+        if (target && target.matches('a')) closeNav();
+      });
+
+      // Close on Escape
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeNav();
+      });
+
+      // If resizing to desktop, ensure nav is visible via your existing CSS (remove mobile open state)
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 860) closeNav();
+      });
+    })();
   </script>
 </body>
 </html>
