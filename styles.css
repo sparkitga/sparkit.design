@@ -1,26 +1,47 @@
 :root{
-  --bg: #050505;
-  --card: #0c0c0c;
-  --card2: rgba(255,255,255,0.04);
+  /* Target feel:
+     ~75% black/grey foundation, ~20% white surfaces, ~10% accent.
+     (We achieve this by lifting surfaces + borders + section alt + footer,
+      while keeping hero + overall background dark.) */
+
+  /* Foundation (still dark, but less “pitch black”) */
+  --bg: #0b0c0f;                 /* was #050505 */
+  --bg2: #101216;                /* subtle second tone */
+
+  /* “White” surfaces (used on cards/sections) */
+  --surface: rgba(255,255,255,0.08);
+  --surface2: rgba(255,255,255,0.12);
+  --surface3: rgba(255,255,255,0.16);
+
+  /* Cards (lifted) */
+  --card: rgba(255,255,255,0.08);  /* was #0c0c0c */
+  --card2: rgba(255,255,255,0.12); /* was 0.04 */
+
+  /* Text */
   --text: #ffffff;
-  --muted: rgba(255,255,255,0.75);
-  --muted2: rgba(255,255,255,0.55);
+  --muted: rgba(255,255,255,0.82);   /* slightly brighter */
+  --muted2: rgba(255,255,255,0.62);
   --darkText: #1d1d1f;
 
+  /* Accent */
   --accent: #f5a623;
   --accentHover: #e09515;
 
+  /* Type + layout */
   --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --max: 1120px;
 
+  /* Radius */
   --r-sm: 10px;
   --r-md: 16px;
   --r-lg: 24px;
   --r-pill: 999px;
 
-  --border: 1px solid rgba(255,255,255,0.08);
-  --shadow: 0 12px 40px rgba(0,0,0,0.45);
+  /* Borders + shadows (brighter borders, softer shadow) */
+  --border: 1px solid rgba(255,255,255,0.16); /* was 0.08 */
+  --shadow: 0 14px 44px rgba(0,0,0,0.30);     /* was heavier */
 
+  /* Spacing */
   --s1: 0.5rem;
   --s2: 0.75rem;
   --s3: 1rem;
@@ -35,7 +56,9 @@
 html{ scroll-behavior:smooth; }
 body{
   font-family: var(--font);
-  background: var(--bg);
+  /* subtle lifted gradient so it feels less heavy */
+  background: radial-gradient(1200px 700px at 50% -10%, rgba(255,255,255,0.06), transparent 55%),
+              linear-gradient(to bottom, var(--bg), #07080b);
   color: var(--text);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -79,7 +102,8 @@ a{ color:inherit; text-decoration:none; }
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(10,10,10,0.85);
+  /* brighter glass so header reads “cleaner” */
+  background: rgba(18,20,25,0.78);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: var(--border);
@@ -105,17 +129,18 @@ a{ color:inherit; text-decoration:none; }
   color: var(--muted2);
   padding:0.25rem 0.1rem;
 }
-.nav-link:hover{ color: var(--text); }
+.nav-link:hover{ color: rgba(255,255,255,0.92); }
 
 .nav-cta{
   padding:0.55rem 0.9rem;
   border-radius: var(--r-pill);
   border: 1px solid rgba(245,166,35,0.30);
-  background: rgba(245,166,35,0.10);
+  /* slightly brighter CTA background */
+  background: rgba(245,166,35,0.14);
   color: var(--text);
 }
 .nav-cta:hover{
-  background: rgba(245,166,35,0.16);
+  background: rgba(245,166,35,0.20);
 }
 
 /* Buttons */
@@ -141,23 +166,24 @@ a{ color:inherit; text-decoration:none; }
 }
 .btn-primary:hover{ background: var(--accentHover); }
 
+/* Brighter “secondary” so you feel more white */
 .btn-secondary{
-  background: rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.14);
   color: var(--text);
-  border: 1px solid rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.22);
 }
 .btn-secondary:hover{
-  background: rgba(255,255,255,0.11);
-  border-color: rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.28);
 }
 
 .btn-outline{
-  background: transparent;
+  background: rgba(255,255,255,0.06); /* subtle surface instead of empty */
   color: var(--text);
-  border: 1px solid rgba(255,255,255,0.35);
+  border: 1px solid rgba(255,255,255,0.32);
 }
 .btn-outline:hover{
-  background: rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.10);
 }
 
 /* Apple-ish pill CTAs */
@@ -167,20 +193,21 @@ a{ color:inherit; text-decoration:none; }
   padding: 0.78rem 1.25rem;
 }
 .btn-light{
-  background: rgba(255,255,255,0.94);
+  background: rgba(255,255,255,0.96);
   color: #0b0b0b;
-  border: 1px solid rgba(255,255,255,0.60);
+  border: 1px solid rgba(255,255,255,0.65);
 }
 .btn-light:hover{ background:#fff; }
 
+/* Keep dark pill but slightly less heavy */
 .btn-dark{
-  background: rgba(0,0,0,0.35);
+  background: rgba(0,0,0,0.22);
   color: #fff;
-  border: 1px solid rgba(255,255,255,0.40);
+  border: 1px solid rgba(255,255,255,0.42);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
-.btn-dark:hover{ background: rgba(0,0,0,0.48); }
+.btn-dark:hover{ background: rgba(0,0,0,0.34); }
 
 /* HERO — Apple-style image */
 .hero.hero-image{
@@ -203,13 +230,15 @@ a{ color:inherit; text-decoration:none; }
   object-fit: cover;
   object-position: center;
 }
+
+/* LIGHTEN overlay so image and whites show more */
 .hero-overlay{
   position:absolute;
   inset:0;
   z-index:-1;
   background:
-    radial-gradient(1200px 620px at 50% 35%, rgba(0,0,0,0.30), rgba(0,0,0,0.78) 72%),
-    linear-gradient(to bottom, rgba(0,0,0,0.18), rgba(0,0,0,0.70));
+    radial-gradient(1200px 620px at 50% 35%, rgba(0,0,0,0.18), rgba(0,0,0,0.62) 72%),
+    linear-gradient(to bottom, rgba(0,0,0,0.10), rgba(0,0,0,0.54));
 }
 .hero-content{
   max-width: 900px;
@@ -220,14 +249,14 @@ a{ color:inherit; text-decoration:none; }
   letter-spacing: -0.04em;
   line-height: 1.05;
   margin-bottom: var(--s3);
-  text-shadow: 0 12px 44px rgba(0,0,0,0.45);
+  text-shadow: 0 12px 44px rgba(0,0,0,0.38);
 }
 .hero-subheadline{
   font-size: clamp(1.05rem, 2vw, 1.35rem);
-  color: rgba(255,255,255,0.86);
+  color: rgba(255,255,255,0.90);
   max-width: 56ch;
   margin: 0 auto var(--s5);
-  text-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  text-shadow: 0 10px 30px rgba(0,0,0,0.28);
 }
 .hero-actions{
   display:flex;
@@ -238,7 +267,7 @@ a{ color:inherit; text-decoration:none; }
 .hero-services{
   margin-top: var(--s4);
   font-size: 0.85rem;
-  color: rgba(255,255,255,0.70);
+  color: rgba(255,255,255,0.74);
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -247,11 +276,14 @@ a{ color:inherit; text-decoration:none; }
 .section{
   padding: var(--s7) 0;
 }
+
+/* Make alt sections “whiter” */
 .section.alt{
-  background: rgba(255,255,255,0.02);
+  background: rgba(255,255,255,0.06);
   border-top: var(--border);
   border-bottom: var(--border);
 }
+
 .section-header{
   max-width: 820px;
   margin: 0 auto var(--s6);
@@ -283,11 +315,14 @@ a{ color:inherit; text-decoration:none; }
   display:flex;
   flex-direction:column;
   position:relative;
+  /* subtle “white lift” */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 .pricing-card.featured{
-  border-color: rgba(245,166,35,0.35);
+  border-color: rgba(245,166,35,0.42);
   background:
-    radial-gradient(700px 260px at 50% 0%, rgba(245,166,35,0.10), transparent 60%),
+    radial-gradient(700px 260px at 50% 0%, rgba(245,166,35,0.14), transparent 60%),
     var(--card);
 }
 .badge{
@@ -299,8 +334,8 @@ a{ color:inherit; text-decoration:none; }
   text-transform: uppercase;
   padding: 0.35rem 0.6rem;
   border-radius: var(--r-pill);
-  background: rgba(245,166,35,0.16);
-  border: 1px solid rgba(245,166,35,0.30);
+  background: rgba(245,166,35,0.18);
+  border: 1px solid rgba(245,166,35,0.34);
 }
 .pricing-title{
   font-size: 1.25rem;
@@ -329,7 +364,8 @@ a{ color:inherit; text-decoration:none; }
   border-radius: var(--r-lg);
   border: var(--border);
   padding: var(--s5);
-  background: rgba(255,255,255,0.04);
+  /* much brighter */
+  background: rgba(255,255,255,0.10);
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -357,7 +393,7 @@ a{ color:inherit; text-decoration:none; }
   border: var(--border);
   border-radius: var(--r-lg);
   padding: var(--s5);
-  background: rgba(255,255,255,0.03);
+  background: rgba(255,255,255,0.10);
 }
 .step-title{
   margin-bottom: var(--s2);
@@ -375,7 +411,7 @@ a{ color:inherit; text-decoration:none; }
   border: var(--border);
   border-radius: var(--r-lg);
   padding: var(--s5);
-  background: rgba(255,255,255,0.03);
+  background: rgba(255,255,255,0.10);
 }
 .proof-title{ margin-bottom: var(--s2); }
 .proof-text{ color: var(--muted); }
@@ -390,7 +426,7 @@ a{ color:inherit; text-decoration:none; }
   border: var(--border);
   border-radius: var(--r-lg);
   padding: var(--s5);
-  background: rgba(255,255,255,0.03);
+  background: rgba(255,255,255,0.10);
   text-align:center;
 }
 .service-icon{
@@ -401,8 +437,9 @@ a{ color:inherit; text-decoration:none; }
   display:grid;
   place-items:center;
   color: var(--accent);
-  background: rgba(245,166,35,0.10);
-  border: 1px solid rgba(245,166,35,0.18);
+  /* a bit brighter so it reads “premium” */
+  background: rgba(245,166,35,0.14);
+  border: 1px solid rgba(245,166,35,0.22);
 }
 .service-title{ margin-bottom: var(--s2); }
 .service-desc{ color: var(--muted); }
@@ -418,7 +455,7 @@ a{ color:inherit; text-decoration:none; }
   border: var(--border);
   border-radius: var(--r-lg);
   padding: var(--s4);
-  background: rgba(255,255,255,0.03);
+  background: rgba(255,255,255,0.10);
 }
 .faq-item summary{
   cursor:pointer;
@@ -434,7 +471,7 @@ a{ color:inherit; text-decoration:none; }
 /* About (light section) */
 .about{
   padding: var(--s7) 0;
-  background: #e8e8ea;
+  background: #f2f3f5; /* was #e8e8ea */
   color: var(--darkText);
 }
 .about-grid{
@@ -476,7 +513,7 @@ a{ color:inherit; text-decoration:none; }
 }
 
 .about-badge{
-  background: rgba(0,0,0,0.06);
+  background: rgba(0,0,0,0.05);
   border: 1px solid rgba(0,0,0,0.10);
   border-radius: var(--r-pill);
   padding: 1.25rem 1.5rem;
@@ -500,6 +537,8 @@ a{ color:inherit; text-decoration:none; }
 .footer{
   padding: var(--s7) 0 var(--s6);
   border-top: var(--border);
+  /* lift footer slightly so the page ends “cleaner” */
+  background: rgba(255,255,255,0.04);
 }
 .footer-inner{ text-align:center; }
 .footer-tagline{
@@ -517,8 +556,8 @@ a{ color:inherit; text-decoration:none; }
   flex-wrap:wrap;
   margin-bottom: var(--s5);
 }
-.footer-link{ color: var(--muted2); }
-.footer-link:hover{ color: var(--text); }
+.footer-link{ color: rgba(255,255,255,0.70); }
+.footer-link:hover{ color: rgba(255,255,255,0.96); }
 
 .footer-brand{
   border-top: var(--border);
@@ -532,7 +571,7 @@ a{ color:inherit; text-decoration:none; }
 .footer-copyright{
   margin-top: var(--s2);
   font-size: 0.8rem;
-  color: rgba(255,255,255,0.42);
+  color: rgba(255,255,255,0.55);
 }
 
 /* Responsive */
