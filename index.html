@@ -56,14 +56,12 @@
   <meta property="og:image" content="https://sparkitdesign.com/assets/images/og.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Mobile-first helpers (no copy changes) -->
+  <!-- Mobile-first helpers -->
   <style>
-    /* Prevent random horizontal scroll on mobile */
     html, body { max-width: 100%; overflow-x: hidden; }
     img, svg { max-width: 100%; height: auto; }
     .nav-link, .btn { -webkit-tap-highlight-color: transparent; }
 
-    /* Accessible hamburger (only affects small screens) */
     .nav-toggle {
       display: none;
       align-items: center;
@@ -72,7 +70,7 @@
       height: 44px;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(0,0,0,0.12);
+      background: rgba(255,255,255,0.08);
       color: inherit;
       cursor: pointer;
     }
@@ -99,39 +97,36 @@
     .nav-toggle-icon span:nth-child(2){ top: 7px; }
     .nav-toggle-icon span:nth-child(3){ top: 14px; }
 
-    /* Mobile nav panel behavior (progressive enhancement) */
+    /* Mobile nav panel behavior */
     @media (max-width: 860px) {
       .header-inner { gap: 12px; }
       .nav-toggle { display: inline-flex; margin-left: auto; }
+
       .nav {
         position: absolute;
         top: 100%;
         left: 0;
         right: 0;
         padding: 12px 16px 16px 16px;
-        background: rgba(15, 15, 18, 0.92);
+        background: rgba(0,0,0,0.92);
         backdrop-filter: blur(10px);
         border-bottom: 1px solid rgba(255,255,255,0.10);
-        display: none;              /* hidden by default */
+        display: none;
         flex-direction: column;
         gap: 10px;
         z-index: 1000;
       }
+
       .header { position: sticky; top: 0; z-index: 999; }
       .nav-link {
         display: block;
         padding: 12px 12px;
         border-radius: 12px;
       }
-      .nav-cta {
-        width: 100%;
-        text-align: center;
-        padding: 12px 14px;
-      }
+
       .nav.is-open { display: flex; }
     }
 
-    /* Make hero + buttons stack nicely on phones */
     @media (max-width: 700px) {
       .hero-content { padding-top: 18px; padding-bottom: 18px; }
       .hero-actions {
@@ -142,20 +137,14 @@
       .btn { width: 100%; }
     }
 
-    /* Pricing cards: single column on small screens */
     @media (max-width: 900px) {
       .pricing-grid { grid-template-columns: 1fr !important; }
       .pricing-card { width: 100%; }
       .pricing-cta .btn { width: 100%; }
-    }
-
-    /* Services + proof grids: single column on mobile */
-    @media (max-width: 900px) {
       .services-grid { grid-template-columns: 1fr !important; }
       .proof-grid { grid-template-columns: 1fr !important; }
     }
 
-    /* Footer links wrap cleanly */
     @media (max-width: 700px) {
       .footer-nav {
         display: grid;
@@ -173,13 +162,13 @@
 <body id="top">
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <!-- SINGLE HEADER (Zapier-style) -->
   <header class="header" role="banner">
     <div class="container header-inner">
-      <a href="/" class="logo" aria-label="SparkIt Home">
+      <a href="#top" class="logo" aria-label="SparkIt Home">
         <img src="assets/logos/sparkit-logo.svg" alt="SparkIt" />
       </a>
 
-      <!-- Mobile menu toggle (no copy changes) -->
       <button
         class="nav-toggle"
         type="button"
@@ -191,33 +180,23 @@
         </span>
       </button>
 
-      <nav class="nav" id="primary-nav" aria-label="Primary">
+      <nav class="nav nav-zap" id="primary-nav" aria-label="Primary">
         <a href="#video" class="nav-link">Video Packages</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#resources" class="nav-link">Resources</a>
         <a href="#about" class="nav-link">About</a>
 
-        <!-- Primary “booking” actions -->
-        <a class="nav-link nav-cta"
-           href="mailto:sparkitga@gmail.com?subject=Video%20Package%20Inquiry&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0APackage%20interested%20in%3A%0AGoal%20for%20the%20video%3A%0ADeadline%3A%0ABudget%20range%3A%0A"
-           onclick="gtag('event','lead_email_click',{'location':'nav'});">
-          Email
-        </a>
-        <a class="nav-link nav-cta"
-           href="tel:+14706021753"
-           onclick="gtag('event','lead_phone_click',{'location':'nav'});">
-          Call
-        </a>
-        <a class="nav-link nav-cta"
-           href="https://instagram.com/sparkit.ga"
-           target="_blank" rel="noopener"
-           onclick="gtag('event','lead_instagram_click',{'location':'nav'});">
-          Instagram
+        <a class="nav-link nav-sales"
+           href="mailto:hello@sparkitdesign.com?subject=Contact%20Sales%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AWhat%20are%20you%20trying%20to%20build%3F%0ATimeline%3A%0ABudget%20range%3A%0A"
+           onclick="gtag('event','lead_email_click',{'location':'header','cta':'contact_sales'});">
+          Contact Sales
         </a>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <!-- APPLE-STYLE HERO IMAGE -->
+    <!-- HERO -->
     <section class="hero hero-image" aria-labelledby="hero-title">
       <picture class="hero-media" aria-hidden="true">
         <source srcset="assets/images/hero-apple-mobile.jpg" media="(max-width: 700px)">
@@ -250,222 +229,184 @@
     </section>
 
     <!-- VIDEO PACKAGES -->
-    <!-- VIDEO PACKAGES -->
-<section id="video" class="section" aria-labelledby="video-title">
-  <div class="container">
-    <header class="section-header">
-      <h2 id="video-title" class="section-title">Video Packages</h2>
-      <p class="section-subtitle">
-        Choose a package. Save time. Meet new customers.
-      </p>
-    </header>
+    <section id="video" class="section" aria-labelledby="video-title">
+      <div class="container">
+        <header class="section-header">
+          <h2 id="video-title" class="section-title">Video Packages</h2>
+          <p class="section-subtitle">Choose a package. Save time. Meet new customers.</p>
+        </header>
 
-    <div class="pricing-grid" role="list">
-      <!-- Starter -->
-      <article class="pricing-card" role="listitem" aria-labelledby="pkg-starter">
-        <h3 id="pkg-starter" class="pricing-title">Starter</h3>
-        <p class="pricing-use">Best for a premium first impression.</p>
+        <div class="pricing-grid" role="list">
+          <!-- Starter -->
+          <article class="pricing-card" role="listitem" aria-labelledby="pkg-starter">
+            <h3 id="pkg-starter" class="pricing-title">Starter</h3>
+            <p class="pricing-use">Best for a premium first impression.</p>
 
-        <div class="price">
-          <span class="price-currency">$</span>
-          <span class="price-amount">200</span>
-          <span class="price-term">/mo</span>
+            <div class="price">
+              <span class="price-currency">$</span>
+              <span class="price-amount">200</span>
+              <span class="price-term">/mo</span>
+            </div>
+            <p class="price-note">Monthly. Cancel anytime.</p>
+
+            <ul class="pricing-highlights" aria-label="Starter highlights">
+              <li>5 social reels (15s)</li>
+              <li>10 short website or YouTube videos (1m)</li>
+              <li>Captions included</li>
+              <li>We post after access</li>
+            </ul>
+
+            <details class="plan-details">
+              <summary>See everything included</summary>
+              <ul class="pricing-list">
+                <li>5 social reels (15s)</li>
+                <li>10 short website or YouTube videos (1m)</li>
+                <li>Customer focused video with captions</li>
+                <li>Posting handled after channel access</li>
+              </ul>
+            </details>
+
+            <div class="pricing-cta">
+              <a class="btn btn-primary"
+                 href="mailto:sparkitga@gmail.com?subject=Starter%20Package%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%20for%20the%20video%3A%0ADeadline%3A%0ABudget%20range%3A%0A"
+                 onclick="gtag('event','lead_email_click',{'package':'starter','location':'pricing'});">
+                Email to Book
+              </a>
+            </div>
+          </article>
+
+          <!-- Growth -->
+          <article class="pricing-card featured" role="listitem" aria-labelledby="pkg-growth">
+            <div class="badge" aria-label="Most chosen package">Popular</div>
+            <h3 id="pkg-growth" class="pricing-title">Growth</h3>
+            <p class="pricing-use">Best for consistent content + stronger conversion.</p>
+
+            <div class="price">
+              <span class="price-currency">$</span>
+              <span class="price-amount">299</span>
+              <span class="price-term">/mo</span>
+            </div>
+            <p class="price-note">Everything in Starter, plus:</p>
+
+            <ul class="pricing-highlights" aria-label="Growth highlights">
+              <li>+ 1 long-form YouTube video (15m)</li>
+              <li>+ Monthly analytics &amp; retention reporting</li>
+              <li>Priority planning for the month</li>
+              <li>Captions included</li>
+            </ul>
+
+            <details class="plan-details">
+              <summary>See everything included</summary>
+              <ul class="pricing-list">
+                <li><strong>Everything in Starter</strong></li>
+                <li>5 social reels (15s)</li>
+                <li>10 short website or YouTube videos (1m)</li>
+                <li>Posting handled after channel access</li>
+                <li>Customer focused video with captions</li>
+                <li>1 long-form YouTube video (15m)</li>
+                <li>Monthly analytics &amp; retention reporting</li>
+              </ul>
+            </details>
+
+            <div class="pricing-cta">
+              <a class="btn btn-primary"
+                 href="mailto:sparkitga@gmail.com?subject=Growth%20Package%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%20for%20the%20video%3A%0ADeadline%3A%0ABudget%20range%3A%0A"
+                 onclick="gtag('event','lead_email_click',{'package':'growth','location':'pricing'});">
+                Email to Book
+              </a>
+            </div>
+          </article>
+
+          <!-- Pro -->
+          <article class="pricing-card" role="listitem" aria-labelledby="pkg-pro">
+            <h3 id="pkg-pro" class="pricing-title">Pro</h3>
+            <p class="pricing-use">Best for campaigns + high-impact storytelling.</p>
+
+            <div class="price">
+              <span class="price-currency">$</span>
+              <span class="price-amount">450</span>
+              <span class="price-term">/mo</span>
+            </div>
+            <p class="price-note">Everything in Growth, plus:</p>
+
+            <ul class="pricing-highlights" aria-label="Pro highlights">
+              <li>+ Flagship YouTube feature (30m)</li>
+              <li>+ 6-month posting calendar</li>
+              <li>+ Monthly analytics &amp; retention reporting</li>
+              <li>Campaign-level storytelling support</li>
+            </ul>
+
+            <details class="plan-details">
+              <summary>See everything included</summary>
+              <ul class="pricing-list">
+                <li><strong>Everything in Growth</strong></li>
+                <li>5 social reels (15s)</li>
+                <li>10 short website or YouTube videos (1m)</li>
+                <li>Posting handled after channel access</li>
+                <li>Customer focused video with captions</li>
+                <li>Flagship YouTube feature (30m)</li>
+                <li>6-month posting calendar</li>
+                <li>Monthly analytics &amp; retention reporting</li>
+              </ul>
+            </details>
+
+            <div class="pricing-cta">
+              <a class="btn btn-primary"
+                 href="mailto:sparkitga@gmail.com?subject=Pro%20Package%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%20for%20the%20video%3A%0ADeadline%3A%0ABudget%20range%3A%0A"
+                 onclick="gtag('event','lead_email_click',{'package':'pro','location':'pricing'});">
+                Email to Book
+              </a>
+            </div>
+          </article>
         </div>
 
-        <p class="price-note">Monthly. Cancel anytime.</p>
+        <div id="compare" class="compare-wrap" aria-label="Compare all features">
+          <details class="compare-details">
+            <summary>Compare all features</summary>
 
-        <!-- Zapier-style: short, scannable highlights -->
-        <ul class="pricing-highlights" aria-label="Starter highlights">
-          <li>5 social reels (15s)</li>
-          <li>10 short website or YouTube videos (1m)</li>
-          <li>Captions included</li>
-          <li>We post after access</li>
-        </ul>
+            <div class="compare-table-wrap" role="region" aria-label="Plan comparison table">
+              <table class="compare-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Features</th>
+                    <th scope="col">Starter</th>
+                    <th scope="col">Growth</th>
+                    <th scope="col">Pro</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">5 social reels (15s)</th><td>✓</td><td>✓</td><td>✓</td></tr>
+                  <tr><th scope="row">10 short videos (1m)</th><td>✓</td><td>✓</td><td>✓</td></tr>
+                  <tr><th scope="row">Captions included</th><td>✓</td><td>✓</td><td>✓</td></tr>
+                  <tr><th scope="row">We post after access</th><td>✓</td><td>✓</td><td>✓</td></tr>
+                  <tr><th scope="row">Long-form YouTube (15m)</th><td>—</td><td>✓</td><td>✓</td></tr>
+                  <tr><th scope="row">Monthly analytics &amp; retention reporting</th><td>—</td><td>✓</td><td>✓</td></tr>
+                  <tr><th scope="row">Flagship YouTube feature (30m)</th><td>—</td><td>—</td><td>✓</td></tr>
+                  <tr><th scope="row">6-month posting calendar</th><td>—</td><td>—</td><td>✓</td></tr>
+                </tbody>
+              </table>
+            </div>
 
-        <!-- Progressive disclosure -->
-        <details class="plan-details">
-          <summary>See everything included</summary>
-          <ul class="pricing-list">
-            <li>5 social reels (15s)</li>
-            <li>10 short website or YouTube videos (1m)</li>
-            <li>Customer focused video with captions</li>
-            <li>Posting handled after channel access</li>
-          </ul>
-        </details>
-
-        <div class="pricing-cta">
-          <a class="btn btn-primary"
-             href="mailto:sparkitga@gmail.com?subject=Starter%20Package%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%20for%20the%20video%3A%0ADeadline%3A%0ABudget%20range%3A%0A"
-             onclick="gtag('event','lead_email_click',{'package':'starter','location':'pricing'});">
-            Email to Book
-          </a>
-        </div>
-      </article>
-
-      <!-- Growth -->
-      <article class="pricing-card featured" role="listitem" aria-labelledby="pkg-growth">
-        <div class="badge" aria-label="Most chosen package">Popular</div>
-        <h3 id="pkg-growth" class="pricing-title">Growth</h3>
-        <p class="pricing-use">Best for consistent content + stronger conversion.</p>
-
-        <div class="price">
-          <span class="price-currency">$</span>
-          <span class="price-amount">299</span>
-          <span class="price-term">/mo</span>
+            <p class="compare-note">Need something custom? Email your goal + timeline and we’ll recommend the right fit.</p>
+          </details>
         </div>
 
-        <p class="price-note">Everything in Starter, plus:</p>
-
-        <!-- Zapier-style: short upgrade bullets -->
-        <ul class="pricing-highlights" aria-label="Growth highlights">
-          <li>+ 1 long-form YouTube video (15m)</li>
-          <li>+ Monthly analytics &amp; retention reporting</li>
-          <li>Priority planning for the month</li>
-          <li>Captions included</li>
-        </ul>
-
-        <details class="plan-details">
-          <summary>See everything included</summary>
-          <ul class="pricing-list">
-            <li><strong>Everything in Starter</strong></li>
-            <li>5 social reels (15s)</li>
-            <li>10 short website or YouTube videos (1m)</li>
-            <li>Posting handled after channel access</li>
-            <li>Customer focused video with captions</li>
-            <li>1 long-form YouTube video (15m)</li>
-            <li>Monthly analytics &amp; retention reporting</li>
-          </ul>
-        </details>
-
-        <div class="pricing-cta">
-          <a class="btn btn-primary"
-             href="mailto:sparkitga@gmail.com?subject=Growth%20Package%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%20for%20the%20video%3A%0ADeadline%3A%0ABudget%20range%3A%0A"
-             onclick="gtag('event','lead_email_click',{'package':'growth','location':'pricing'});">
-            Email to Book
-          </a>
+        <div class="note-card" role="note" aria-label="Retainers note">
+          <p><strong>Want ongoing content?</strong> Monthly video drops available for consistency without adding to your team.</p>
+          <div class="note-actions">
+            <a class="btn btn-secondary"
+               href="mailto:sparkitga@gmail.com?subject=Monthly%20Video%20Drops%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%3A%0AContent%20volume%20needed%3A%0A">
+              Email about retainers
+            </a>
+            <a class="btn btn-outline"
+               href="https://instagram.com/sparkit.ga"
+               target="_blank" rel="noopener">
+              DM on Instagram
+            </a>
+          </div>
         </div>
-      </article>
-
-      <!-- Pro -->
-      <article class="pricing-card" role="listitem" aria-labelledby="pkg-pro">
-        <h3 id="pkg-pro" class="pricing-title">Pro</h3>
-        <p class="pricing-use">Best for campaigns + high-impact storytelling.</p>
-
-        <div class="price">
-          <span class="price-currency">$</span>
-          <span class="price-amount">450</span>
-          <span class="price-term">/mo</span>
-        </div>
-
-        <p class="price-note">Everything in Growth, plus:</p>
-
-        <ul class="pricing-highlights" aria-label="Pro highlights">
-          <li>+ Flagship YouTube feature (30m)</li>
-          <li>+ 6-month posting calendar</li>
-          <li>+ Monthly analytics &amp; retention reporting</li>
-          <li>Campaign-level storytelling support</li>
-        </ul>
-
-        <details class="plan-details">
-          <summary>See everything included</summary>
-          <ul class="pricing-list">
-            <li><strong>Everything in Growth</strong></li>
-            <li>5 social reels (15s)</li>
-            <li>10 short website or YouTube videos (1m)</li>
-            <li>Posting handled after channel access</li>
-            <li>Customer focused video with captions</li>
-            <li>Monthly blog copy for your website or Substack</li>
-            <li>Flagship YouTube feature (30m)</li>
-            <li>6-month posting calendar</li>
-            <li>Monthly analytics &amp; retention reporting</li>
-          </ul>
-        </details>
-
-        <div class="pricing-cta">
-          <a class="btn btn-primary"
-             href="mailto:sparkitga@gmail.com?subject=Pro%20Package%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%20for%20the%20video%3A%0ADeadline%3A%0ABudget%20range%3A%0A"
-             onclick="gtag('event','lead_email_click',{'package':'pro','location':'pricing'});">
-            Email to Book
-          </a>
-        </div>
-      </article>
-    </div>
-
-    <!-- Zapier-style: compare all features -->
-    <div id="compare" class="compare-wrap" aria-label="Compare all features">
-      <details class="compare-details">
-        <summary>Compare all features</summary>
-
-        <div class="compare-table-wrap" role="region" aria-label="Plan comparison table">
-          <table class="compare-table">
-            <thead>
-              <tr>
-                <th scope="col">Features</th>
-                <th scope="col">Starter</th>
-                <th scope="col">Growth</th>
-                <th scope="col">Pro</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">5 social reels (15s)</th>
-                <td>✓</td><td>✓</td><td>✓</td>
-              </tr>
-              <tr>
-                <th scope="row">10 short videos (1m)</th>
-                <td>✓</td><td>✓</td><td>✓</td>
-              </tr>
-              <tr>
-                <th scope="row">Captions included</th>
-                <td>✓</td><td>✓</td><td>✓</td>
-              </tr>
-              <tr>
-                <th scope="row">We post after access</th>
-                <td>✓</td><td>✓</td><td>✓</td>
-              </tr>
-              <tr>
-                <th scope="row">Long-form YouTube (15m)</th>
-                <td>—</td><td>✓</td><td>✓</td>
-              </tr>
-              <tr>
-                <th scope="row">Monthly analytics &amp; retention reporting</th>
-                <td>—</td><td>✓</td><td>✓</td>
-              </tr>
-              <tr>
-                <th scope="row">Flagship YouTube feature (30m)</th>
-                <td>—</td><td>—</td><td>✓</td>
-              </tr>
-              <tr>
-                <th scope="row">6-month posting calendar</th>
-                <td>—</td><td>—</td><td>✓</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p class="compare-note">
-          Need something custom? Email your goal + timeline and we’ll recommend the right fit.
-        </p>
-      </details>
-    </div>
-
-    <div class="note-card" role="note" aria-label="Retainers note">
-      <p><strong>Want ongoing content?</strong> Monthly video drops available for consistency without adding to your team.</p>
-      <div class="note-actions">
-        <a class="btn btn-secondary"
-           href="mailto:sparkitga@gmail.com?subject=Monthly%20Video%20Drops%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%3A%0AContent%20volume%20needed%3A%0A">
-          Email about retainers
-        </a>
-        <a class="btn btn-outline"
-           href="https://instagram.com/sparkit.ga"
-           target="_blank" rel="noopener">
-          DM on Instagram
-        </a>
       </div>
-    </div>
-  </div>
-</section>
-
+    </section>
 
     <!-- PROCESS -->
     <section id="process" class="section alt" aria-labelledby="process-title">
@@ -474,51 +415,16 @@
           <h2 id="process-title" class="section-title">A simple process that respects your time</h2>
           <p class="section-subtitle">Clear, fast, collaborative—so you can stay focused on the business.</p>
         </header>
-
-        <!-- If you have process steps, place them here -->
       </div>
     </section>
 
-    <!-- PROOF -->
-    <section id="proof" class="section" aria-labelledby="proof-title">
+    <!-- SERVICES -->
+    <section id="services" class="section alt" aria-labelledby="services-title">
       <div class="container">
-        <header class="header header-zap" role="banner">
-  <div class="container header-inner header-zap-inner">
-    <a href="#top" class="logo" aria-label="SparkIt Home">
-      <img src="assets/logos/sparkit-logo.svg" alt="SparkIt" />
-    </a>
-
-    <!-- Mobile menu toggle -->
-    <button
-      class="nav-toggle"
-      type="button"
-      aria-label="Open menu"
-      aria-controls="primary-nav"
-      aria-expanded="false">
-      <span class="nav-toggle-icon" aria-hidden="true">
-        <span></span><span></span><span></span>
-      </span>
-    </button>
-
-    <nav class="nav nav-zap" id="primary-nav" aria-label="Primary">
-      <div class="nav-zap-links">
-        <a href="#video" class="nav-link">Video Packages</a>
-        <a href="#services" class="nav-link">Services</a>
-        <a href="#resources" class="nav-link">Resources</a>
-        <a href="#about" class="nav-link">About</a>
-      </div>
-
-      <div class="nav-zap-actions">
-        <a class="nav-link nav-sales"
-           href="mailto:hello@sparkitdesign.com?subject=Contact%20Sales%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AWhat%20are%20you%20trying%20to%20build%3F%0ATimeline%3A%0ABudget%20range%3A%0A"
-           onclick="gtag('event','lead_email_click',{'location':'header','cta':'contact_sales'});">
-          Contact Sales
-        </a>
-      </div>
-    </nav>
-  </div>
-</header>
-
+        <header class="section-header">
+          <h2 id="services-title" class="section-title">Serving Communication &amp; Website Needs</h2>
+          <p class="section-subtitle">Video is one way we can support you. Look at these options below to make sure you're sparking your full marketing potential.</p>
+        </header>
 
         <div class="services-grid">
           <article class="service-card">
@@ -558,34 +464,60 @@
       </div>
     </section>
 
-    <!-- FAQ -->
-<section id="resources" class="section" aria-labelledby="faq-title">
+    <!-- RESOURCES / FAQ (NEW LAYOUT) -->
+    <section id="resources" class="section faq-zap" aria-labelledby="faq-title">
       <div class="container">
-        <header class="section-header">
-          <h2 id="faq-title" class="section-title">FAQ</h2>
-          <p class="section-subtitle">Short answers. No fluff.</p>
+        <header class="section-header faq-header">
+          <h2 id="faq-title" class="section-title faq-title">FAQ</h2>
+          <p class="section-subtitle faq-subtitle">Short answers. No fluff.</p>
         </header>
 
-        <div class="faq">
-          <details class="faq-item">
-            <summary>How can we schedule a call?</summary>
-            <p>Email or call when you're ready to add a spark to your idea.</p>
-          </details>
+        <div class="faq-grid" role="list">
+          <div class="faq-col" role="list">
+            <details class="faq-item" role="listitem">
+              <summary>How can we schedule a call?</summary>
+              <div class="faq-panel">
+                <p>Email or call when you're ready to add a spark to your idea.</p>
+              </div>
+            </details>
 
-          <details class="faq-item">
-            <summary>What do you need from me?</summary>
-            <p>Once you confirm your monthly package, we'll ask a few questions to learn your brand &amp; customers' expectations. After that we'll request access to your media channels to post for you.</p>
-          </details>
+            <details class="faq-item" role="listitem">
+              <summary>What do you need from me?</summary>
+              <div class="faq-panel">
+                <p>Once you confirm your monthly package, we’ll ask a few questions to learn your brand and customers. Then we’ll request access to post for you.</p>
+              </div>
+            </details>
 
-          <details class="faq-item">
-            <summary>How fast can you deliver?</summary>
-            <p>We'll deliver all monthly videos 30 days after we lock in your package.</p>
-          </details>
+            <details class="faq-item" role="listitem">
+              <summary>How fast can you deliver?</summary>
+              <div class="faq-panel">
+                <p>We’ll deliver all monthly videos 30 days after we lock in your package.</p>
+              </div>
+            </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>Can I make special requests?</summary>
-            <p>Share all special requests in email or over the phone. We're flexible, and we'll respond to your requests as soon as we can.</p>
-          </details>
+          <div class="faq-col" role="list">
+            <details class="faq-item" role="listitem">
+              <summary>Can I make special requests?</summary>
+              <div class="faq-panel">
+                <p>Share requests by email or phone. We’re flexible, and we’ll respond as quickly as we can.</p>
+              </div>
+            </details>
+
+            <details class="faq-item" role="listitem">
+              <summary>Do you take on every client?</summary>
+              <div class="faq-panel">
+                <p>No. We confirm fit, timeline, and expectations first so the work stays premium and clean.</p>
+              </div>
+            </details>
+
+            <details class="faq-item" role="listitem">
+              <summary>What’s included in a package?</summary>
+              <div class="faq-panel">
+                <p>You get a defined monthly video drop, captions, and publishing support. We’ll clarify deliverables before you commit.</p>
+              </div>
+            </details>
+          </div>
         </div>
       </div>
     </section>
@@ -640,11 +572,10 @@
         <a href="#video" class="footer-link">Video Packages</a>
         <a href="#process" class="footer-link">Process</a>
         <a href="#services" class="footer-link">Other Services</a>
+        <a href="#resources" class="footer-link">Resources</a>
         <a href="mailto:sparkitga@gmail.com?subject=SparkIt%20Video%20Packages" class="footer-link">Email</a>
         <a href="tel:+14706021753" class="footer-link">Call</a>
         <a href="https://instagram.com/sparkit.ga" target="_blank" rel="noopener" class="footer-link">Instagram</a>
-
-        <!-- Minimal UX detour: quiet settings link, only used if someone wants it -->
         <a href="?cmpscreen" class="footer-link cmpfooterlink cmpfooterlinkcmp">Privacy settings</a>
       </nav>
 
@@ -670,7 +601,7 @@
   }
   </script>
 
-  <!-- Mobile menu logic (no copy changes) -->
+  <!-- Mobile menu logic -->
   <script>
     (function () {
       const btn = document.querySelector('.nav-toggle');
@@ -694,20 +625,34 @@
         isOpen ? closeNav() : openNav();
       });
 
-      // Close when a nav link is clicked (better UX on mobile)
       nav.addEventListener('click', function (e) {
         const target = e.target;
         if (target && target.matches('a')) closeNav();
       });
 
-      // Close on Escape
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') closeNav();
       });
 
-      // If resizing to desktop, ensure nav is visible via your existing CSS (remove mobile open state)
       window.addEventListener('resize', function () {
         if (window.innerWidth > 860) closeNav();
+      });
+    })();
+  </script>
+
+  <!-- FAQ: only one open at a time (cleaner UX) -->
+  <script>
+    (function () {
+      const items = document.querySelectorAll('#resources details.faq-item');
+      if (!items.length) return;
+
+      items.forEach(d => {
+        d.addEventListener('toggle', () => {
+          if (!d.open) return;
+          items.forEach(other => {
+            if (other !== d) other.removeAttribute('open');
+          });
+        });
       });
     })();
   </script>
