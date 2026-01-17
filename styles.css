@@ -805,3 +805,117 @@ a{ color:inherit; text-decoration:none; }
   color: var(--muted2);
   font-size: 0.95rem;
 }
+/* ============================
+   FAQ (Zapier / Wix-style, brighter)
+   ============================ */
+.faq-zap{
+  background: rgba(255,255,255,0.06);
+  border-top: var(--border);
+  border-bottom: var(--border);
+}
+
+.faq-header .faq-title{
+  color: #fff;
+}
+.faq-header .faq-subtitle{
+  color: rgba(255,255,255,0.82);
+}
+
+/* 2-column accordion layout like the reference */
+.faq-grid{
+  max-width: 980px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 22px;
+  align-items: start;
+}
+
+.faq-col{
+  display: grid;
+  gap: 14px;
+}
+
+/* White “bar” rows */
+.faq-item{
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.22);
+  background: rgba(255,255,255,0.92);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.22);
+  overflow: hidden;
+}
+
+/* Remove default marker */
+.faq-item summary{
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker{ display:none; }
+
+/* Summary row */
+.faq-item summary{
+  cursor: pointer;
+  padding: 16px 18px;
+  font-weight: 900;
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+/* Plus icon (right side) */
+.faq-item summary::after{
+  content: "+";
+  width: 34px;
+  height: 34px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 10px;
+  background: rgba(245,166,35,0.14);
+  border: 1px solid rgba(245,166,35,0.35);
+  color: #8a4b00;
+  font-weight: 900;
+  line-height: 1;
+  flex: 0 0 auto;
+}
+
+/* Open state becomes minus */
+.faq-item[open] summary::after{
+  content: "−";
+  background: rgba(245,166,35,0.22);
+  border-color: rgba(245,166,35,0.45);
+  color: #6b3700;
+}
+
+/* Content panel */
+.faq-panel{
+  padding: 0 18px 16px 18px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  background: rgba(255,255,255,0.96);
+}
+
+.faq-panel p{
+  margin-top: 12px;
+  color: rgba(0,0,0,0.72);
+  font-weight: 600;
+}
+
+/* Subtle orange “active” emphasis */
+.faq-item[open]{
+  border-color: rgba(245,166,35,0.55);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.25);
+}
+
+/* Keyboard focus */
+.faq-item summary:focus-visible{
+  outline: 3px solid rgba(245,166,35,0.65);
+  outline-offset: 3px;
+  border-radius: 14px;
+}
+
+/* Mobile: stack columns */
+@media (max-width: 900px){
+  .faq-grid{
+    grid-template-columns: 1fr;
+  }
+}
