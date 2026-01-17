@@ -1,25 +1,23 @@
 :root{
   /* Target feel:
-     ~75% black/grey foundation, ~20% white surfaces, ~10% accent.
-     (We achieve this by lifting surfaces + borders + section alt + footer,
-      while keeping hero + overall background dark.) */
+     ~75% black/grey foundation, ~20% white surfaces, ~10% accent. */
 
-  /* Foundation (still dark, but less “pitch black”) */
-  --bg: #0b0c0f;                 /* was #050505 */
-  --bg2: #101216;                /* subtle second tone */
+  /* Foundation */
+  --bg: #0b0c0f;
+  --bg2: #101216;
 
-  /* “White” surfaces (used on cards/sections) */
+  /* “White” surfaces */
   --surface: rgba(255,255,255,0.08);
   --surface2: rgba(255,255,255,0.12);
   --surface3: rgba(255,255,255,0.16);
 
-  /* Cards (lifted) */
-  --card: rgba(255,255,255,0.08);  /* was #0c0c0c */
-  --card2: rgba(255,255,255,0.12); /* was 0.04 */
+  /* Cards */
+  --card: rgba(255,255,255,0.08);
+  --card2: rgba(255,255,255,0.12);
 
   /* Text */
   --text: #ffffff;
-  --muted: rgba(255,255,255,0.82);   /* slightly brighter */
+  --muted: rgba(255,255,255,0.82);
   --muted2: rgba(255,255,255,0.62);
   --darkText: #1d1d1f;
 
@@ -37,9 +35,9 @@
   --r-lg: 24px;
   --r-pill: 999px;
 
-  /* Borders + shadows (brighter borders, softer shadow) */
-  --border: 1px solid rgba(255,255,255,0.16); /* was 0.08 */
-  --shadow: 0 14px 44px rgba(0,0,0,0.30);     /* was heavier */
+  /* Borders + shadows */
+  --border: 1px solid rgba(255,255,255,0.16);
+  --shadow: 0 14px 44px rgba(0,0,0,0.30);
 
   /* Spacing */
   --s1: 0.5rem;
@@ -56,7 +54,6 @@
 html{ scroll-behavior:smooth; }
 body{
   font-family: var(--font);
-  /* subtle lifted gradient so it feels less heavy */
   background: radial-gradient(1200px 700px at 50% -10%, rgba(255,255,255,0.06), transparent 55%),
               linear-gradient(to bottom, var(--bg), #07080b);
   color: var(--text);
@@ -97,51 +94,104 @@ a{ color:inherit; text-decoration:none; }
   *{ transition:none !important; animation:none !important; }
 }
 
-/* Header */
+/* Header (Zapier-style single bar) */
 .header{
   position: sticky;
   top: 0;
   z-index: 1000;
-  /* brighter glass so header reads “cleaner” */
-  background: rgba(18,20,25,0.78);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: var(--border);
+  background: #000;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
+
 .header-inner{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  height:72px;
+  height:64px;
   gap: var(--s4);
 }
+
 .logo img{ height:28px; width:auto; }
 
 .nav{
+  flex: 1;
   display:flex;
   align-items:center;
+  justify-content:space-between;
   gap: var(--s4);
-  flex-wrap:wrap;
-  justify-content:flex-end;
 }
-.nav-link{
-  font-size:0.92rem;
-  color: var(--muted2);
-  padding:0.25rem 0.1rem;
-}
-.nav-link:hover{ color: rgba(255,255,255,0.92); }
 
-.nav-cta{
+.nav-zap-links{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 22px;
+  flex: 1;
+}
+
+.nav-zap-actions{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap: 12px;
+}
+
+.nav-link{
+  font-size:0.95rem;
+  color: rgba(255,255,255,0.86);
+  padding:0.4rem 0.25rem;
+}
+.nav-link:hover{ color: #fff; }
+
+.nav-sales{
   padding:0.55rem 0.9rem;
   border-radius: var(--r-pill);
-  border: 1px solid rgba(245,166,35,0.30);
-  /* slightly brighter CTA background */
-  background: rgba(245,166,35,0.14);
+  border: 1px solid rgba(255,255,255,0.22);
+  background: rgba(255,255,255,0.06);
   color: var(--text);
 }
-.nav-cta:hover{
-  background: rgba(245,166,35,0.20);
+.nav-sales:hover{
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.30);
 }
+
+/* Mobile hamburger */
+.nav-toggle{
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.06);
+  color: inherit;
+  cursor: pointer;
+}
+.nav-toggle:focus-visible{
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+.nav-toggle-icon{
+  width: 22px;
+  height: 16px;
+  position: relative;
+  display: inline-block;
+}
+.nav-toggle-icon span{
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform .2s ease, top .2s ease, opacity .2s ease;
+}
+.nav-toggle-icon span:nth-child(1){ top: 0; }
+.nav-toggle-icon span:nth-child(2){ top: 7px; }
+.nav-toggle-icon span:nth-child(3){ top: 14px; }
 
 /* Buttons */
 .btn{
@@ -166,7 +216,6 @@ a{ color:inherit; text-decoration:none; }
 }
 .btn-primary:hover{ background: var(--accentHover); }
 
-/* Brighter “secondary” so you feel more white */
 .btn-secondary{
   background: rgba(255,255,255,0.14);
   color: var(--text);
@@ -178,7 +227,7 @@ a{ color:inherit; text-decoration:none; }
 }
 
 .btn-outline{
-  background: rgba(255,255,255,0.06); /* subtle surface instead of empty */
+  background: rgba(255,255,255,0.06);
   color: var(--text);
   border: 1px solid rgba(255,255,255,0.32);
 }
@@ -199,7 +248,6 @@ a{ color:inherit; text-decoration:none; }
 }
 .btn-light:hover{ background:#fff; }
 
-/* Keep dark pill but slightly less heavy */
 .btn-dark{
   background: rgba(0,0,0,0.22);
   color: #fff;
@@ -231,7 +279,6 @@ a{ color:inherit; text-decoration:none; }
   object-position: center;
 }
 
-/* LIGHTEN overlay so image and whites show more */
 .hero-overlay{
   position:absolute;
   inset:0;
@@ -240,9 +287,7 @@ a{ color:inherit; text-decoration:none; }
     radial-gradient(1200px 620px at 50% 35%, rgba(0,0,0,0.18), rgba(0,0,0,0.62) 72%),
     linear-gradient(to bottom, rgba(0,0,0,0.10), rgba(0,0,0,0.54));
 }
-.hero-content{
-  max-width: 900px;
-}
+.hero-content{ max-width: 900px; }
 .hero-headline{
   font-size: clamp(2.5rem, 6vw, 4.6rem);
   font-weight: 800;
@@ -273,11 +318,8 @@ a{ color:inherit; text-decoration:none; }
 }
 
 /* Sections */
-.section{
-  padding: var(--s7) 0;
-}
+.section{ padding: var(--s7) 0; }
 
-/* Make alt sections “whiter” */
 .section.alt{
   background: rgba(255,255,255,0.06);
   border-top: var(--border);
@@ -315,7 +357,6 @@ a{ color:inherit; text-decoration:none; }
   display:flex;
   flex-direction:column;
   position:relative;
-  /* subtle “white lift” */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -343,7 +384,7 @@ a{ color:inherit; text-decoration:none; }
 }
 .pricing-use{
   color: var(--muted);
-  margin-bottom: var(--s4);
+  margin-bottom: var(--s3);
 }
 .pricing-list{
   color: var(--muted);
@@ -364,7 +405,6 @@ a{ color:inherit; text-decoration:none; }
   border-radius: var(--r-lg);
   border: var(--border);
   padding: var(--s5);
-  /* much brighter */
   background: rgba(255,255,255,0.10);
   display:flex;
   align-items:center;
@@ -372,10 +412,7 @@ a{ color:inherit; text-decoration:none; }
   gap: var(--s4);
   flex-wrap:wrap;
 }
-.note-card p{
-  margin:0;
-  color: var(--muted);
-}
+.note-card p{ margin:0; color: var(--muted); }
 .note-actions{
   display:flex;
   gap: var(--s2);
@@ -437,7 +474,6 @@ a{ color:inherit; text-decoration:none; }
   display:grid;
   place-items:center;
   color: var(--accent);
-  /* a bit brighter so it reads “premium” */
   background: rgba(245,166,35,0.14);
   border: 1px solid rgba(245,166,35,0.22);
 }
@@ -471,7 +507,7 @@ a{ color:inherit; text-decoration:none; }
 /* About (light section) */
 .about{
   padding: var(--s7) 0;
-  background: #f2f3f5; /* was #e8e8ea */
+  background: #f2f3f5;
   color: var(--darkText);
 }
 .about-grid{
@@ -537,7 +573,6 @@ a{ color:inherit; text-decoration:none; }
 .footer{
   padding: var(--s7) 0 var(--s6);
   border-top: var(--border);
-  /* lift footer slightly so the page ends “cleaner” */
   background: rgba(255,255,255,0.04);
 }
 .footer-inner{ text-align:center; }
@@ -576,13 +611,8 @@ a{ color:inherit; text-decoration:none; }
 
 /* Responsive */
 @media (max-width: 980px){
-  .pricing-grid, .services-grid, .proof-grid, .steps{
-    grid-template-columns: 1fr;
-  }
-  .about-grid{
-    grid-template-columns: 1fr;
-    text-align:center;
-  }
+  .pricing-grid, .services-grid, .proof-grid, .steps{ grid-template-columns: 1fr; }
+  .about-grid{ grid-template-columns: 1fr; text-align:center; }
   .about-actions{ justify-content:center; }
   .btn-pill{ width: 100%; max-width: 340px; }
   .note-card{ justify-content:center; text-align:center; }
@@ -591,13 +621,49 @@ a{ color:inherit; text-decoration:none; }
 
 @media (max-width: 760px){
   .container{ padding: 0 var(--s4); }
-  .header-inner{
-    height:auto;
-    padding: var(--s3) 0;
-    flex-direction:column;
-    align-items:flex-start;
+}
+
+/* Mobile nav panel behavior */
+@media (max-width: 860px) {
+  .nav-toggle{ display: inline-flex; margin-left: auto; }
+
+  .nav{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 12px 16px 16px 16px;
+    background: #000;
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
   }
-  .nav{ justify-content:flex-start; }
+
+  .header{ position: sticky; top: 0; z-index: 999; }
+
+  .nav-zap-links,
+  .nav-zap-actions{
+    width: 100%;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .nav-link{
+    display: block;
+    padding: 12px 12px;
+    border-radius: 12px;
+  }
+
+  .nav-sales{
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav.is-open{ display: flex; }
 }
 
 /* --- Zapier-style pricing additions --- */
@@ -670,9 +736,7 @@ a{ color:inherit; text-decoration:none; }
   font-weight: 900;
   opacity: 0.85;
 }
-.plan-details[open] summary::after{
-  content: " −";
-}
+.plan-details[open] summary::after{ content: " −"; }
 
 .plan-details .pricing-list{
   margin-top: var(--s3);
@@ -680,9 +744,8 @@ a{ color:inherit; text-decoration:none; }
 }
 
 /* Compare all features (Zapier-style) */
-.compare-wrap{
-  margin-top: var(--s6);
-}
+.compare-wrap{ margin-top: var(--s6); }
+
 .compare-details{
   border: var(--border);
   border-radius: var(--r-lg);
@@ -701,9 +764,7 @@ a{ color:inherit; text-decoration:none; }
   font-weight: 900;
   opacity: 0.85;
 }
-.compare-details[open] summary::after{
-  content: " −";
-}
+.compare-details[open] summary::after{ content: " −"; }
 
 .compare-table-wrap{
   margin-top: var(--s4);
@@ -744,4 +805,3 @@ a{ color:inherit; text-decoration:none; }
   color: var(--muted2);
   font-size: 0.95rem;
 }
-
