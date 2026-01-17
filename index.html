@@ -250,104 +250,227 @@
     </section>
 
     <!-- VIDEO PACKAGES -->
-    <section id="video" class="section" aria-labelledby="video-title">
-      <div class="container">
-        <header class="section-header">
-          <h2 id="video-title" class="section-title">Video Packages</h2>
-          <p class="section-subtitle">
-            Choose a package. Save time. Meet new customers.
-          </p>
-        </header>
+    <!-- VIDEO PACKAGES -->
+<section id="video" class="section" aria-labelledby="video-title">
+  <div class="container">
+    <header class="section-header">
+      <h2 id="video-title" class="section-title">Video Packages</h2>
+      <p class="section-subtitle">
+        Choose a package. Save time. Meet new customers.
+      </p>
+    </header>
 
-        <div class="pricing-grid" role="list">
-          <!-- Starter -->
-          <article class="pricing-card" role="listitem" aria-labelledby="pkg-starter">
-            <h3 id="pkg-starter" class="pricing-title">Starter</h3>
-            <p class="pricing-use">Best for a premium first impression.</p>
+    <div class="pricing-grid" role="list">
+      <!-- Starter -->
+      <article class="pricing-card" role="listitem" aria-labelledby="pkg-starter">
+        <h3 id="pkg-starter" class="pricing-title">Starter</h3>
+        <p class="pricing-use">Best for a premium first impression.</p>
 
-            <ul class="pricing-list">
-              <li>5 social reels (15s)</li>
-              <li>10 single minute website or Youtube videos (1m)</li>
-              <li>After access, we post all content for your team</li>
-              <li>All content is customer focused video with captions</li>
-            </ul>
-
-            <div class="pricing-cta">
-              <a class="btn btn-primary"
-                 href="mailto:sparkitga@gmail.com?subject=Starter%20Package%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%20for%20the%20video%3A%0ADeadline%3A%0ABudget%20range%3A%0A"
-                 onclick="gtag('event','lead_email_click',{'package':'starter','location':'pricing'});">
-                Email to Book
-              </a>
-
-            </div>
-          </article>
-
-          <!-- Growth -->
-          <article class="pricing-card featured" role="listitem" aria-labelledby="pkg-growth">
-            <div class="badge" aria-label="Most chosen package">Popular</div>
-            <h3 id="pkg-growth" class="pricing-title">Growth</h3>
-            <p class="pricing-use">Best for consistent content + stronger conversion.</p>
-
-            <ul class="pricing-list">
-              <li>All offers in Starter plan</li>
-              <li>5 social reels (15s)</li>
-              <li>10 single minute website or Youtube videos (1m)</li>
-              <li>After access, we post all content for your team</li>
-              <li>1 long-form YouTube video (15m)</li>
-              <li>All content is customer focused video with captions</li>
-              <li>Monthly analytics &amp; retention reporting</li>
-            </ul>
-
-            <div class="pricing-cta">
-              <a class="btn btn-primary"
-                 href="mailto:sparkitga@gmail.com?subject=Growth%20Package%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%20for%20the%20video%3A%0ADeadline%3A%0ABudget%20range%3A%0A"
-                 onclick="gtag('event','lead_email_click',{'package':'growth','location':'pricing'});">
-                Email to Book
-              </a>
-
-            </div>
-          </article>
-
-          <!-- Pro -->
-          <article class="pricing-card" role="listitem" aria-labelledby="pkg-pro">
-            <h3 id="pkg-pro" class="pricing-title">Pro</h3>
-            <p class="pricing-use">Best for campaigns + high-impact storytelling.</p>
-
-            <ul class="pricing-list">
-              <li>5 social reels (15s)</li>
-              <li>10 single minute website or Youtube videos (1m)</li>
-              <li>After access, we post all content for your team</li>
-              <li>1 piece of flagship of content for YouTube with 6 month posting calendar (30m)</li>
-              <li>All content is customer focused video with captions</li>
-              <li>Monthly analytics &amp; retention reporting</li>
-            </ul>
-
-            <div class="pricing-cta">
-              <a class="btn btn-primary"
-                 href="mailto:sparkitga@gmail.com?subject=Pro%20Package%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%20for%20the%20video%3A%0ADeadline%3A%0ABudget%20range%3A%0A"
-                 onclick="gtag('event','lead_email_click',{'package':'pro','location':'pricing'});">
-                Email to Book
-              </a>
-            </div>
-          </article>
+        <div class="price">
+          <span class="price-currency">$</span>
+          <span class="price-amount">200</span>
+          <span class="price-term">/mo</span>
         </div>
 
-        <div class="note-card" role="note" aria-label="Retainers note">
-          <p><strong>Want ongoing content?</strong> Monthly video drops available for consistency without adding to your team.</p>
-          <div class="note-actions">
-            <a class="btn btn-secondary"
-               href="mailto:sparkitga@gmail.com?subject=Monthly%20Video%20Drops%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%3A%0AContent%20volume%20needed%3A%0A">
-              Email about retainers
-            </a>
-            <a class="btn btn-outline"
-               href="https://instagram.com/sparkit.ga"
-               target="_blank" rel="noopener">
-              DM on Instagram
-            </a>
-          </div>
+        <p class="price-note">Monthly. Cancel anytime.</p>
+
+        <!-- Zapier-style: short, scannable highlights -->
+        <ul class="pricing-highlights" aria-label="Starter highlights">
+          <li>5 social reels (15s)</li>
+          <li>10 short website or YouTube videos (1m)</li>
+          <li>Captions included</li>
+          <li>We post after access</li>
+        </ul>
+
+        <!-- Progressive disclosure -->
+        <details class="plan-details">
+          <summary>See everything included</summary>
+          <ul class="pricing-list">
+            <li>5 social reels (15s)</li>
+            <li>10 short website or YouTube videos (1m)</li>
+            <li>Customer focused video with captions</li>
+            <li>Posting handled after channel access</li>
+          </ul>
+        </details>
+
+        <div class="pricing-cta">
+          <a class="btn btn-primary"
+             href="mailto:sparkitga@gmail.com?subject=Starter%20Package%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%20for%20the%20video%3A%0ADeadline%3A%0ABudget%20range%3A%0A"
+             onclick="gtag('event','lead_email_click',{'package':'starter','location':'pricing'});">
+            Email to Book
+          </a>
         </div>
+      </article>
+
+      <!-- Growth -->
+      <article class="pricing-card featured" role="listitem" aria-labelledby="pkg-growth">
+        <div class="badge" aria-label="Most chosen package">Popular</div>
+        <h3 id="pkg-growth" class="pricing-title">Growth</h3>
+        <p class="pricing-use">Best for consistent content + stronger conversion.</p>
+
+        <div class="price">
+          <span class="price-currency">$</span>
+          <span class="price-amount">299</span>
+          <span class="price-term">/mo</span>
+        </div>
+
+        <p class="price-note">Everything in Starter, plus:</p>
+
+        <!-- Zapier-style: short upgrade bullets -->
+        <ul class="pricing-highlights" aria-label="Growth highlights">
+          <li>+ 1 long-form YouTube video (15m)</li>
+          <li>+ Monthly analytics &amp; retention reporting</li>
+          <li>Priority planning for the month</li>
+          <li>Captions included</li>
+        </ul>
+
+        <details class="plan-details">
+          <summary>See everything included</summary>
+          <ul class="pricing-list">
+            <li><strong>Everything in Starter</strong></li>
+            <li>5 social reels (15s)</li>
+            <li>10 short website or YouTube videos (1m)</li>
+            <li>Posting handled after channel access</li>
+            <li>Customer focused video with captions</li>
+            <li>1 long-form YouTube video (15m)</li>
+            <li>Monthly analytics &amp; retention reporting</li>
+          </ul>
+        </details>
+
+        <div class="pricing-cta">
+          <a class="btn btn-primary"
+             href="mailto:sparkitga@gmail.com?subject=Growth%20Package%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%20for%20the%20video%3A%0ADeadline%3A%0ABudget%20range%3A%0A"
+             onclick="gtag('event','lead_email_click',{'package':'growth','location':'pricing'});">
+            Email to Book
+          </a>
+
+          <a class="btn btn-secondary"
+             href="#compare"
+             onclick="gtag('event','cta_click',{'cta':'compare_features','location':'pricing'});">
+            Compare
+          </a>
+        </div>
+      </article>
+
+      <!-- Pro -->
+      <article class="pricing-card" role="listitem" aria-labelledby="pkg-pro">
+        <h3 id="pkg-pro" class="pricing-title">Pro</h3>
+        <p class="pricing-use">Best for campaigns + high-impact storytelling.</p>
+
+        <div class="price">
+          <span class="price-currency">$</span>
+          <span class="price-amount">450</span>
+          <span class="price-term">/mo</span>
+        </div>
+
+        <p class="price-note">Everything in Growth, plus:</p>
+
+        <ul class="pricing-highlights" aria-label="Pro highlights">
+          <li>+ Flagship YouTube feature (30m)</li>
+          <li>+ 6-month posting calendar</li>
+          <li>+ Monthly analytics &amp; retention reporting</li>
+          <li>Campaign-level storytelling support</li>
+        </ul>
+
+        <details class="plan-details">
+          <summary>See everything included</summary>
+          <ul class="pricing-list">
+            <li><strong>Everything in Growth</strong></li>
+            <li>5 social reels (15s)</li>
+            <li>10 short website or YouTube videos (1m)</li>
+            <li>Posting handled after channel access</li>
+            <li>Customer focused video with captions</li>
+            <li>Flagship YouTube feature (30m)</li>
+            <li>6-month posting calendar</li>
+            <li>Monthly analytics &amp; retention reporting</li>
+          </ul>
+        </details>
+
+        <div class="pricing-cta">
+          <a class="btn btn-primary"
+             href="mailto:sparkitga@gmail.com?subject=Pro%20Package%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%20for%20the%20video%3A%0ADeadline%3A%0ABudget%20range%3A%0A"
+             onclick="gtag('event','lead_email_click',{'package':'pro','location':'pricing'});">
+            Email to Book
+          </a>
+        </div>
+      </article>
+    </div>
+
+    <!-- Zapier-style: compare all features -->
+    <div id="compare" class="compare-wrap" aria-label="Compare all features">
+      <details class="compare-details">
+        <summary>Compare all features</summary>
+
+        <div class="compare-table-wrap" role="region" aria-label="Plan comparison table">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th scope="col">Features</th>
+                <th scope="col">Starter</th>
+                <th scope="col">Growth</th>
+                <th scope="col">Pro</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">5 social reels (15s)</th>
+                <td>✓</td><td>✓</td><td>✓</td>
+              </tr>
+              <tr>
+                <th scope="row">10 short videos (1m)</th>
+                <td>✓</td><td>✓</td><td>✓</td>
+              </tr>
+              <tr>
+                <th scope="row">Captions included</th>
+                <td>✓</td><td>✓</td><td>✓</td>
+              </tr>
+              <tr>
+                <th scope="row">We post after access</th>
+                <td>✓</td><td>✓</td><td>✓</td>
+              </tr>
+              <tr>
+                <th scope="row">Long-form YouTube (15m)</th>
+                <td>—</td><td>✓</td><td>✓</td>
+              </tr>
+              <tr>
+                <th scope="row">Monthly analytics &amp; retention reporting</th>
+                <td>—</td><td>✓</td><td>✓</td>
+              </tr>
+              <tr>
+                <th scope="row">Flagship YouTube feature (30m)</th>
+                <td>—</td><td>—</td><td>✓</td>
+              </tr>
+              <tr>
+                <th scope="row">6-month posting calendar</th>
+                <td>—</td><td>—</td><td>✓</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="compare-note">
+          Need something custom? Email your goal + timeline and we’ll recommend the right fit.
+        </p>
+      </details>
+    </div>
+
+    <div class="note-card" role="note" aria-label="Retainers note">
+      <p><strong>Want ongoing content?</strong> Monthly video drops available for consistency without adding to your team.</p>
+      <div class="note-actions">
+        <a class="btn btn-secondary"
+           href="mailto:sparkitga@gmail.com?subject=Monthly%20Video%20Drops%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%3A%0AContent%20volume%20needed%3A%0A">
+          Email about retainers
+        </a>
+        <a class="btn btn-outline"
+           href="https://instagram.com/sparkit.ga"
+           target="_blank" rel="noopener">
+          DM on Instagram
+        </a>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
 
     <!-- PROCESS -->
     <section id="process" class="section alt" aria-labelledby="process-title">

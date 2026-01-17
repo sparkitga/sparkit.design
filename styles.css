@@ -599,3 +599,149 @@ a{ color:inherit; text-decoration:none; }
   }
   .nav{ justify-content:flex-start; }
 }
+
+/* --- Zapier-style pricing additions --- */
+.price{
+  display:flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  margin: 0.25rem 0 0.2rem;
+}
+.price-currency{
+  font-weight: 900;
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+.price-amount{
+  font-weight: 900;
+  font-size: 2.6rem;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.price-term{
+  font-weight: 800;
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.price-note{
+  margin-top: 0.35rem;
+  color: var(--muted2);
+  font-size: 0.92rem;
+}
+
+.pricing-highlights{
+  margin-top: var(--s4);
+  margin-bottom: var(--s4);
+  padding-left: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+}
+.pricing-highlights li{
+  color: var(--muted);
+  display:flex;
+  gap: 0.55rem;
+  align-items:flex-start;
+}
+.pricing-highlights li::before{
+  content: "✓";
+  font-weight: 900;
+  color: rgba(255,255,255,0.85);
+  margin-top: 0.02rem;
+}
+
+/* Progressive disclosure (per-plan) */
+.plan-details{
+  margin-top: var(--s3);
+  border-top: 1px solid rgba(255,255,255,0.14);
+  padding-top: var(--s3);
+}
+.plan-details summary{
+  cursor: pointer;
+  font-weight: 800;
+  color: rgba(255,255,255,0.90);
+  list-style: none;
+  user-select: none;
+}
+.plan-details summary::-webkit-details-marker{ display:none; }
+.plan-details summary::after{
+  content: " +";
+  font-weight: 900;
+  opacity: 0.85;
+}
+.plan-details[open] summary::after{
+  content: " −";
+}
+
+.plan-details .pricing-list{
+  margin-top: var(--s3);
+  padding-left: 1.15rem;
+}
+
+/* Compare all features (Zapier-style) */
+.compare-wrap{
+  margin-top: var(--s6);
+}
+.compare-details{
+  border: var(--border);
+  border-radius: var(--r-lg);
+  background: rgba(255,255,255,0.08);
+  padding: var(--s5);
+}
+.compare-details summary{
+  cursor:pointer;
+  font-weight: 900;
+  list-style: none;
+  user-select: none;
+}
+.compare-details summary::-webkit-details-marker{ display:none; }
+.compare-details summary::after{
+  content: " +";
+  font-weight: 900;
+  opacity: 0.85;
+}
+.compare-details[open] summary::after{
+  content: " −";
+}
+
+.compare-table-wrap{
+  margin-top: var(--s4);
+  overflow-x: auto;
+  border-radius: var(--r-md);
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(0,0,0,0.18);
+}
+.compare-table{
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 720px;
+}
+.compare-table th,
+.compare-table td{
+  padding: 0.9rem 0.9rem;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+  text-align: left;
+  color: rgba(255,255,255,0.86);
+  font-size: 0.95rem;
+}
+.compare-table thead th{
+  color: rgba(255,255,255,0.92);
+  font-weight: 900;
+  background: rgba(255,255,255,0.06);
+}
+.compare-table tbody td{
+  text-align: center;
+  font-weight: 900;
+}
+.compare-table tbody th{
+  font-weight: 800;
+  color: rgba(255,255,255,0.88);
+}
+
+.compare-note{
+  margin-top: var(--s4);
+  color: var(--muted2);
+  font-size: 0.95rem;
+}
+
