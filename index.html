@@ -481,35 +481,43 @@
     <!-- PROOF -->
     <section id="proof" class="section" aria-labelledby="proof-title">
       <div class="container">
-        <header class="section-header">
-          <h2 id="proof-title" class="section-title">Storytelling Matters</h2>
-          <p class="section-subtitle">We're telling the story your customers fell in love with.</p>
-        </header>
+        <header class="header header-zap" role="banner">
+  <div class="container header-inner header-zap-inner">
+    <a href="#top" class="logo" aria-label="SparkIt Home">
+      <img src="assets/logos/sparkit-logo.svg" alt="SparkIt" />
+    </a>
 
-        <div class="proof-grid" role="list">
-          <article class="proof-card" role="listitem">
-            <h3 class="proof-title">Your Time Back</h3>
-            <p class="proof-text">We're ready to deliver results so your team can focus on important things in their lives.</p>
-          </article>
-          <article class="proof-card" role="listitem">
-            <h3 class="proof-title">People First</h3>
-            <p class="proof-text">We believe that people come first, and we weave this into each piece of content we create regardless of the tools we use.</p>
-          </article>
-          <article class="proof-card" role="listitem">
-            <h3 class="proof-title">Customer Questions</h3>
-            <p class="proof-text">Whether a health issue, a real estate crisis, or general request to an admin, we'll work to connect the right question to your team.</p>
-          </article>
-        </div>
+    <!-- Mobile menu toggle -->
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-label="Open menu"
+      aria-controls="primary-nav"
+      aria-expanded="false">
+      <span class="nav-toggle-icon" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+
+    <nav class="nav nav-zap" id="primary-nav" aria-label="Primary">
+      <div class="nav-zap-links">
+        <a href="#video" class="nav-link">Video Packages</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#resources" class="nav-link">Resources</a>
+        <a href="#about" class="nav-link">About</a>
       </div>
-    </section>
 
-    <!-- OTHER SERVICES -->
-    <section id="services" class="section alt" aria-labelledby="services-title">
-      <div class="container">
-        <header class="section-header">
-          <h2 id="services-title" class="section-title">Serving Communication &amp; Website Needs</h2>
-          <p class="section-subtitle">Video is one way we can support you. Look at these options below to make sure you're sparking your full marketing potential.</p>
-        </header>
+      <div class="nav-zap-actions">
+        <a class="nav-link nav-sales"
+           href="mailto:hello@sparkitdesign.com?subject=Contact%20Sales%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AWhat%20are%20you%20trying%20to%20build%3F%0ATimeline%3A%0ABudget%20range%3A%0A"
+           onclick="gtag('event','lead_email_click',{'location':'header','cta':'contact_sales'});">
+          Contact Sales
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
 
         <div class="services-grid">
           <article class="service-card">
