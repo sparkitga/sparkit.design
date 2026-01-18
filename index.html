@@ -1,54 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 1) Consent defaults (must come BEFORE ConsentManager + GA tags) -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-
-    // Default: no storage until user opts into Analytics
-    gtag('consent', 'default', {
-      analytics_storage: 'denied',
-      ad_storage: 'denied',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied'
-    });
-  </script>
-
-  <!-- 2) ConsentManager Autoblocking (controls what loads before consent) -->
-  <script
-    type="text/javascript"
-    data-cmp-ab="1"
-    src="https://cdn.consentmanager.net/delivery/autoblocking/0b830fa9628c6.js"
-    data-cmp-host="c.delivery.consentmanager.net"
-    data-cmp-cdn="cdn.consentmanager.net"
-    data-cmp-codesrc="0">
-  </script>
-
-  <!-- 3) GA4 (Measurement ID: G-94JDJYFKGY) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-94JDJYFKGY"></script>
-  <script>
-    gtag('js', new Date());
-    gtag('config', 'G-94JDJYFKGY', {
-      anonymize_ip: true,
-      allow_google_signals: false,
-      allow_ad_personalization_signals: false
-    });
-  </script>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="SparkIt is a Georgia-based creative studio specializing in branded video packages that help teams build trust, clarity, and demand." />
-  <title>SparkIt Design | Branded Video Packages for Modern Teams</title>
-  <link rel="canonical" href="https://sparkitdesign.com/" />
-  <link rel="stylesheet" href="styles.css" />
 
+  <title>SparkIt Design | Branded Video Packages for Modern Teams</title>
+  <meta name="description" content="SparkIt is a Georgia-based creative studio specializing in branded video packages that help teams build trust, clarity, and demand." />
+  <link rel="canonical" href="https://sparkitdesign.com/" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Favicons -->
   <link rel="icon" href="assets/favicon/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-50x50.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png" />
   <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png" />
 
+  <!-- Open Graph / Twitter -->
   <meta property="og:title" content="SparkIt Design | Branded Video Packages" />
   <meta property="og:description" content="Georgia-based creative studio offering video packages that turn attention into trust—and trust into customers." />
   <meta property="og:url" content="https://sparkitdesign.com/" />
@@ -56,107 +24,141 @@
   <meta property="og:image" content="https://sparkitdesign.com/assets/images/og.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Mobile-first helpers -->
+  <!-- Performance: preconnect where it helps (safe, no JS) -->
+  <link rel="preconnect" href="https://www.google.com" />
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Minimal mobile helpers ONLY (avoid fighting styles.css) -->
   <style>
     html, body { max-width: 100%; overflow-x: hidden; }
     img, svg { max-width: 100%; height: auto; }
     .nav-link, .btn { -webkit-tap-highlight-color: transparent; }
-
-    .nav-toggle {
-      display: none;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.08);
-      color: inherit;
-      cursor: pointer;
-    }
-    .nav-toggle:focus-visible {
-      outline: 2px solid currentColor;
-      outline-offset: 2px;
-    }
-    .nav-toggle-icon {
-      width: 22px;
-      height: 16px;
-      position: relative;
-      display: inline-block;
-    }
-    .nav-toggle-icon span {
-      position: absolute;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: currentColor;
-      border-radius: 2px;
-      transition: transform .2s ease, top .2s ease, opacity .2s ease;
-    }
-    .nav-toggle-icon span:nth-child(1){ top: 0; }
-    .nav-toggle-icon span:nth-child(2){ top: 7px; }
-    .nav-toggle-icon span:nth-child(3){ top: 14px; }
-
-    /* Mobile nav panel behavior */
-    @media (max-width: 860px) {
-      .header-inner { gap: 12px; }
-      .nav-toggle { display: inline-flex; margin-left: auto; }
-
-      .nav {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        padding: 12px 16px 16px 16px;
-        background: rgba(0,0,0,0.92);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(255,255,255,0.10);
-        display: none;
-        flex-direction: column;
-        gap: 10px;
-        z-index: 1000;
-      }
-
-      .header { position: sticky; top: 0; z-index: 999; }
-      .nav-link {
-        display: block;
-        padding: 12px 12px;
-        border-radius: 12px;
-      }
-
-      .nav.is-open { display: flex; }
-    }
-
-    @media (max-width: 700px) {
-      .hero-content { padding-top: 18px; padding-bottom: 18px; }
-      .hero-actions {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 10px;
-      }
-      .btn { width: 100%; }
-    }
-
-    @media (max-width: 900px) {
-      .pricing-grid { grid-template-columns: 1fr !important; }
-      .pricing-card { width: 100%; }
-      .pricing-cta .btn { width: 100%; }
-      .services-grid { grid-template-columns: 1fr !important; }
-      .proof-grid { grid-template-columns: 1fr !important; }
-    }
-
-    @media (max-width: 700px) {
-      .footer-nav {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px 12px;
-      }
-      .footer-link { padding: 6px 0; }
-    }
-    @media (max-width: 420px) {
-      .footer-nav { grid-template-columns: 1fr; }
-    }
   </style>
+
+  <!-- Structured data (Google-friendly, no scripts running) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "SparkIt Design",
+    "url": "https://sparkitdesign.com/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://sparkitdesign.com/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "SparkIt Design",
+    "url": "https://sparkitdesign.com/",
+    "logo": "https://sparkitdesign.com/assets/logos/sparkit-logo.png",
+    "telephone": "+1-470-602-1753",
+    "areaServed": "Georgia",
+    "sameAs": [
+      "https://instagram.com/sparkit.ga"
+    ]
+  }
+  </script>
+
+  <!-- Offer/Product schema for packages (helps SEO for services/pricing pages) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "SparkIt Video Packages",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Offer",
+          "name": "Starter",
+          "description": "Best for a premium first impression. 5 social reels (15s), 10 short website or YouTube videos (1m), captions included, posting after access.",
+          "price": "200",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://sparkitdesign.com/#video"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "Offer",
+          "name": "Growth",
+          "description": "Best for consistent content + stronger conversion. Everything in Starter plus 1 long-form YouTube video (15m) and monthly analytics & retention reporting.",
+          "price": "299",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://sparkitdesign.com/#video"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "Offer",
+          "name": "Pro",
+          "description": "Best for campaigns + high-impact storytelling. Everything in Growth plus a flagship YouTube feature (30m), 6-month posting calendar, and monthly analytics & retention reporting.",
+          "price": "450",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://sparkitdesign.com/#video"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- FAQ structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How can we schedule a call?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Email or call when you're ready to add a spark to your idea."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What do you need from me?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Once you confirm your monthly package, we'll ask a few questions to learn your brand and customers. Then we’ll request access to post for you."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How fast can you deliver?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We'll deliver all monthly videos 30 days after we lock in your package."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I make special requests?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Share requests by email or phone. We’re flexible, and we'll respond in less than 48 hours."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body id="top">
@@ -169,17 +171,9 @@
         <img src="assets/logos/sparkit-logo.svg" alt="SparkIt" />
       </a>
 
-      <button
-        class="nav-toggle"
-        type="button"
-        aria-label="Open menu"
-        aria-controls="primary-nav"
-        aria-expanded="false">
-        <span class="nav-toggle-icon" aria-hidden="true">
-          <span></span><span></span><span></span>
-        </span>
-      </button>
-
+      <!-- No-JS note:
+           Without JS, we keep the nav always visible (your CSS should not hide .nav on mobile).
+           If your CSS currently hides the nav under 860px, remove that rule or override it. -->
       <nav class="nav nav-zap" id="primary-nav" aria-label="Primary">
         <a href="#video" class="nav-link">Video Packages</a>
         <a href="#services" class="nav-link">Services</a>
@@ -187,8 +181,7 @@
         <a href="#about" class="nav-link">About</a>
 
         <a class="nav-link nav-sales"
-           href="mailto:hello@sparkitdesign.com?subject=Contact%20Sales%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AWhat%20are%20you%20trying%20to%20build%3F%0ATimeline%3A%0ABudget%20range%3A%0A"
-           onclick="gtag('event','lead_email_click',{'location':'header','cta':'contact_sales'});">
+           href="mailto:sparkitga@gmail.com?subject=Contact%20Sales%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AWhat%20are%20you%20trying%20to%20build%3F%0ATimeline%3A%0ABudget%20range%3A%0A">
           Contact Sales
         </a>
       </nav>
@@ -212,14 +205,10 @@
         </p>
 
         <div class="hero-actions" role="group" aria-label="Primary actions">
-          <a href="#video" class="btn btn-pill btn-light"
-             onclick="gtag('event','cta_click',{'cta':'learn_more','location':'hero'});">
-            Learn more
-          </a>
+          <a href="#video" class="btn btn-pill btn-light">Learn more</a>
 
-          <a href="mailto:hello@sparkitdesign.com?subject=Quote%20Request%20-%20SparkIt%20Video%20Packages&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0APackage%20interested%20in%3A%0AGoal%20for%20the%20video%3A%0ADeadline%3A%0ABudget%20range%3A%0A"
-             class="btn btn-pill btn-dark"
-             onclick="gtag('event','cta_click',{'cta':'get_quote','location':'hero'});">
+          <a href="mailto:sparkitga@gmail.com?subject=Quote%20Request%20-%20SparkIt%20Video%20Packages&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0APackage%20interested%20in%3A%0AGoal%20for%20the%20video%3A%0ADeadline%3A%0ABudget%20range%3A%0A"
+             class="btn btn-pill btn-dark">
             Get a quote
           </a>
         </div>
@@ -268,8 +257,7 @@
 
             <div class="pricing-cta">
               <a class="btn btn-primary"
-                 href="mailto:sparkitga@gmail.com?subject=Starter%20Package%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%20for%20the%20video%3A%0ADeadline%3A%0ABudget%20range%3A%0A"
-                 onclick="gtag('event','lead_email_click',{'package':'starter','location':'pricing'});">
+                 href="mailto:sparkitga@gmail.com?subject=Starter%20Package%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%20for%20the%20video%3A%0ADeadline%3A%0ABudget%20range%3A%0A">
                 Email to Book
               </a>
             </div>
@@ -310,8 +298,7 @@
 
             <div class="pricing-cta">
               <a class="btn btn-primary"
-                 href="mailto:sparkitga@gmail.com?subject=Growth%20Package%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%20for%20the%20video%3A%0ADeadline%3A%0ABudget%20range%3A%0A"
-                 onclick="gtag('event','lead_email_click',{'package':'growth','location':'pricing'});">
+                 href="mailto:sparkitga@gmail.com?subject=Growth%20Package%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%20for%20the%20video%3A%0ADeadline%3A%0ABudget%20range%3A%0A">
                 Email to Book
               </a>
             </div>
@@ -352,8 +339,7 @@
 
             <div class="pricing-cta">
               <a class="btn btn-primary"
-                 href="mailto:sparkitga@gmail.com?subject=Pro%20Package%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%20for%20the%20video%3A%0ADeadline%3A%0ABudget%20range%3A%0A"
-                 onclick="gtag('event','lead_email_click',{'package':'pro','location':'pricing'});">
+                 href="mailto:sparkitga@gmail.com?subject=Pro%20Package%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%20for%20the%20video%3A%0ADeadline%3A%0ABudget%20range%3A%0A">
                 Email to Book
               </a>
             </div>
@@ -459,42 +445,41 @@
       </div>
     </section>
 
-    <!-- RESOURCES / FAQ (NEW LAYOUT) -->
-   <section id="resources" class="section faq-zap" aria-labelledby="faq-title">
-  <div class="container">
-    <header class="section-header faq-header">
-      <h2 id="faq-title" class="section-title faq-title">FAQ</h2>
-      <p class="section-subtitle faq-subtitle">Short answers. No fluff.</p>
-    </header>
+    <!-- RESOURCES / FAQ -->
+    <section id="resources" class="section faq-zap" aria-labelledby="faq-title">
+      <div class="container">
+        <header class="section-header faq-header">
+          <h2 id="faq-title" class="section-title faq-title">FAQ</h2>
+          <p class="section-subtitle faq-subtitle">Short answers. No fluff.</p>
+        </header>
 
-    <div class="faq-grid">
-      <div class="faq-col">
-        <details class="faq-item">
-          <summary>How can we schedule a call?</summary>
-          <div class="faq-panel"><p>Email or call when you're ready to add a spark to your idea.</p></div>
-        </details>
+        <div class="faq-grid">
+          <div class="faq-col">
+            <details class="faq-item">
+              <summary>How can we schedule a call?</summary>
+              <div class="faq-panel"><p>Email or call when you're ready to add a spark to your idea.</p></div>
+            </details>
 
-        <details class="faq-item">
-          <summary>What do you need from me?</summary>
-          <div class="faq-panel"><p>Once you confirm your monthly package, we'll ask a few questions to learn your brand and customers. Then we’ll request access to post for you.</p></div>
-        </details>
+            <details class="faq-item">
+              <summary>What do you need from me?</summary>
+              <div class="faq-panel"><p>Once you confirm your monthly package, we'll ask a few questions to learn your brand and customers. Then we’ll request access to post for you.</p></div>
+            </details>
+          </div>
+
+          <div class="faq-col">
+            <details class="faq-item">
+              <summary>How fast can you deliver?</summary>
+              <div class="faq-panel"><p>We'll deliver all monthly videos 30 days after we lock in your package.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary>Can I make special requests?</summary>
+              <div class="faq-panel"><p>Share requests by email or phone. We’re flexible, and we'll respond in less than 48 hours.</p></div>
+            </details>
+          </div>
+        </div>
       </div>
-
-      <div class="faq-col">
-        <details class="faq-item">
-          <summary>How fast can you deliver?</summary>
-          <div class="faq-panel"><p>We'll deliver all monthly videos 30 days after we lock in your package.</p></div>
-        </details>
-
-        <details class="faq-item">
-          <summary>Can I make special requests?</summary>
-          <div class="faq-panel"><p>Share requests by email or phone. We’re flexible, and we'll respond in less than 48 hours.</p></div>
-        </details>
-      </div>
-    </div>
-  </div>
-</section>
-
+    </section>
 
     <!-- ABOUT -->
     <section id="about" class="about" aria-labelledby="about-title">
@@ -508,14 +493,11 @@
 
           <div class="about-actions" role="group" aria-label="Contact options">
             <a href="mailto:sparkitga@gmail.com?subject=SparkIt%20Video%20Packages&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%3A%0A"
-               class="btn btn-primary"
-               onclick="gtag('event','lead_email_click',{'location':'about'});">
+               class="btn btn-primary">
               Email Us
             </a>
 
-            <a href="tel:+14706021753"
-               class="btn btn-secondary"
-               onclick="gtag('event','lead_phone_click',{'location':'about'});">
+            <a href="tel:+14706021753" class="btn btn-secondary">
               Call (470) 602-1753
             </a>
           </div>
@@ -554,73 +536,8 @@
     </div>
   </footer>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "SparkIt Design",
-    "url": "https://sparkitdesign.com/",
-    "logo": "https://sparkitdesign.com/assets/logos/sparkit-logo.png",
-    "telephone": "+1-470-602-1753",
-    "areaServed": "Georgia",
-    "sameAs": ["https://instagram.com/sparkit.ga"]
-  }
-  </script>
-
-  <!-- Mobile menu logic -->
-  <script>
-    (function () {
-      const btn = document.querySelector('.nav-toggle');
-      const nav = document.getElementById('primary-nav');
-      if (!btn || !nav) return;
-
-      function closeNav() {
-        nav.classList.remove('is-open');
-        btn.setAttribute('aria-expanded', 'false');
-        btn.setAttribute('aria-label', 'Open menu');
-      }
-
-      function openNav() {
-        nav.classList.add('is-open');
-        btn.setAttribute('aria-expanded', 'true');
-        btn.setAttribute('aria-label', 'Close menu');
-      }
-
-      btn.addEventListener('click', function () {
-        const isOpen = nav.classList.contains('is-open');
-        isOpen ? closeNav() : openNav();
-      });
-
-      nav.addEventListener('click', function (e) {
-        const target = e.target;
-        if (target && target.matches('a')) closeNav();
-      });
-
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') closeNav();
-      });
-
-      window.addEventListener('resize', function () {
-        if (window.innerWidth > 860) closeNav();
-      });
-    })();
-  </script>
-
-  <!-- FAQ: only one open at a time (cleaner UX) -->
-  <script>
-    (function () {
-      const items = document.querySelectorAll('#resources details.faq-item');
-      if (!items.length) return;
-
-      items.forEach(d => {
-        d.addEventListener('toggle', () => {
-          if (!d.open) return;
-          items.forEach(other => {
-            if (other !== d) other.removeAttribute('open');
-          });
-        });
-      });
-    })();
-  </script>
+  <!-- No-JS fallback note (optional):
+       If you want a true hamburger menu without JS, you can convert nav to a <details> dropdown.
+       Right now, keep nav visible on mobile via CSS. -->
 </body>
 </html>
