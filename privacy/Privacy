@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PKBD5PZQ');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-94JDJYFKGY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-94JDJYFKGY');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Privacy Policy | SparkIt</title>
+  <meta name="description" content="Privacy policy for SparkIt LLC." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://sparkitdesign.com/privacy/" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="/assets/favicon/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-50x50.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Privacy Policy | SparkIt" />
+  <meta property="og:description" content="Privacy policy for SparkIt LLC." />
+  <meta property="og:url" content="https://sparkitdesign.com/privacy/" />
+  <meta property="og:site_name" content="SparkIt" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Privacy Policy | SparkIt" />
+  <meta name="twitter:description" content="Privacy policy for SparkIt LLC." />
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"Privacy Policy",
+    "description":"Privacy policy for SparkIt LLC.",
+    "url":"https://sparkitdesign.com/privacy/",
+    "publisher":{"@type":"Organization","name":"SparkIt LLC"}
+  }
+  </script>
+
+  <style>
+    :root{
+      --accent:#ff6a00;
+      --ink:#111;
+      --paper:#fcfbf8;
+      --muted:rgba(17,17,17,.68);
+      --line:rgba(17,17,17,.14);
+      --max:900px;
+      --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        radial-gradient(900px 520px at 12% -10%, rgba(255,106,0,.10), transparent 60%),
+        radial-gradient(900px 520px at 110% 10%, rgba(255,106,0,.07), transparent 55%),
+        linear-gradient(180deg, #ffffff 0%, var(--paper) 70%, #ffffff 100%);
+      font-family:var(--sans);
+      line-height:1.65;
+    }
+
+    a{color:inherit}
+    a:hover{color:var(--accent)}
+
+    header{
+      position:sticky; top:0; z-index:50;
+      background: rgba(252,251,248,.88);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:12px 16px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      text-decoration:none;
+      font-weight:900;
+      letter-spacing:.2px;
+      white-space:nowrap;
+    }
+    .mark{
+      width:11px;height:11px;border-radius:999px;
+      background:var(--accent);
+      box-shadow:0 0 0 6px rgba(255,106,0,.12);
+      flex:0 0 auto;
+    }
+    .navlinks{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    .pill{
+      padding:8px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,255,255,.65);
+      text-decoration:none;
+      font-size:14px;
+      font-weight:650;
+    }
+    .pill:hover{
+      border-color:rgba(255,106,0,.25);
+      background:rgba(255,106,0,.04);
+    }
+
+    main{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:34px 16px 76px;
+    }
+
+    h1{
+      font-family:var(--serif);
+      font-size:clamp(34px, 4vw, 52px);
+      line-height:1.05;
+      margin:0 0 8px;
+      letter-spacing:-.4px;
+    }
+    .lede{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:18px;
+      max-width:70ch;
+    }
+    .rule{height:1px;background:var(--line);margin:22px 0 8px}
+    h2{
+      font-family:var(--serif);
+      font-size:24px;
+      margin:28px 0 10px;
+      letter-spacing:-.2px;
+    }
+    p{
+      margin:12px 0;
+      color:rgba(17,17,17,.92);
+      font-size:17px;
+    }
+    ul{margin:10px 0 12px 22px}
+    li{margin:8px 0;font-size:17px}
+    .small{font-size:14px;color:var(--muted)}
+    .box{
+      margin-top:18px;
+      padding:14px 16px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:rgba(255,255,255,.65);
+    }
+
+    footer{
+      border-top:1px solid var(--line);
+      padding:26px 16px;
+      color:var(--muted);
+      background:rgba(255,255,255,.55);
+    }
+    footer .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKBD5PZQ"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header>
+    <div class="topbar">
+      <a class="brand" href="/" aria-label="SparkIt Home">
+        <span class="mark" aria-hidden="true"></span>
+        <span>SparkIt</span>
+      </a>
+
+      <nav class="navlinks" aria-label="Primary">
+        <a class="pill" href="/">Home</a>
+        <a class="pill" href="/blog/">Blog</a>
+        <a class="pill" href="mailto:sparkit.ga@gmail.com?subject=Privacy%20Policy%20Question%20-%20SparkIt">Email</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Privacy Policy</h1>
+    <p class="lede">
+      SparkIt LLC respects your privacy. This policy explains what information may be collected when you visit our website or contact us,
+      and how that information is used.
+    </p>
+    <div class="rule" aria-hidden="true"></div>
+    <p class="small"><strong>Effective Date:</strong> January 1, 2026</p>
+
+    <h2>1. Introduction &amp; Scope</h2>
+    <p>
+      This Privacy Policy explains how SparkIt LLC (“SparkIt,” “we,” “us”) collects, uses, and protects information when you interact with
+      our website and communications.
+    </p>
+    <p>
+      This policy applies only to SparkIt’s website and services. It does not apply to third-party platforms we may link to (for example,
+      social media websites).
+    </p>
+
+    <h2>2. Information We Collect</h2>
+    <p><strong>Information you provide:</strong> We may collect information you submit directly, such as:</p>
+    <ul>
+      <li>Name</li>
+      <li>Email address</li>
+      <li>Phone number</li>
+      <li>Request type</li>
+      <li>Project details (for example, “What are you creating?”)</li>
+    </ul>
+    <p>
+      We use this information to respond to your request, communicate about your project, and provide services.
+    </p>
+
+    <p><strong>Information collected automatically:</strong> We may collect limited technical and usage information, such as:</p>
+    <ul>
+      <li>IP address</li>
+      <li>Browser type</li>
+      <li>Device information</li>
+      <li>Pages visited and time spent on the site</li>
+      <li>General region (approximate location)</li>
+    </ul>
+    <p>
+      This information is collected through cookies and analytics tools to help us understand usage patterns and improve site performance.
+    </p>
+
+    <h2>3. Tools and Service Providers</h2>
+    <p>
+      SparkIt may use trusted service providers to operate the site and deliver services, including:
+    </p>
+    <ul>
+      <li>Google Analytics</li>
+      <li>Google Tag Manager</li>
+      <li>GitHub Pages (site hosting)</li>
+      <li>Email providers (for example, Gmail)</li>
+      <li>Automation tools (for example, Zapier), if used</li>
+    </ul>
+    <p>
+      These providers may process data according to their own privacy policies.
+    </p>
+
+    <h2>4. How We Use Your Information</h2>
+    <p>We use information we collect to:</p>
+    <ul>
+      <li>Respond to inquiries and service requests</li>
+      <li>Provide website, branding, and video services</li>
+      <li>Send confirmations and service-related messages</li>
+      <li>Improve website performance, usability, and content</li>
+    </ul>
+    <p>
+      We do not sell personal information.
+    </p>
+
+    <h2>5. Information Sharing</h2>
+    <p>
+      We may share information with trusted service providers only when necessary to operate the site, process requests, and deliver services.
+      We do not share personal information with third parties for advertising resale.
+    </p>
+
+    <h2>6. Cookies &amp; Tracking Technologies</h2>
+    <p>
+      SparkIt uses cookies and similar technologies for site functionality and analytics. You can disable cookies in your browser settings.
+      Disabling cookies may affect some site features.
+    </p>
+
+    <h2>7. Your Choices and Rights</h2>
+    <p>You may request to:</p>
+    <ul>
+      <li>Access the personal information we have about you</li>
+      <li>Correct or update your information</li>
+      <li>Delete your information (subject to business or legal requirements)</li>
+      <li>Opt out of marketing communications</li>
+    </ul>
+
+    <div class="box">
+      <p style="margin:0">
+        To make a request, email us at
+        <strong><a href="mailto:sparkit.ga@gmail.com?subject=Privacy%20Request%20-%20SparkIt">sparkit.ga@gmail.com</a></strong>.
+      </p>
+    </div>
+
+    <h2>8. Data Retention</h2>
+    <p>
+      We keep personal information only as long as necessary to provide services, maintain project records, comply with legal requirements,
+      and support legitimate business operations. When information is no longer needed, it is deleted or securely stored.
+    </p>
+
+    <h2>9. Children’s Privacy</h2>
+    <p>
+      SparkIt’s services are not directed to children under 13, and we do not knowingly collect personal information from children under 13.
+      If a parent or guardian believes a child provided information to us, please contact us and we will remove it.
+    </p>
+
+    <h2>10. Data Security</h2>
+    <p>
+      We take reasonable steps to protect personal information. However, no online system is completely secure.
+    </p>
+    <p>
+      If SparkIt uses third-party payment providers for transactions, those providers may use encryption and secure protocols to protect payment
+      information. SparkIt does not store full payment card numbers on this website.
+    </p>
+
+    <h2>11. International Users</h2>
+    <p>
+      Information may be stored and processed in the United States. By using this site, you acknowledge that your information may be processed
+      in the United States.
+    </p>
+
+    <h2>12. Policy Updates</h2>
+    <p>
+      We may update this Privacy Policy from time to time. Changes will be posted on this page with a revised effective date.
+    </p>
+
+    <h2>13. Contact</h2>
+    <p>
+      If you have questions about this policy or your data, contact:
+      <br><strong>SparkIt LLC</strong>
+      <br>Email: <a href="mailto:sparkit.ga@gmail.com?subject=Privacy%20Policy%20Question%20-%20SparkIt">sparkit.ga@gmail.com</a>
+    </p>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+          <span class="mark" aria-hidden="true"></span>
+          <strong style="color:rgba(17,17,17,.92);">SparkIt</strong>
+        </div>
+        <div class="small">Think With Your Hands.</div>
+      </div>
+
+      <div class="small">
+        <div>
+          <a href="/blog/">Blog</a> •
+          <a href="/privacy/">Privacy</a> •
+          <a href="mailto:sparkit.ga@gmail.com?subject=SparkIt%20Website%20Question">Email</a>
+        </div>
+        <div style="margin-top:8px;">© <span id="year"></span> SparkIt LLC</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
