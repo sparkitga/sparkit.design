@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PKBD5PZQ');</script>
+
+  <!-- Google tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-94JDJYFKGY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-94JDJYFKGY');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog | SparkIt Design</title>
+
+  <style>
+    :root{
+      --accent:#ff6a00;
+      --ink:#111;
+      --paper:#fcfbf8;
+      --line:rgba(17,17,17,.14);
+      --max:1120px;
+      --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--ink);
+      background:var(--paper);
+    }
+
+    header{
+      border-bottom:1px solid var(--line);
+      background:#fff;
+    }
+    .topbar{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 16px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .brand{
+      font-weight:800;
+      text-decoration:none;
+      color:var(--ink);
+    }
+
+    main{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:30px 16px 60px;
+    }
+
+    h1{
+      font-family:var(--serif);
+      font-size:48px;
+      margin:0 0 30px;
+      letter-spacing:-.5px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+    }
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr}
+    }
+
+    .embed{
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:14px;
+      overflow:hidden;
+      height:600px;
+    }
+    .embed iframe{
+      width:100%;
+      height:100%;
+      border:none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- GTM noscript -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKBD5PZQ"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <header>
+    <div class="topbar">
+      <a class="brand" href="/">SparkIt Design</a>
+      <nav>
+        <a href="/">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Blog</h1>
+
+    <div class="grid">
+
+      <!-- Blog Post 1 -->
+      <div class="embed">
+        <iframe src="/blog/what-is-a-hero-image/"></iframe>
+      </div>
+
+      <!-- Blog Post 2 (add when ready) -->
+      <div class="embed">
+        <iframe src="/blog/hero-image-mistakes/"></iframe>
+      </div>
+
+    </div>
+  </main>
+</body>
+</html>
