@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>What Is a Hero Image? | SparkIt Design</title>
+  <meta name="description" content="A hero image is the full-screen visual at the top of your website that communicates your brand, emotion, and outcome in one glance. Learn best practices and how to track what wins." />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Canonical (clean URL style) -->
+  <link rel="canonical" href="https://sparkitdesign.com/blog/what-is-a-hero-image/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="What Is a Hero Image?" />
+  <meta property="og:description" content="Your hero image is the director of first impressions. Learn how to choose one that tells your story and drives action." />
+  <meta property="og:url" content="https://sparkitdesign.com/blog/what-is-a-hero-image/" />
+  <meta property="og:site_name" content="SparkIt Design" />
+  <meta property="og:image" content="https://sparkitdesign.com/assets/images/hero-apple.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="What Is a Hero Image?" />
+  <meta name="twitter:description" content="A practical guide to hero images: definition, best practices, and how to measure success." />
+  <meta name="twitter:image" content="https://sparkitdesign.com/assets/images/hero-apple.jpg" />
+
+  <!-- Favicons (adjust if your main site already handles these globally) -->
+  <link rel="icon" href="/assets/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" href="/assets/favicon/favicon-50x50.png" />
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BlogPosting",
+    "headline":"What Is a Hero Image?",
+    "description":"A hero image is the full-screen visual at the top of your website that communicates your brand, emotion, and outcome in one glance.",
+    "image":["https://sparkitdesign.com/assets/images/hero-apple.jpg"],
+    "author":{"@type":"Organization","name":"SparkIt Design"},
+    "publisher":{"@type":"Organization","name":"SparkIt Design"},
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://sparkitdesign.com/blog/what-is-a-hero-image/"}
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card: rgba(255,255,255,.06);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.72);
+      --line: rgba(255,255,255,.14);
+      --accent:#85c446;
+      --shadow: 0 18px 40px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 980px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 20% -10%, rgba(133,196,70,.18), transparent 60%),
+        radial-gradient(900px 600px at 110% 10%, rgba(133,196,70,.10), transparent 55%),
+        linear-gradient(180deg, #070a0f 0%, var(--bg) 60%, #070a0f 100%);
+      line-height:1.55;
+    }
+    a{color:var(--text);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{
+      border-bottom:1px solid var(--line);
+      background:rgba(0,0,0,.15);
+      backdrop-filter:blur(10px);
+      position:sticky;top:0;z-index:20;
+    }
+    .nav{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 18px;
+      display:flex;align-items:center;justify-content:space-between;gap:16px;
+    }
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.2px;white-space:nowrap}
+    .dot{width:10px;height:10px;border-radius:999px;background:var(--accent);box-shadow:0 0 0 6px rgba(133,196,70,.18)}
+    .navlinks{display:flex;gap:14px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+    .pill{padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.04);font-size:14px}
+    .pill:hover{border-color:rgba(133,196,70,.55);text-decoration:none}
+
+    main{max-width:var(--max);margin:0 auto;padding:28px 18px 56px}
+    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:stretch;margin-top:14px}
+    @media (max-width:860px){.grid{grid-template-columns:1fr}}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .articlehead{padding:26px 22px}
+    .kicker{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:8px 12px;border-radius:999px;
+      border:1px solid rgba(133,196,70,.35);
+      background:rgba(133,196,70,.10);
+      font-size:13px;letter-spacing:.2px;margin-bottom:14px;width:fit-content
+    }
+    h1{font-size:clamp(30px,4vw,44px);line-height:1.12;margin:0 0 10px;letter-spacing:-.4px}
+    .meta{display:flex;flex-wrap:wrap;gap:12px 18px;color:var(--muted);font-size:14px;margin-top:10px}
+    .meta span{display:inline-flex;align-items:center;gap:8px}
+    .meta i{width:6px;height:6px;border-radius:999px;background:rgba(255,255,255,.28);display:inline-block}
+
+    .heroimg{
+      margin-top:16px;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#0a0d12;
+    }
+    .heroimg img{display:block;width:100%;height:auto}
+
+    aside{padding:18px;display:flex;flex-direction:column;gap:14px}
+    aside h2{margin:0;font-size:16px;letter-spacing:.2px}
+    .callout{padding:14px;border-radius:14px;border:1px solid rgba(133,196,70,.30);background:rgba(133,196,70,.08)}
+    .callout p{margin:0;color:var(--muted);font-size:14px}
+    .cta{display:flex;flex-direction:column;gap:10px;padding:14px;border-radius:14px;border:1px solid var(--line);background:rgba(0,0,0,.18)}
+    .cta strong{font-size:15px}
+    .cta p{margin:0;color:var(--muted);font-size:14px}
+    .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:10px 14px;border-radius:999px;
+      border:1px solid rgba(133,196,70,.55);
+      background:rgba(133,196,70,.14);
+      font-weight:650;font-size:14px;text-decoration:none
+    }
+    .btn:hover{text-decoration:none;border-color:rgba(133,196,70,.85)}
+    .btn.secondary{border-color:var(--line);background:rgba(255,255,255,.04);font-weight:600}
+
+    article{margin-top:18px;padding:26px 22px}
+    article h2{margin:26px 0 10px;font-size:22px;letter-spacing:-.2px}
+    article p{margin:12px 0;color:rgba(255,255,255,.86);font-size:16px}
+    ul{margin:10px 0 12px 22px;color:rgba(255,255,255,.86)}
+    li{margin:8px 0}
+    .divider{height:1px;background:var(--line);margin:22px 0}
+    footer{border-top:1px solid var(--line);color:var(--muted);padding:26px 18px}
+    footer .wrap{max-width:var(--max);margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;gap:18px;flex-wrap:wrap}
+    .small{font-size:13px;color:var(--muted)}
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <a class="brand" href="/">
+        <span class="dot" aria-hidden="true"></span>
+        <span>SparkIt Design</span>
+      </a>
+      <nav class="navlinks" aria-label="Primary">
+        <a class="pill" href="/services">Services</a>
+        <a class="pill" href="/work">Work</a>
+        <a class="pill" href="/blog">Blog</a>
+        <a class="pill" href="/contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="grid">
+      <div class="card articlehead">
+        <div class="kicker">Website Design • Conversion • Story</div>
+        <h1>What Is a Hero Image?</h1>
+        <p style="margin:0;color:var(--muted);font-size:16px;">
+          Your hero image is the director of first impressions. It sets the tone, tells the story, and moves people toward action—fast.
+        </p>
+
+        <div class="meta" aria-label="Post metadata">
+          <span><i aria-hidden="true"></i> By SparkIt Design</span>
+          <span><i aria-hidden="true"></i> 5 min read</span>
+          <span><i aria-hidden="true"></i> Updated: <time datetime="2026-02-06">February 6, 2026</time></span>
+        </div>
+
+        <!-- Hero image preview on the post (uses your repo assets path) -->
+        <div class="heroimg" aria-label="Example hero image">
+          <picture>
+            <source srcset="/assets/images/hero-apple-mobile.jpg" media="(max-width: 860px)" />
+            <img src="/assets/images/hero-apple.jpg" alt="Example of a clean, full-width hero image" loading="lazy" />
+          </picture>
+        </div>
+      </div>
+
+      <aside class="card">
+        <h2>Quick Take</h2>
+        <div class="callout">
+          <p><strong style="color:var(--text);">A hero image</strong> is the large, top-of-page visual that communicates your brand and outcome in one glance.</p>
+        </div>
+
+        <div class="cta">
+          <strong>Want a hero image that converts?</strong>
+          <p>We can map the customer story, choose the right visual, and build a landing page that drives action.</p>
+          <div class="btnrow">
+            <a class="btn" href="/contact">Request a Quote</a>
+            <a class="btn secondary" href="/work">See Examples</a>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <article class="card">
+      <h2>Definition</h2>
+      <p>
+        A hero image is the full-screen visual at the top of your website that instantly communicates what your business represents.
+        In one glance, visitors should feel welcomed, understand your purpose, and recognize how you can help them.
+      </p>
+      <p>
+        While every page can have its own hero image, your main landing page should feature a strong, full-screen visual.
+        A common desktop size is <strong>1280 × 720 pixels</strong>, while a mobile-optimized version is often around <strong>800 × 1200 pixels</strong>.
+      </p>
+
+      <h2>Using Your Hero Image to Promote the Story</h2>
+      <p>
+        Your main landing page is usually the first place customers go to learn about your business. That space should clearly communicate
+        the emotion and outcome your brand delivers.
+      </p>
+      <p>
+        A strong hero image doesn’t just look good. It resolves a frustration, answers a question, or shows a better future.
+        In many cases, it can influence revenue more than any button, link, or paragraph on the page.
+      </p>
+
+      <p><strong>Great hero images often include:</strong></p>
+      <ul>
+        <li>Bright, confident colors</li>
+        <li>A welcoming or focused face</li>
+        <li>A moment where a problem is clearly being solved</li>
+      </ul>
+
+      <p>
+        More important than happiness is visible success. Your customer should see themselves winning.
+      </p>
+
+      <p>
+        Before designing a website or any marketing material, define the problem you solve. In your customer’s story, they are the hero.
+        They’ve arrived because something isn’t working and they want a solution. Your hero image is your chance to show how their story improves
+        the moment they meet your brand.
+      </p>
+
+      <h2>Tracking What Wins</h2>
+      <p>
+        Success looks different for every business. Some teams focus on sales, others on traffic, leads, or brand awareness.
+        Your goal will influence the kind of hero image you choose.
+      </p>
+      <p>
+        The only way to know if your message is working is to track results. Analytics tools, heatmaps, or simple customer surveys can reveal
+        how people interact with your landing page.
+      </p>
+      <p>
+        When visitors stay longer, click more, or convert at higher rates, you’re seeing signs of a winning experience.
+        Strong brands don’t guess. They listen, measure, and adjust based on the real stories their customers share.
+      </p>
+
+      <div class="divider" role="separator" aria-hidden="true"></div>
+
+      <p style="margin:0;color:var(--muted);font-size:14px;">
+        Want a reusable process? Build a “Hero Image Brief” so every project starts with the customer story and ends with measurable results.
+      </p>
+    </article>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+          <span class="dot" aria-hidden="true"></span>
+          <strong style="color:var(--text);">SparkIt Design</strong>
+        </div>
+        <div class="small">Think With Your Hands.</div>
+      </div>
+
+      <div class="small">
+        <div><a href="/contact">Contact</a> • <a href="/blog">More posts</a></div>
+        <div style="margin-top:8px;">© <span id="year"></span> SparkIt Design</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
