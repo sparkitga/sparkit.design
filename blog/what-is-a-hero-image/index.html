@@ -29,7 +29,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="article" />
   <meta property="og:title" content="What Is a Hero Image?" />
-  <meta property="og:description" content="Your hero image is the director of first impressions. Learn how to choose one that tells your story and drives action." />
+  <meta property="og:description" content="A practical guide to hero images: definition, best practices, and how to measure success." />
   <meta property="og:url" content="https://sparkitdesign.com/blog/what-is-a-hero-image/" />
   <meta property="og:site_name" content="SparkIt Design" />
   <meta property="og:image" content="https://sparkitdesign.com/assets/images/hero-apple.jpg" />
@@ -59,48 +59,38 @@
 
   <style>
     :root{
-      /* Orange brand system */
-      --accent: #ff6a00;
-      --accent-2: #ff8a3d;
-      --ink: #111111;
-      --paper: #fcfbf8;
-      --muted: rgba(17,17,17,.68);
-      --line: rgba(17,17,17,.14);
-      --card: rgba(255,255,255,.75);
-      --shadow: 0 18px 50px rgba(0,0,0,.10);
-      --radius: 18px;
+      --accent:#ff6a00;
+      --ink:#111;
+      --paper:#fcfbf8;
+      --muted:rgba(17,17,17,.68);
+      --line:rgba(17,17,17,.14);
 
-      /* Layout */
-      --max: 1120px;
-      --read: 720px;
+      --max:1120px;
+      --read:720px;
 
-      /* Typography (NYT-ish: serif headline + clean sans) */
       --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
       --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
     }
 
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
     body{
       margin:0;
       color:var(--ink);
       background:
-        radial-gradient(900px 520px at 12% -10%, rgba(255,106,0,.16), transparent 60%),
-        radial-gradient(900px 520px at 110% 10%, rgba(255,138,61,.12), transparent 55%),
+        radial-gradient(900px 520px at 12% -10%, rgba(255,106,0,.10), transparent 60%),
+        radial-gradient(900px 520px at 110% 10%, rgba(255,106,0,.07), transparent 55%),
         linear-gradient(180deg, #ffffff 0%, var(--paper) 65%, #ffffff 100%);
       font-family:var(--sans);
-      line-height:1.6;
+      line-height:1.65;
     }
-
     a{color:inherit}
     a:hover{color:var(--accent)}
 
-    /* Top bar (clean, newspaper-ish) */
     header{
       position:sticky; top:0; z-index:50;
       background: rgba(252,251,248,.88);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
+      border-bottom:1px solid var(--line);
     }
     .topbar{
       max-width:var(--max);
@@ -108,185 +98,147 @@
       padding:12px 16px;
       display:flex; align-items:center; justify-content:space-between; gap:14px;
     }
-    .brand{
-      display:flex; align-items:center; gap:10px;
-      text-decoration:none;
-    }
+    .brand{display:flex; align-items:center; gap:10px; text-decoration:none}
     .mark{
-      width:11px; height:11px; border-radius:999px;
-      background: var(--accent);
-      box-shadow: 0 0 0 6px rgba(255,106,0,.14);
-      flex:0 0 auto;
+      width:11px;height:11px;border-radius:999px;
+      background:var(--accent);
+      box-shadow:0 0 0 6px rgba(255,106,0,.12);
     }
-    .brandname{
-      font-weight:800;
-      letter-spacing:.2px;
-    }
+    .brandname{font-weight:800; letter-spacing:.2px}
     .navlinks{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
     .pill{
       padding:8px 12px;
       border:1px solid var(--line);
       border-radius:999px;
-      background: rgba(255,255,255,.65);
+      background:rgba(255,255,255,.65);
       text-decoration:none;
       font-size:14px;
       font-weight:650;
     }
     .pill:hover{
-      border-color: rgba(255,106,0,.35);
-      background: rgba(255,106,0,.06);
+      border-color:rgba(255,106,0,.25);
+      background:rgba(255,106,0,.04);
     }
 
-    main{max-width:var(--max); margin:0 auto; padding:22px 16px 70px}
+    main{max-width:var(--max); margin:0 auto; padding:24px 16px 72px}
 
-    /* Article layout */
     .mast{
       display:grid;
-      grid-template-columns: 1fr 320px;
-      gap:18px;
+      grid-template-columns: 1fr 300px;
+      gap:24px;
       align-items:start;
-      margin-top:10px;
     }
     @media (max-width: 980px){
       .mast{grid-template-columns:1fr}
+      aside{border-top:1px solid var(--line); padding-top:18px}
     }
 
-    .panel{
-      background: rgba(255,255,255,.78);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+    /* No boxes: use whitespace + thin rules */
+    .headline-wrap{
+      padding-bottom:16px;
+      border-bottom:1px solid var(--line);
     }
 
-    .headline-wrap{padding:22px 22px 14px}
     .kicker{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:7px 12px;
+      display:inline-flex;
+      padding:6px 10px;
       border-radius:999px;
-      border:1px solid rgba(255,106,0,.35);
-      background: rgba(255,106,0,.08);
+      border:1px solid rgba(255,106,0,.25);
+      background:rgba(255,106,0,.05);
       font-size:13px;
       letter-spacing:.2px;
-      width:fit-content;
     }
+
     h1{
-      font-family: var(--serif);
-      font-weight: 800;
-      font-size: clamp(34px, 4.2vw, 56px);
-      line-height: 1.06;
-      margin: 14px 0 10px;
-      letter-spacing: -.4px;
+      font-family:var(--serif);
+      font-weight:900;
+      font-size:clamp(36px, 4.5vw, 60px);
+      line-height:1.02;
+      margin:14px 0 10px;
+      letter-spacing:-.6px;
     }
     .subhead{
       margin:0;
-      color: var(--muted);
-      font-size: 18px;
-      max-width: 60ch;
+      color:var(--muted);
+      font-size:18px;
+      max-width:60ch;
     }
+
     .meta{
       display:flex; flex-wrap:wrap;
       gap:10px 16px;
       margin-top:14px;
-      color: var(--muted);
-      font-size: 13px;
+      color:var(--muted);
+      font-size:13px;
     }
     .meta span{display:inline-flex; align-items:center; gap:8px}
     .dotmini{width:5px;height:5px;border-radius:999px;background:rgba(17,17,17,.25);display:inline-block}
 
-    /* Lead art (NYT-like: wide image + caption line) */
     .leadart{
-      margin: 0 22px 18px;
-      border-radius: 16px;
+      margin-top:16px;
       overflow:hidden;
-      border: 1px solid var(--line);
+      border-radius:14px;
+      border:1px solid var(--line);
       background:#fff;
     }
     .leadart img{display:block;width:100%;height:auto}
     .caption{
-      margin:10px 22px 18px;
+      margin-top:10px;
       padding-top:10px;
       border-top:1px solid var(--line);
-      color: var(--muted);
-      font-size: 13px;
+      color:var(--muted);
+      font-size:13px;
     }
-    .caption strong{color: rgba(17,17,17,.88)}
 
-    /* Article body */
-    .article{
-      padding: 4px 22px 22px;
+    article{margin-top:18px}
+    .article-inner{max-width:var(--read)}
+    .article-inner h2{
+      font-family:var(--serif);
+      font-size:26px;
+      line-height:1.2;
+      margin:28px 0 10px;
+      letter-spacing:-.2px;
     }
-    .article-inner{
-      max-width: var(--read);
-      margin: 0 auto;
-      padding-top: 10px;
+    .article-inner p{
+      margin:12px 0;
+      font-size:17px;
+      color:rgba(17,17,17,.92);
     }
-    .article h2{
-      font-family: var(--serif);
-      font-size: 26px;
-      line-height: 1.2;
-      margin: 26px 0 10px;
-      letter-spacing: -.2px;
-    }
-    .article p{
-      margin: 12px 0;
-      font-size: 17px;
-      color: rgba(17,17,17,.92);
-    }
-    .article ul{margin: 10px 0 12px 22px; color: rgba(17,17,17,.92)}
-    .article li{margin: 8px 0; font-size:17px}
+    .article-inner ul{margin:10px 0 12px 22px; color:rgba(17,17,17,.92)}
+    .article-inner li{margin:8px 0; font-size:17px}
+
     .pullquote{
-      margin: 20px 0;
-      padding: 14px 16px;
-      border-left: 4px solid var(--accent);
-      background: rgba(255,106,0,.05);
-      border-radius: 12px;
-      color: rgba(17,17,17,.86);
-      font-style: italic;
+      margin:22px 0;
+      padding-left:14px;
+      border-left:3px solid var(--accent);
+      color:rgba(17,17,17,.86);
+      font-style:italic;
     }
 
-    /* Sidebar */
-    aside{padding:18px; display:flex; flex-direction:column; gap:14px}
-    aside h2{margin:0; font-size:14px; letter-spacing:.12em; text-transform:uppercase; color: rgba(17,17,17,.72)}
-    .callout{
-      padding:14px;
-      border-radius:14px;
-      border:1px solid rgba(255,106,0,.30);
-      background: rgba(255,106,0,.06);
+    /* Sidebar: service-first notes, no CTA buttons */
+    aside{padding-top:6px}
+    aside h2{
+      margin:0 0 12px;
+      font-size:13px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:rgba(17,17,17,.72)
     }
-    .callout p{margin:0; color: rgba(17,17,17,.82); font-size:14px}
-    .cta{
-      padding:14px;
-      border-radius:14px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.65);
+    .note{
+      padding:12px 0;
+      border-top:1px solid var(--line);
     }
-    .cta strong{display:block; font-size:15px; margin-bottom:4px}
-    .cta p{margin:0; color: var(--muted); font-size:14px}
-    .btnrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:10px 14px;
-      border-radius:999px;
-      border: 1px solid rgba(255,106,0,.45);
-      background: rgba(255,106,0,.10);
-      text-decoration:none;
-      font-weight:750;
-      font-size:14px;
-    }
-    .btn:hover{background: rgba(255,106,0,.14); border-color: rgba(255,106,0,.70)}
-    .btn.secondary{
-      border-color: var(--line);
-      background: rgba(255,255,255,.70);
-      font-weight:700;
-    }
-    .btn.secondary:hover{border-color: rgba(255,106,0,.25)}
+    .note:first-of-type{border-top:none; padding-top:0}
+    .note strong{display:block; margin-bottom:6px}
+    .note p{margin:0; color:var(--muted); font-size:14px}
+    .note a{color:rgba(17,17,17,.92)}
+    .note a:hover{color:var(--accent)}
 
-    /* Footer */
     footer{
-      border-top: 1px solid var(--line);
-      padding: 26px 16px;
-      color: var(--muted);
-      background: rgba(255,255,255,.55);
+      border-top:1px solid var(--line);
+      padding:26px 16px;
+      color:var(--muted);
+      background:rgba(255,255,255,.55);
     }
     footer .wrap{
       max-width:var(--max);
@@ -310,25 +262,24 @@
         <span class="mark" aria-hidden="true"></span>
         <span class="brandname">SparkIt Design</span>
       </a>
+
       <nav class="navlinks" aria-label="Primary">
-        <!-- Keep these aligned with real pages you have -->
         <a class="pill" href="/">Home</a>
         <a class="pill" href="/#services">Services</a>
         <a class="pill" href="/blog/">Blog</a>
-        <a class="pill" href="mailto:sparkitga@gmail.com?subject=SparkIt%20Blog%20-%20Hero%20Image%20Help">Contact</a>
+        <a class="pill" href="mailto:sparkitga@gmail.com?subject=SparkIt%20Blog%20Question">Email</a>
       </nav>
     </div>
   </header>
 
   <main>
     <section class="mast">
-      <!-- Main article panel -->
-      <div class="panel">
+      <div>
         <div class="headline-wrap">
-          <div class="kicker">Website Design • Conversion • Story</div>
+          <div class="kicker">Website Design • Clarity • Story</div>
           <h1>What Is a Hero Image?</h1>
           <p class="subhead">
-            Your hero image is the director of first impressions. It sets the tone, tells the story, and moves people toward action—fast.
+            A simple guide for teams who want their website to feel clear, welcoming, and easy to trust.
           </p>
 
           <div class="meta" aria-label="Post metadata">
@@ -336,99 +287,98 @@
             <span><span class="dotmini" aria-hidden="true"></span> 5 min read</span>
             <span><span class="dotmini" aria-hidden="true"></span> Updated: <time datetime="2026-02-06">February 6, 2026</time></span>
           </div>
+
+          <figure class="leadart" aria-label="Lead image">
+            <picture>
+              <source srcset="/assets/images/hero-apple-mobile.jpg" media="(max-width: 860px)" />
+              <img src="/assets/images/hero-apple.jpg" alt="A clean, full-width hero image example" loading="eager" fetchpriority="high" />
+            </picture>
+          </figure>
+
+          <div class="caption">
+            A hero image should help visitors quickly understand who you serve and what changes for them.
+          </div>
         </div>
 
-        <!-- Lead art -->
-        <figure class="leadart" aria-label="Lead image">
-          <picture>
-            <source srcset="/assets/images/hero-apple-mobile.jpg" media="(max-width: 860px)" />
-            <img src="/assets/images/hero-apple.jpg" alt="A clean, full-width hero image example" loading="eager" fetchpriority="high" />
-          </picture>
-        </figure>
-        <div class="caption">
-          <strong>Lead art:</strong> A hero image should communicate “what you do” and “what changes” in one glance.
-        </div>
-
-        <!-- Body -->
-        <article class="article" aria-label="Article">
+        <article aria-label="Article">
           <div class="article-inner">
             <h2>Definition</h2>
             <p>
-              A hero image is the full-screen visual at the top of your website that instantly communicates what your business represents.
-              In one glance, visitors should feel welcomed, understand your purpose, and recognize how you can help them.
+              A hero image is the large visual at the top of a website page. Its job is to help a visitor understand your business quickly,
+              without having to work for it.
             </p>
             <p>
-              While every page can have its own hero image, your main landing page should feature a strong, full-screen visual.
-              A common desktop size is <strong>1280 × 720</strong>, while a mobile-optimized version is often around <strong>800 × 1200</strong>.
+              The best hero images do three things at once: they set the tone, show the outcome, and reduce confusion.
+              When someone lands on your site, your hero area is your first chance to serve them with clarity.
+            </p>
+            <p>
+              For sizing, many teams use <strong>1280 × 720</strong> for desktop and a portrait crop around <strong>800 × 1200</strong> for mobile.
+              More important than the exact pixels is that the image loads fast and reads clearly on a phone.
             </p>
 
             <div class="pullquote">
-              “If your hero image does its job, the customer feels clarity before they read a single word.”
+              “A good hero image is an act of service. It saves people time.”
             </div>
 
-            <h2>Using Your Hero Image to Promote the Story</h2>
+            <h2>How a Hero Image Helps People</h2>
             <p>
-              Your main landing page is usually the first place customers go to learn about your business. That space should clearly communicate
-              the emotion and outcome your brand delivers.
+              People don’t visit a website because they want more content. They visit because they want an answer:
+              <em>Can you help me, and is this for someone like me?</em>
             </p>
             <p>
-              A strong hero image doesn’t just look good. It resolves a frustration, answers a question, or shows a better future.
-              In many cases, it can influence revenue more than any button, link, or paragraph on the page.
+              A hero image can quietly answer those questions by showing the real environment, the real customer, or the real result.
+              It’s less about being flashy and more about being understandable.
             </p>
 
-            <p><strong>Great hero images often include:</strong></p>
+            <p><strong>Useful signals a hero image can communicate:</strong></p>
             <ul>
-              <li>Clear, confident color</li>
-              <li>A single focused subject (no visual clutter)</li>
-              <li>A moment where a problem is clearly being solved</li>
+              <li>What you do, without needing a paragraph</li>
+              <li>Who you serve, without guesswork</li>
+              <li>What changes after someone chooses you</li>
             </ul>
 
+            <h2>Tracking What’s Working</h2>
             <p>
-              More important than “happy” is visible success. Your customer should see themselves winning.
-            </p>
-
-            <h2>Tracking What Wins</h2>
-            <p>
-              Success looks different for every business. Some teams focus on sales, others on traffic, leads, or brand awareness.
-              Your goal will influence the kind of hero image you choose.
+              You don’t need to overcomplicate this. Pick one goal (calls, form submissions, or clicks to your next step),
+              then watch how people behave.
             </p>
             <p>
-              The only way to know if your message is working is to track results. Analytics tools, heatmaps, or simple customer surveys can reveal
-              how people interact with your landing page.
-            </p>
-            <p>
-              When visitors stay longer, click more, or convert at higher rates, you’re seeing signs of a winning experience.
-              Strong brands don’t guess. They listen, measure, and adjust based on the real stories their customers share.
+              If visitors stay longer, scroll more, and take the next step more often, your hero section is likely doing its job.
+              If they bounce quickly, your hero may be unclear, too busy, or not relevant to what they came for.
             </p>
 
             <div style="height:1px;background:var(--line);margin:24px 0"></div>
 
             <p style="margin:0;color:var(--muted);font-size:14px;">
-              Want a reusable process? Build a “Hero Image Brief” so every project starts with the customer story and ends with measurable results.
+              If you’d like, email us your homepage link and we’ll send one helpful suggestion—no pitch, just a quick improvement.
             </p>
           </div>
         </article>
       </div>
 
-      <!-- Sidebar panel -->
-      <aside class="panel" aria-label="Sidebar">
+      <aside aria-label="Helpful notes">
         <h2>Quick Take</h2>
-        <div class="callout">
-          <p><strong>A hero image</strong> is the large, top-of-page visual that communicates your brand and outcome in one glance.</p>
+
+        <div class="note">
+          <strong>One-sentence definition</strong>
+          <p>A hero image is the top-of-page visual that helps people understand your brand and outcome in one glance.</p>
         </div>
 
-        <div class="cta">
-          <strong>Want a hero image that converts?</strong>
-          <p>We can map the customer story, choose the right visual, and build a landing page that drives action.</p>
-          <div class="btnrow">
-            <a class="btn" href="mailto:sparkitga@gmail.com?subject=Hero%20Image%20Help%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%3A%0ATimeline%3A%0ABudget%3A%0A">Request a Quote</a>
-            <a class="btn secondary" href="/#video">See Packages</a>
-          </div>
+        <div class="note">
+          <strong>Simple checklist</strong>
+          <p>
+            Clear subject • Honest setting • Fast load • Works on mobile • Supports the headline.
+          </p>
         </div>
 
-        <div class="cta">
+        <div class="note">
           <strong>Next post idea</strong>
-          <p>“3 Hero Image Mistakes That Quietly Kill Conversions (and how to fix them)”</p>
+          <p>
+            <a href="/blog/hero-image-mistakes/">3 hero image mistakes that quietly create confusion (and how to fix them)</a>
+          </p>
+          <p style="margin-top:8px;font-size:13px;color:var(--muted);">
+            (Create this page later—this link is a placeholder.)
+          </p>
         </div>
       </aside>
     </section>
