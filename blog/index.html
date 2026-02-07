@@ -21,6 +21,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Blog | SparkIt Design</title>
 
+  <!-- Favicons -->
+  <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon-50x50.svg">
+  <link rel="apple-touch-icon" href="/assets/favicon/favicon-50x50.png">
+
   <style>
     :root{
       --accent:#ff6a00;
@@ -80,25 +85,73 @@
       .grid{grid-template-columns:1fr}
     }
 
-    .embed{
+    .card{
       border:1px solid var(--line);
       background:#fff;
       border-radius:14px;
       overflow:hidden;
-      height:600px;
+      text-decoration:none;
+      color:inherit;
+      transition:transform .15s ease, box-shadow .15s ease;
+      display:block;
     }
-    .embed iframe{
+
+    .card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 10px 24px rgba(0,0,0,.08);
+    }
+
+    .card img{
       width:100%;
-      height:100%;
-      border:none;
+      height:220px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .card-body{
+      padding:20px;
+    }
+
+    .tag{
+      display:inline-block;
+      padding:6px 10px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      font-size:12px;
+      margin-bottom:10px;
+      background:#fafafa;
+    }
+
+    .card h2{
+      font-family:var(--serif);
+      font-size:28px;
+      margin:0 0 10px;
+      line-height:1.2;
+    }
+
+    .card p{
+      margin:0;
+      color:#444;
+      font-size:15px;
+      line-height:1.5;
+    }
+
+    footer{
+      border-top:1px solid var(--line);
+      padding:20px 16px;
+      text-align:center;
+      color:#666;
+      font-size:14px;
     }
   </style>
 </head>
 
 <body>
   <!-- GTM noscript -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKBD5PZQ"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKBD5PZQ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
 
   <header>
     <div class="topbar">
@@ -115,16 +168,38 @@
     <div class="grid">
 
       <!-- Blog Post 1 -->
-      <div class="embed">
-        <iframe src="/blog/what-is-a-hero-image/"></iframe>
-      </div>
+      <a class="card" href="/blog/what-is-a-hero-image/">
+        <img src="/assets/images/hero-apple.jpg" alt="Hero image example">
+        <div class="card-body">
+          <div class="tag">Website Design • Clarity • Story</div>
+          <h2>What Is a Hero Image?</h2>
+          <p>
+            A simple guide for teams who want their website to feel clear, welcoming, and easy to trust.
+          </p>
+        </div>
+      </a>
 
-      <!-- Blog Post 2 (add when ready) -->
-      <div class="embed">
-        <iframe src="/blog/website-in-an-ai-world/"></iframe>
-      </div>
+      <!-- Blog Post 2 -->
+      <a class="card" href="/blog/website-in-an-ai-world/">
+        <img src="/assets/images/hero-apple.jpg" alt="Website strategy in an AI world">
+        <div class="card-body">
+          <div class="tag">Websites • Trust • AI Search</div>
+          <h2>Why Your Business Needs a Website in an AI World</h2>
+          <p>
+            As search shifts toward AI, your website becomes your clearest source of truth when customers need it most.
+          </p>
+        </div>
+      </a>
 
     </div>
   </main>
+
+  <footer>
+    © <span id="year"></span> SparkIt Design
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
