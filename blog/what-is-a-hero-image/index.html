@@ -2,20 +2,21 @@
 <html lang="en">
 <head>
   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PKBD5PZQ');</script>
-<!-- End Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PKBD5PZQ');</script>
+  <!-- End Google Tag Manager -->
+
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-94JDJYFKGY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-94JDJYFKGY');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-94JDJYFKGY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-94JDJYFKGY');
+  </script>
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -23,7 +24,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta name="description" content="A hero image is the full-screen visual at the top of your website that communicates your brand, emotion, and outcome in one glance. Learn best practices and how to track what wins." />
   <meta name="robots" content="index, follow" />
 
-  <!-- Canonical (clean URL style) -->
   <link rel="canonical" href="https://sparkitdesign.com/blog/what-is-a-hero-image/" />
 
   <!-- Open Graph -->
@@ -40,7 +40,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta name="twitter:description" content="A practical guide to hero images: definition, best practices, and how to measure success." />
   <meta name="twitter:image" content="https://sparkitdesign.com/assets/images/hero-apple.jpg" />
 
-  <!-- Favicons (adjust if your main site already handles these globally) -->
   <link rel="icon" href="/assets/favicon/favicon.ico" />
   <link rel="apple-touch-icon" href="/assets/favicon/favicon-50x50.png" />
 
@@ -60,237 +59,396 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <style>
     :root{
-      --bg:#0b0f14;
-      --card: rgba(255,255,255,.06);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.72);
-      --line: rgba(255,255,255,.14);
-      --accent:#85c446;
-      --shadow: 0 18px 40px rgba(0,0,0,.35);
+      /* Orange brand system */
+      --accent: #ff6a00;
+      --accent-2: #ff8a3d;
+      --ink: #111111;
+      --paper: #fcfbf8;
+      --muted: rgba(17,17,17,.68);
+      --line: rgba(17,17,17,.14);
+      --card: rgba(255,255,255,.75);
+      --shadow: 0 18px 50px rgba(0,0,0,.10);
       --radius: 18px;
-      --max: 980px;
-      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+
+      /* Layout */
+      --max: 1120px;
+      --read: 720px;
+
+      /* Typography (NYT-ish: serif headline + clean sans) */
+      --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
     }
+
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family:var(--font);
-      color:var(--text);
+      color:var(--ink);
       background:
-        radial-gradient(1200px 700px at 20% -10%, rgba(133,196,70,.18), transparent 60%),
-        radial-gradient(900px 600px at 110% 10%, rgba(133,196,70,.10), transparent 55%),
-        linear-gradient(180deg, #070a0f 0%, var(--bg) 60%, #070a0f 100%);
-      line-height:1.55;
+        radial-gradient(900px 520px at 12% -10%, rgba(255,106,0,.16), transparent 60%),
+        radial-gradient(900px 520px at 110% 10%, rgba(255,138,61,.12), transparent 55%),
+        linear-gradient(180deg, #ffffff 0%, var(--paper) 65%, #ffffff 100%);
+      font-family:var(--sans);
+      line-height:1.6;
     }
-    a{color:var(--text);text-decoration:none}
-    a:hover{text-decoration:underline}
+
+    a{color:inherit}
+    a:hover{color:var(--accent)}
+
+    /* Top bar (clean, newspaper-ish) */
     header{
-      border-bottom:1px solid var(--line);
-      background:rgba(0,0,0,.15);
-      backdrop-filter:blur(10px);
-      position:sticky;top:0;z-index:20;
+      position:sticky; top:0; z-index:50;
+      background: rgba(252,251,248,.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
     }
-    .nav{
+    .topbar{
       max-width:var(--max);
       margin:0 auto;
-      padding:14px 18px;
-      display:flex;align-items:center;justify-content:space-between;gap:16px;
+      padding:12px 16px;
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
     }
-    .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.2px;white-space:nowrap}
-    .dot{width:10px;height:10px;border-radius:999px;background:var(--accent);box-shadow:0 0 0 6px rgba(133,196,70,.18)}
-    .navlinks{display:flex;gap:14px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
-    .pill{padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.04);font-size:14px}
-    .pill:hover{border-color:rgba(133,196,70,.55);text-decoration:none}
-
-    main{max-width:var(--max);margin:0 auto;padding:28px 18px 56px}
-    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:stretch;margin-top:14px}
-    @media (max-width:860px){.grid{grid-template-columns:1fr}}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
-    .articlehead{padding:26px 22px}
-    .kicker{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:8px 12px;border-radius:999px;
-      border:1px solid rgba(133,196,70,.35);
-      background:rgba(133,196,70,.10);
-      font-size:13px;letter-spacing:.2px;margin-bottom:14px;width:fit-content
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      text-decoration:none;
     }
-    h1{font-size:clamp(30px,4vw,44px);line-height:1.12;margin:0 0 10px;letter-spacing:-.4px}
-    .meta{display:flex;flex-wrap:wrap;gap:12px 18px;color:var(--muted);font-size:14px;margin-top:10px}
-    .meta span{display:inline-flex;align-items:center;gap:8px}
-    .meta i{width:6px;height:6px;border-radius:999px;background:rgba(255,255,255,.28);display:inline-block}
-
-    .heroimg{
-      margin-top:16px;
-      border-radius:16px;
-      overflow:hidden;
+    .mark{
+      width:11px; height:11px; border-radius:999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(255,106,0,.14);
+      flex:0 0 auto;
+    }
+    .brandname{
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    .navlinks{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    .pill{
+      padding:8px 12px;
       border:1px solid var(--line);
-      background:#0a0d12;
+      border-radius:999px;
+      background: rgba(255,255,255,.65);
+      text-decoration:none;
+      font-size:14px;
+      font-weight:650;
     }
-    .heroimg img{display:block;width:100%;height:auto}
+    .pill:hover{
+      border-color: rgba(255,106,0,.35);
+      background: rgba(255,106,0,.06);
+    }
 
-    aside{padding:18px;display:flex;flex-direction:column;gap:14px}
-    aside h2{margin:0;font-size:16px;letter-spacing:.2px}
-    .callout{padding:14px;border-radius:14px;border:1px solid rgba(133,196,70,.30);background:rgba(133,196,70,.08)}
-    .callout p{margin:0;color:var(--muted);font-size:14px}
-    .cta{display:flex;flex-direction:column;gap:10px;padding:14px;border-radius:14px;border:1px solid var(--line);background:rgba(0,0,0,.18)}
-    .cta strong{font-size:15px}
-    .cta p{margin:0;color:var(--muted);font-size:14px}
-    .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+    main{max-width:var(--max); margin:0 auto; padding:22px 16px 70px}
+
+    /* Article layout */
+    .mast{
+      display:grid;
+      grid-template-columns: 1fr 320px;
+      gap:18px;
+      align-items:start;
+      margin-top:10px;
+    }
+    @media (max-width: 980px){
+      .mast{grid-template-columns:1fr}
+    }
+
+    .panel{
+      background: rgba(255,255,255,.78);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .headline-wrap{padding:22px 22px 14px}
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:7px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,106,0,.35);
+      background: rgba(255,106,0,.08);
+      font-size:13px;
+      letter-spacing:.2px;
+      width:fit-content;
+    }
+    h1{
+      font-family: var(--serif);
+      font-weight: 800;
+      font-size: clamp(34px, 4.2vw, 56px);
+      line-height: 1.06;
+      margin: 14px 0 10px;
+      letter-spacing: -.4px;
+    }
+    .subhead{
+      margin:0;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 60ch;
+    }
+    .meta{
+      display:flex; flex-wrap:wrap;
+      gap:10px 16px;
+      margin-top:14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .meta span{display:inline-flex; align-items:center; gap:8px}
+    .dotmini{width:5px;height:5px;border-radius:999px;background:rgba(17,17,17,.25);display:inline-block}
+
+    /* Lead art (NYT-like: wide image + caption line) */
+    .leadart{
+      margin: 0 22px 18px;
+      border-radius: 16px;
+      overflow:hidden;
+      border: 1px solid var(--line);
+      background:#fff;
+    }
+    .leadart img{display:block;width:100%;height:auto}
+    .caption{
+      margin:10px 22px 18px;
+      padding-top:10px;
+      border-top:1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .caption strong{color: rgba(17,17,17,.88)}
+
+    /* Article body */
+    .article{
+      padding: 4px 22px 22px;
+    }
+    .article-inner{
+      max-width: var(--read);
+      margin: 0 auto;
+      padding-top: 10px;
+    }
+    .article h2{
+      font-family: var(--serif);
+      font-size: 26px;
+      line-height: 1.2;
+      margin: 26px 0 10px;
+      letter-spacing: -.2px;
+    }
+    .article p{
+      margin: 12px 0;
+      font-size: 17px;
+      color: rgba(17,17,17,.92);
+    }
+    .article ul{margin: 10px 0 12px 22px; color: rgba(17,17,17,.92)}
+    .article li{margin: 8px 0; font-size:17px}
+    .pullquote{
+      margin: 20px 0;
+      padding: 14px 16px;
+      border-left: 4px solid var(--accent);
+      background: rgba(255,106,0,.05);
+      border-radius: 12px;
+      color: rgba(17,17,17,.86);
+      font-style: italic;
+    }
+
+    /* Sidebar */
+    aside{padding:18px; display:flex; flex-direction:column; gap:14px}
+    aside h2{margin:0; font-size:14px; letter-spacing:.12em; text-transform:uppercase; color: rgba(17,17,17,.72)}
+    .callout{
+      padding:14px;
+      border-radius:14px;
+      border:1px solid rgba(255,106,0,.30);
+      background: rgba(255,106,0,.06);
+    }
+    .callout p{margin:0; color: rgba(17,17,17,.82); font-size:14px}
+    .cta{
+      padding:14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.65);
+    }
+    .cta strong{display:block; font-size:15px; margin-bottom:4px}
+    .cta p{margin:0; color: var(--muted); font-size:14px}
+    .btnrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
     .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      padding:10px 14px;border-radius:999px;
-      border:1px solid rgba(133,196,70,.55);
-      background:rgba(133,196,70,.14);
-      font-weight:650;font-size:14px;text-decoration:none
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px;
+      border-radius:999px;
+      border: 1px solid rgba(255,106,0,.45);
+      background: rgba(255,106,0,.10);
+      text-decoration:none;
+      font-weight:750;
+      font-size:14px;
     }
-    .btn:hover{text-decoration:none;border-color:rgba(133,196,70,.85)}
-    .btn.secondary{border-color:var(--line);background:rgba(255,255,255,.04);font-weight:600}
+    .btn:hover{background: rgba(255,106,0,.14); border-color: rgba(255,106,0,.70)}
+    .btn.secondary{
+      border-color: var(--line);
+      background: rgba(255,255,255,.70);
+      font-weight:700;
+    }
+    .btn.secondary:hover{border-color: rgba(255,106,0,.25)}
 
-    article{margin-top:18px;padding:26px 22px}
-    article h2{margin:26px 0 10px;font-size:22px;letter-spacing:-.2px}
-    article p{margin:12px 0;color:rgba(255,255,255,.86);font-size:16px}
-    ul{margin:10px 0 12px 22px;color:rgba(255,255,255,.86)}
-    li{margin:8px 0}
-    .divider{height:1px;background:var(--line);margin:22px 0}
-    footer{border-top:1px solid var(--line);color:var(--muted);padding:26px 18px}
-    footer .wrap{max-width:var(--max);margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;gap:18px;flex-wrap:wrap}
-    .small{font-size:13px;color:var(--muted)}
+    /* Footer */
+    footer{
+      border-top: 1px solid var(--line);
+      padding: 26px 16px;
+      color: var(--muted);
+      background: rgba(255,255,255,.55);
+    }
+    footer .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      display:flex; align-items:flex-start; justify-content:space-between;
+      gap:18px; flex-wrap:wrap;
+    }
+    .small{font-size:13px}
   </style>
 </head>
 
 <body>
   <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKBD5PZQ"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKBD5PZQ"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <header>
-    <div class="nav">
-      <a class="brand" href="/">
-        <span class="dot" aria-hidden="true"></span>
-        <span>SparkIt Design</span>
+    <div class="topbar">
+      <a class="brand" href="/" aria-label="SparkIt Design Home">
+        <span class="mark" aria-hidden="true"></span>
+        <span class="brandname">SparkIt Design</span>
       </a>
       <nav class="navlinks" aria-label="Primary">
-        <a class="pill" href="/services">Services</a>
-        <a class="pill" href="/work">Work</a>
-        <a class="pill" href="/blog">Blog</a>
-        <a class="pill" href="/contact">Contact</a>
+        <!-- Keep these aligned with real pages you have -->
+        <a class="pill" href="/">Home</a>
+        <a class="pill" href="/#services">Services</a>
+        <a class="pill" href="/blog/">Blog</a>
+        <a class="pill" href="mailto:sparkitga@gmail.com?subject=SparkIt%20Blog%20-%20Hero%20Image%20Help">Contact</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="grid">
-      <div class="card articlehead">
-        <div class="kicker">Website Design • Conversion • Story</div>
-        <h1>What Is a Hero Image?</h1>
-        <p style="margin:0;color:var(--muted);font-size:16px;">
-          Your hero image is the director of first impressions. It sets the tone, tells the story, and moves people toward action—fast.
-        </p>
+    <section class="mast">
+      <!-- Main article panel -->
+      <div class="panel">
+        <div class="headline-wrap">
+          <div class="kicker">Website Design • Conversion • Story</div>
+          <h1>What Is a Hero Image?</h1>
+          <p class="subhead">
+            Your hero image is the director of first impressions. It sets the tone, tells the story, and moves people toward action—fast.
+          </p>
 
-        <div class="meta" aria-label="Post metadata">
-          <span><i aria-hidden="true"></i> By SparkIt Design</span>
-          <span><i aria-hidden="true"></i> 5 min read</span>
-          <span><i aria-hidden="true"></i> Updated: <time datetime="2026-02-06">February 6, 2026</time></span>
+          <div class="meta" aria-label="Post metadata">
+            <span><span class="dotmini" aria-hidden="true"></span> By SparkIt Design</span>
+            <span><span class="dotmini" aria-hidden="true"></span> 5 min read</span>
+            <span><span class="dotmini" aria-hidden="true"></span> Updated: <time datetime="2026-02-06">February 6, 2026</time></span>
+          </div>
         </div>
 
-        <!-- Hero image preview on the post (uses your repo assets path) -->
-        <div class="heroimg" aria-label="Example hero image">
+        <!-- Lead art -->
+        <figure class="leadart" aria-label="Lead image">
           <picture>
             <source srcset="/assets/images/hero-apple-mobile.jpg" media="(max-width: 860px)" />
-            <img src="/assets/images/hero-apple.jpg" alt="Example of a clean, full-width hero image" loading="lazy" />
+            <img src="/assets/images/hero-apple.jpg" alt="A clean, full-width hero image example" loading="eager" fetchpriority="high" />
           </picture>
+        </figure>
+        <div class="caption">
+          <strong>Lead art:</strong> A hero image should communicate “what you do” and “what changes” in one glance.
         </div>
+
+        <!-- Body -->
+        <article class="article" aria-label="Article">
+          <div class="article-inner">
+            <h2>Definition</h2>
+            <p>
+              A hero image is the full-screen visual at the top of your website that instantly communicates what your business represents.
+              In one glance, visitors should feel welcomed, understand your purpose, and recognize how you can help them.
+            </p>
+            <p>
+              While every page can have its own hero image, your main landing page should feature a strong, full-screen visual.
+              A common desktop size is <strong>1280 × 720</strong>, while a mobile-optimized version is often around <strong>800 × 1200</strong>.
+            </p>
+
+            <div class="pullquote">
+              “If your hero image does its job, the customer feels clarity before they read a single word.”
+            </div>
+
+            <h2>Using Your Hero Image to Promote the Story</h2>
+            <p>
+              Your main landing page is usually the first place customers go to learn about your business. That space should clearly communicate
+              the emotion and outcome your brand delivers.
+            </p>
+            <p>
+              A strong hero image doesn’t just look good. It resolves a frustration, answers a question, or shows a better future.
+              In many cases, it can influence revenue more than any button, link, or paragraph on the page.
+            </p>
+
+            <p><strong>Great hero images often include:</strong></p>
+            <ul>
+              <li>Clear, confident color</li>
+              <li>A single focused subject (no visual clutter)</li>
+              <li>A moment where a problem is clearly being solved</li>
+            </ul>
+
+            <p>
+              More important than “happy” is visible success. Your customer should see themselves winning.
+            </p>
+
+            <h2>Tracking What Wins</h2>
+            <p>
+              Success looks different for every business. Some teams focus on sales, others on traffic, leads, or brand awareness.
+              Your goal will influence the kind of hero image you choose.
+            </p>
+            <p>
+              The only way to know if your message is working is to track results. Analytics tools, heatmaps, or simple customer surveys can reveal
+              how people interact with your landing page.
+            </p>
+            <p>
+              When visitors stay longer, click more, or convert at higher rates, you’re seeing signs of a winning experience.
+              Strong brands don’t guess. They listen, measure, and adjust based on the real stories their customers share.
+            </p>
+
+            <div style="height:1px;background:var(--line);margin:24px 0"></div>
+
+            <p style="margin:0;color:var(--muted);font-size:14px;">
+              Want a reusable process? Build a “Hero Image Brief” so every project starts with the customer story and ends with measurable results.
+            </p>
+          </div>
+        </article>
       </div>
 
-      <aside class="card">
+      <!-- Sidebar panel -->
+      <aside class="panel" aria-label="Sidebar">
         <h2>Quick Take</h2>
         <div class="callout">
-          <p><strong style="color:var(--text);">A hero image</strong> is the large, top-of-page visual that communicates your brand and outcome in one glance.</p>
+          <p><strong>A hero image</strong> is the large, top-of-page visual that communicates your brand and outcome in one glance.</p>
         </div>
 
         <div class="cta">
           <strong>Want a hero image that converts?</strong>
           <p>We can map the customer story, choose the right visual, and build a landing page that drives action.</p>
           <div class="btnrow">
-            <a class="btn" href="/contact">Request a Quote</a>
-            <a class="btn secondary" href="/work">See Examples</a>
+            <a class="btn" href="mailto:sparkitga@gmail.com?subject=Hero%20Image%20Help%20-%20SparkIt&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%3A%0ATimeline%3A%0ABudget%3A%0A">Request a Quote</a>
+            <a class="btn secondary" href="/#video">See Packages</a>
           </div>
+        </div>
+
+        <div class="cta">
+          <strong>Next post idea</strong>
+          <p>“3 Hero Image Mistakes That Quietly Kill Conversions (and how to fix them)”</p>
         </div>
       </aside>
     </section>
-
-    <article class="card">
-      <h2>Definition</h2>
-      <p>
-        A hero image is the full-screen visual at the top of your website that instantly communicates what your business represents.
-        In one glance, visitors should feel welcomed, understand your purpose, and recognize how you can help them.
-      </p>
-      <p>
-        While every page can have its own hero image, your main landing page should feature a strong, full-screen visual.
-        A common desktop size is <strong>1280 × 720 pixels</strong>, while a mobile-optimized version is often around <strong>800 × 1200 pixels</strong>.
-      </p>
-
-      <h2>Using Your Hero Image to Promote the Story</h2>
-      <p>
-        Your main landing page is usually the first place customers go to learn about your business. That space should clearly communicate
-        the emotion and outcome your brand delivers.
-      </p>
-      <p>
-        A strong hero image doesn’t just look good. It resolves a frustration, answers a question, or shows a better future.
-        In many cases, it can influence revenue more than any button, link, or paragraph on the page.
-      </p>
-
-      <p><strong>Great hero images often include:</strong></p>
-      <ul>
-        <li>Bright, confident colors</li>
-        <li>A welcoming or focused face</li>
-        <li>A moment where a problem is clearly being solved</li>
-      </ul>
-
-      <p>
-        More important than happiness is visible success. Your customer should see themselves winning.
-      </p>
-
-      <p>
-        Before designing a website or any marketing material, define the problem you solve. In your customer’s story, they are the hero.
-        They’ve arrived because something isn’t working and they want a solution. Your hero image is your chance to show how their story improves
-        the moment they meet your brand.
-      </p>
-
-      <h2>Tracking What Wins</h2>
-      <p>
-        Success looks different for every business. Some teams focus on sales, others on traffic, leads, or brand awareness.
-        Your goal will influence the kind of hero image you choose.
-      </p>
-      <p>
-        The only way to know if your message is working is to track results. Analytics tools, heatmaps, or simple customer surveys can reveal
-        how people interact with your landing page.
-      </p>
-      <p>
-        When visitors stay longer, click more, or convert at higher rates, you’re seeing signs of a winning experience.
-        Strong brands don’t guess. They listen, measure, and adjust based on the real stories their customers share.
-      </p>
-
-      <div class="divider" role="separator" aria-hidden="true"></div>
-
-      <p style="margin:0;color:var(--muted);font-size:14px;">
-        Want a reusable process? Build a “Hero Image Brief” so every project starts with the customer story and ends with measurable results.
-      </p>
-    </article>
   </main>
 
   <footer>
     <div class="wrap">
       <div>
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-          <span class="dot" aria-hidden="true"></span>
-          <strong style="color:var(--text);">SparkIt Design</strong>
+          <span class="mark" aria-hidden="true"></span>
+          <strong style="color:rgba(17,17,17,.92);">SparkIt Design</strong>
         </div>
         <div class="small">Think With Your Hands.</div>
       </div>
 
       <div class="small">
-        <div><a href="/contact">Contact</a> • <a href="/blog">More posts</a></div>
+        <div>
+          <a href="/blog/">More posts</a> •
+          <a href="mailto:sparkitga@gmail.com?subject=SparkIt%20Blog%20Question">Email</a>
+        </div>
         <div style="margin-top:8px;">© <span id="year"></span> SparkIt Design</div>
       </div>
     </div>
