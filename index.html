@@ -9,6 +9,7 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-PKBD5PZQ');
   </script>
+  <!-- End Google Tag Manager -->
 
   <!-- Google tag -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-94JDJYFKGY"></script>
@@ -22,21 +23,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>SparkIt Design | Video, Social Media, Marketing Resources</title>
-  <meta name="description" content="SparkIt helps small brands grow through video, social media, and marketing resources." />
+  <title>SparkIt Design | Design, Video, and Trusted Marketing</title>
+  <meta name="description" content="SparkIt helps brands grow through design, video, and trusted marketing." />
   <link rel="canonical" href="https://sparkitdesign.com/" />
   <meta name="robots" content="index,follow" />
 
+  <!-- Favicons -->
   <link rel="icon" href="assets/favicon/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-50x50.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png" />
   <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png" />
 
+  <!-- Open Graph -->
   <meta property="og:title" content="SparkIt Design" />
-  <meta property="og:description" content="Simple creative support through video, social media, and marketing resources." />
+  <meta property="og:description" content="Design, video, and trusted marketing for brands ready to grow." />
   <meta property="og:url" content="https://sparkitdesign.com/" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://sparkitdesign.com/assets/images/og.jpg" />
+  <meta property="og:image" content="https://sparkitdesign.com/assets/images/hero-apple.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="stylesheet" href="styles.css" />
@@ -54,73 +58,123 @@
   <header class="site-header">
     <div class="container">
       <div class="header-top">
-        <a href="#top" class="logo" aria-label="SparkIt Home">
+        <a href="/" class="logo" aria-label="SparkIt Home">
           <img src="assets/logos/sparkit-logo.svg" alt="SparkIt logo" />
         </a>
       </div>
 
       <nav class="main-nav" aria-label="Primary navigation">
-        <a href="#video">Video</a>
-        <a href="#social">Social Media</a>
-        <a href="#resources">Resources</a>
+        <a href="/video/">Video</a>
+        <a href="/social-media/">Social Media</a>
+        <a href="/resources/">Resources</a>
+        <a href="/about/">About</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero">
-      <div class="container">
-        <h1>Simple creative support for growing brands.</h1>
-        <p class="hero-text">
-          We help businesses show up clearly through video, social media, and practical marketing resources.
-        </p>
+    <!-- HERO -->
+    <section class="hero image-hero">
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <h1>Design, video, and trusted marketing.</h1>
 
-        <div class="hero-actions">
-          <a href="mailto:sparkitga@gmail.com?subject=Start%20a%20SparkIt%20Project" class="button button-primary">
-            Start a Project
-          </a>
-          <a href="#services" class="button button-secondary">
-            View Services
-          </a>
+          <p class="hero-text">
+            SparkIt helps brands turn ideas into clear creative assets people can understand, trust, and act on.
+          </p>
+
+          <div class="hero-actions">
+            <a href="mailto:sparkitga@gmail.com?subject=Start%20a%20SparkIt%20Project&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AWhat%20do%20you%20need%3F%0ATimeline%3A%0ABudget%3A%0A"
+               class="button button-primary">
+              Start a Project
+            </a>
+
+            <a href="#services" class="button button-secondary">
+              View Services
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-image-card">
+          <picture>
+            <source srcset="assets/images/hero-apple-mobile.jpg" media="(max-width: 700px)" />
+            <img src="assets/images/hero-apple.jpg" alt="SparkIt creative marketing image" />
+          </picture>
         </div>
       </div>
     </section>
 
-    <section id="services" class="services">
+    <!-- SERVICES -->
+    <section id="services" class="services image-services">
       <div class="container">
-        <div id="video" class="service-card">
-          <div class="service-number">1</div>
-          <h2>Video</h2>
-          <p>
-            Branded videos that tell your story, explain your service, and help customers trust the next step.
-          </p>
-          <a href="/video/" class="service-link">Explore Video</a>
-        </div>
+        <article id="video" class="service-card image-card">
+          <img
+            class="service-image"
+            src="assets/images/hero-blog1.jpeg"
+            alt="Video content and creative storytelling"
+          />
 
-        <div id="social" class="service-card">
-          <div class="service-number">2</div>
-          <h2>Social Media</h2>
-          <p>
-            Social content that helps your brand stay clear, consistent, and easier to remember.
-          </p>
-          <a href="/social-media/" class="service-link">Explore Social Media</a>
-        </div>
+          <div class="service-content">
+            <div class="service-number">1</div>
+            <h2>Video</h2>
+            <p>
+              Branded videos that explain your service, show your story, and help customers trust the next step.
+            </p>
 
-        <div id="resources" class="service-card">
-          <div class="service-number">3</div>
-          <h2>Marketing Resources</h2>
-          <p>
-            Helpful tips, templates, and tools that make marketing easier for your business.
-          </p>
-          <a href="/resources/" class="service-link">Explore Resources</a>
-        </div>
+            <a href="/video/" class="service-link">
+              Explore Video
+            </a>
+          </div>
+        </article>
+
+        <article id="social" class="service-card image-card">
+          <img
+            class="service-image"
+            src="assets/images/hero-blog2.webp"
+            alt="Social media content and brand communication"
+          />
+
+          <div class="service-content">
+            <div class="service-number">2</div>
+            <h2>Social Media</h2>
+            <p>
+              Social content that helps your brand stay clear, consistent, and easier to remember.
+            </p>
+
+            <a href="/social-media/" class="service-link">
+              Explore Social Media
+            </a>
+          </div>
+        </article>
+
+        <article id="resources" class="service-card image-card">
+          <img
+            class="service-image"
+            src="assets/images/hero-dealer-jenson.jpg"
+            alt="Marketing resources and business planning support"
+          />
+
+          <div class="service-content">
+            <div class="service-number">3</div>
+            <h2>Marketing Resources</h2>
+            <p>
+              Helpful tips, templates, and tools that make marketing easier for your business.
+            </p>
+
+            <a href="/resources/" class="service-link">
+              Explore Resources
+            </a>
+          </div>
+        </article>
       </div>
     </section>
 
+    <!-- HELPFUL LINKS -->
     <section class="page-links">
       <div class="container">
         <h2>Helpful links</h2>
+
         <div class="link-grid">
           <a href="/about/" class="page-link">About</a>
           <a href="/blog/" class="page-link">Blog</a>
@@ -132,13 +186,17 @@
       </div>
     </section>
 
-    <section id="contact" class="contact-section">
-      <div class="container">
-        <h2>Ready to build something clear?</h2>
-        <p>
-          Tell us what you need, what you want customers to do, and when you want to launch.
-        </p>
-        <a href="mailto:sparkitga@gmail.com?subject=SparkIt%20Project%20Inquiry&body=Name%3A%0ABusiness%3A%0AGoal%3A%0ATimeline%3A%0A"
+    <!-- CONTACT -->
+    <section id="contact" class="contact-section visual-contact">
+      <div class="container contact-layout">
+        <div>
+          <h2>Ready to make your brand easier to trust?</h2>
+          <p>
+            Tell us what you need, what you want customers to do, and when you want to launch.
+          </p>
+        </div>
+
+        <a href="mailto:sparkitga@gmail.com?subject=SparkIt%20Project%20Inquiry&body=Name%3A%0ABusiness%3A%0AWebsite%3A%0AGoal%3A%0ATimeline%3A%0ABudget%3A%0A"
            class="button button-dark">
           Email SparkIt
         </a>
@@ -149,6 +207,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <p>© 2026 SparkIt. Think with your hands.</p>
+
       <div class="footer-links">
         <a href="/privacy/">Privacy</a>
         <a href="tel:+14706021753">Call</a>
