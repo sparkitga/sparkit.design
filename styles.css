@@ -1718,3 +1718,37 @@ a {
     max-width: 820px;
   }
 }
+
+/* =========================
+   Clean Services Section
+   ========================= */
+
+.clean-services {
+  padding: 64px 0;
+}
+
+.clean-services .service-card {
+  min-height: 300px;
+}
+
+.clean-services .service-number {
+  margin-bottom: 24px;
+}
+
+.clean-services .service-card h2 {
+  margin-bottom: 14px;
+}
+
+.clean-services .service-card p {
+  margin-bottom: 24px;
+}
+
+@media (min-width: 980px) {
+  .clean-services {
+    padding: 84px 0;
+  }
+
+  .clean-services .service-card {
+    min-height: 340px;
+  }
+}
