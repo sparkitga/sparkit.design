@@ -1529,3 +1529,37 @@ a {
     max-width: 780px;
   }
 }
+
+/* =========================
+   About Page
+   ========================= */
+
+.about-hero {
+  background: var(--soft);
+}
+
+.about-hero .container {
+  border: 3px solid var(--black);
+  background: var(--soft);
+  padding-top: 36px;
+  padding-bottom: 36px;
+  box-shadow: 12px 12px 0 var(--accent);
+}
+
+.about-hero .container::after {
+  display: none;
+}
+
+.about-content .button {
+  margin-top: 10px;
+}
+
+@media (min-width: 980px) {
+  .about-hero .container {
+    padding: 56px;
+  }
+
+  .about-hero h1 {
+    max-width: 820px;
+  }
+}
