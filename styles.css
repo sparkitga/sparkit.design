@@ -1009,3 +1009,198 @@ a {
     font-size: 1.65rem;
   }
 }
+
+/* =========================
+   Social Media Page Offer
+   ========================= */
+
+.social-hero {
+  background: var(--soft);
+}
+
+.social-hero .container {
+  border: 3px solid var(--black);
+  background: var(--soft);
+  padding-top: 36px;
+  padding-bottom: 36px;
+  box-shadow: 12px 12px 0 var(--accent);
+}
+
+.social-offer-section {
+  padding: 48px 0;
+  background: var(--white);
+}
+
+.section-heading {
+  margin-bottom: 24px;
+}
+
+.section-heading h2 {
+  font-size: 2rem;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin-bottom: 12px;
+  max-width: 780px;
+}
+
+.section-heading p {
+  color: var(--muted);
+  max-width: 640px;
+}
+
+.social-offer-layout {
+  display: grid;
+  gap: 16px;
+}
+
+.social-offer-card {
+  border: 2px solid var(--black);
+  background: var(--white);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.featured-social-offer {
+  background: var(--soft);
+  box-shadow: 8px 8px 0 var(--accent);
+}
+
+.offer-label {
+  display: inline-block;
+  width: fit-content;
+  background: var(--accent);
+  border: 2px solid var(--black);
+  color: var(--black);
+  padding: 6px 10px;
+  font-size: 13px;
+  font-weight: 900;
+  margin-bottom: 16px;
+}
+
+.social-offer-card h3,
+.social-side-card h3 {
+  font-size: 1.65rem;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 10px;
+}
+
+.offer-price {
+  color: var(--black);
+  font-size: 1.4rem;
+  font-weight: 900;
+  margin-bottom: 14px;
+}
+
+.social-offer-card p,
+.social-side-card p {
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.social-offer-card ul {
+  margin: 0 0 22px 20px;
+  color: var(--muted);
+}
+
+.social-offer-card li {
+  margin-bottom: 8px;
+}
+
+.social-offer-card .blog-link {
+  margin-top: auto;
+}
+
+.social-side-card {
+  border: 2px solid var(--black);
+  background: var(--white);
+  padding: 24px 20px;
+}
+
+.social-proof-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.social-proof-list div {
+  border: 2px solid var(--black);
+  background: var(--white);
+  padding: 14px;
+}
+
+.social-proof-list strong {
+  display: block;
+  color: var(--black);
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.social-proof-list span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.social-content-section {
+  padding-top: 0;
+}
+
+.social-paths {
+  border-top: 1px solid var(--border);
+}
+
+@media (min-width: 700px) {
+  .social-hero .container {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .section-heading h2 {
+    font-size: 3rem;
+  }
+
+  .social-offer-card,
+  .social-side-card {
+    padding: 30px;
+  }
+}
+
+@media (min-width: 980px) {
+  .social-hero .container {
+    padding: 56px;
+  }
+
+  .social-offer-section {
+    padding: 84px 0;
+  }
+
+  .section-heading {
+    margin-bottom: 34px;
+  }
+
+  .section-heading h2 {
+    font-size: 4rem;
+  }
+
+  .social-offer-layout {
+    grid-template-columns: 1.35fr 0.65fr;
+    gap: 22px;
+    align-items: stretch;
+  }
+
+  .social-offer-card,
+  .social-side-card {
+    padding: 32px;
+  }
+
+  .social-offer-card h3,
+  .social-side-card h3 {
+    font-size: 2rem;
+  }
+
+  .offer-price {
+    font-size: 1.65rem;
+  }
+}
