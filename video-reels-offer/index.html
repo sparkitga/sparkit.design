@@ -70,6 +70,98 @@
   <!-- End Meta Pixel Code -->
 
   <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Popup notification styles -->
+  <style>
+    .sparkit-toast {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      width: min(420px, calc(100% - 32px));
+      background: var(--white, #ffffff);
+      color: var(--black, #111111);
+      border: 3px solid var(--black, #111111);
+      box-shadow: 8px 8px 0 var(--accent, #f5a623);
+      padding: 18px 18px 16px;
+      z-index: 99999;
+      display: none;
+    }
+
+    .sparkit-toast.is-visible {
+      display: block;
+      animation: sparkitToastIn 0.2s ease-out;
+    }
+
+    .sparkit-toast strong {
+      display: block;
+      font-size: 1.05rem;
+      line-height: 1.1;
+      margin-bottom: 6px;
+      color: var(--black, #111111);
+    }
+
+    .sparkit-toast p {
+      color: var(--muted, #5f5f5f);
+      margin: 0;
+      font-size: 0.98rem;
+      line-height: 1.4;
+    }
+
+    .sparkit-toast-close {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      border: 0;
+      background: transparent;
+      color: var(--black, #111111);
+      font-size: 1.4rem;
+      line-height: 1;
+      font-weight: 900;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .sparkit-toast-close:hover {
+      color: var(--accent-dark, #dd9218);
+    }
+
+    .sparkit-form-status {
+      margin-top: 1rem;
+      font-weight: 800;
+      color: var(--black, #111111);
+      display: none;
+    }
+
+    .sparkit-form-status.is-visible {
+      display: block;
+    }
+
+    .sparkit-contact-form button[disabled] {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    @keyframes sparkitToastIn {
+      from {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .sparkit-toast {
+        top: 16px;
+        right: 16px;
+        left: 16px;
+        width: auto;
+      }
+    }
+  </style>
 </head>
 
 <body id="top">
@@ -90,6 +182,13 @@
     <textarea name="message"></textarea>
     <input type="text" name="bot-field" />
   </form>
+
+  <!-- Popup notification -->
+  <div class="sparkit-toast" id="sparkit-toast" role="status" aria-live="polite">
+    <button class="sparkit-toast-close" type="button" id="sparkit-toast-close" aria-label="Close notification">×</button>
+    <strong>Message received.</strong>
+    <p>SparkIt received your message and will follow up within the next 24 hours.</p>
+  </div>
 
   <!-- Google Tag Manager noscript -->
   <noscript>
@@ -230,8 +329,8 @@
             method="POST" 
             data-netlify="true"
             netlify-honeypot="bot-field"
-            action="/thank-you/"
             class="sparkit-contact-form"
+            id="sparkit-reels-form"
           >
             <input type="hidden" name="form-name" value="sparkit-reels-contact" />
 
@@ -289,9 +388,13 @@
               ></textarea>
             </label>
 
-            <button type="submit" class="button button-primary">
+            <button type="submit" class="button button-primary" id="sparkit-submit-button">
               Add Your Spark Here
             </button>
+
+            <p class="sparkit-form-status" id="sparkit-form-status">
+              Sending your message...
+            </p>
           </form>
 
         </div>
@@ -311,6 +414,101 @@
       </div>
     </div>
   </footer>
+
+  <!-- Netlify form submission + popup notification -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("sparkit-reels-form");
+      const toast = document.getElementById("sparkit-toast");
+      const toastClose = document.getElementById("sparkit-toast-close");
+      const submitButton = document.getElementById("sparkit-submit-button");
+      const formStatus = document.getElementById("sparkit-form-status");
+
+      if (!form) {
+        console.error("SparkIt form not found.");
+        return;
+      }
+
+      function showToast() {
+        toast.classList.add("is-visible");
+
+        window.setTimeout(function () {
+          toast.classList.remove("is-visible");
+        }, 7000);
+      }
+
+      function encodeFormData(data) {
+        return Object.keys(data)
+          .map(function (key) {
+            return encodeURIComponent(key) + "=" + encodeURIComponent(data[key] || "");
+          })
+          .join("&");
+      }
+
+      if (toastClose) {
+        toastClose.addEventListener("click", function () {
+          toast.classList.remove("is-visible");
+        });
+      }
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const formData = new FormData(form);
+
+        const data = {
+          "form-name": "sparkit-reels-contact",
+          "business-or-social": formData.get("business-or-social"),
+          "name": formData.get("name"),
+          "email": formData.get("email"),
+          "phone": formData.get("phone"),
+          "message": formData.get("message"),
+          "bot-field": formData.get("bot-field") || ""
+        };
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+        formStatus.textContent = "Sending your message...";
+        formStatus.classList.add("is-visible");
+
+        fetch("/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          body: encodeFormData(data)
+        })
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error("Form submission failed.");
+          }
+
+          form.reset();
+
+          formStatus.textContent = "Message received. SparkIt will follow up within the next 24 hours.";
+          showToast();
+
+          if (typeof fbq === "function") {
+            fbq("track", "Lead", {
+              content_name: "4 Reels for $50 Form Submission",
+              content_category: "Video Marketing",
+              value: 50.00,
+              currency: "USD"
+            });
+          }
+        })
+        .catch(function (error) {
+          console.error("Form submission error:", error);
+          formStatus.textContent = "There was a problem submitting the form. Please email sparkitga@gmail.com.";
+          alert("There was a problem submitting the form. Please email sparkitga@gmail.com.");
+        })
+        .finally(function () {
+          submitButton.disabled = false;
+          submitButton.textContent = "Add Your Spark Here";
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>
