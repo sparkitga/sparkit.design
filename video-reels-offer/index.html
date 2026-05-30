@@ -415,100 +415,91 @@
     </div>
   </footer>
 
-  <!-- Netlify form submission + popup notification -->
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const form = document.getElementById("sparkit-reels-form");
-      const toast = document.getElementById("sparkit-toast");
-      const toastClose = document.getElementById("sparkit-toast-close");
-      const submitButton = document.getElementById("sparkit-submit-button");
-      const formStatus = document.getElementById("sparkit-form-status");
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("sparkit-reels-form");
+    const toast = document.getElementById("sparkit-toast");
+    const toastClose = document.getElementById("sparkit-toast-close");
+    const submitButton = document.getElementById("sparkit-submit-button");
+    const formStatus = document.getElementById("sparkit-form-status");
 
-      if (!form) {
-        console.error("SparkIt form not found.");
-        return;
-      }
+    if (!form) {
+      console.error("SparkIt form not found.");
+      return;
+    }
 
-      function showToast() {
-        toast.classList.add("is-visible");
+    function showToast() {
+      toast.classList.add("is-visible");
 
-        window.setTimeout(function () {
-          toast.classList.remove("is-visible");
-        }, 7000);
-      }
+      window.setTimeout(function () {
+        toast.classList.remove("is-visible");
+      }, 7000);
+    }
 
-      function encodeFormData(data) {
-        return Object.keys(data)
-          .map(function (key) {
-            return encodeURIComponent(key) + "=" + encodeURIComponent(data[key] || "");
-          })
-          .join("&");
-      }
+    function encodeFormData(formData) {
+      return new URLSearchParams(formData).toString();
+    }
 
-      if (toastClose) {
-        toastClose.addEventListener("click", function () {
-          toast.classList.remove("is-visible");
-        });
-      }
+    if (toastClose) {
+      toastClose.addEventListener("click", function () {
+        toast.classList.remove("is-visible");
+      });
+    }
 
-      form.addEventListener("submit", function (event) {
-        event.preventDefault();
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
 
-        const formData = new FormData(form);
+      const formData = new FormData(form);
+      formData.set("form-name", "sparkit-reels-contact");
 
-        const data = {
-          "form-name": "sparkit-reels-contact",
-          "business-or-social": formData.get("business-or-social"),
-          "name": formData.get("name"),
-          "email": formData.get("email"),
-          "phone": formData.get("phone"),
-          "message": formData.get("message"),
-          "bot-field": formData.get("bot-field") || ""
-        };
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
+      formStatus.textContent = "Sending your message...";
+      formStatus.classList.add("is-visible");
 
-        submitButton.disabled = true;
-        submitButton.textContent = "Sending...";
-        formStatus.textContent = "Sending your message...";
-        formStatus.classList.add("is-visible");
+      fetch("/video-reels-offer/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: encodeFormData(formData)
+      })
+      .then(function (response) {
+        console.log("Netlify form response:", response.status, response.statusText);
 
-        fetch("/", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          },
-          body: encodeFormData(data)
-        })
-        .then(function (response) {
-          if (!response.ok) {
-            throw new Error("Form submission failed.");
-          }
+        if (!response.ok) {
+          return response.text().then(function (text) {
+            console.error("Netlify response body:", text);
+            throw new Error("Form submission failed with status " + response.status);
+          });
+        }
 
-          form.reset();
+        form.reset();
 
-          formStatus.textContent = "Message received. SparkIt will follow up within the next 24 hours.";
-          showToast();
+        formStatus.textContent = "Message received. SparkIt will follow up within the next 24 hours.";
+        showToast();
 
-          if (typeof fbq === "function") {
-            fbq("track", "Lead", {
-              content_name: "4 Reels for $50 Form Submission",
-              content_category: "Video Marketing",
-              value: 50.00,
-              currency: "USD"
-            });
-          }
-        })
-        .catch(function (error) {
-          console.error("Form submission error:", error);
-          formStatus.textContent = "There was a problem submitting the form. Please email sparkitga@gmail.com.";
-          alert("There was a problem submitting the form. Please email sparkitga@gmail.com.");
-        })
-        .finally(function () {
-          submitButton.disabled = false;
-          submitButton.textContent = "Add Your Spark Here";
-        });
+        if (typeof fbq === "function") {
+          fbq("track", "Lead", {
+            content_name: "4 Reels for $50 Form Submission",
+            content_category: "Video Marketing",
+            value: 50.00,
+            currency: "USD"
+          });
+        }
+      })
+      .catch(function (error) {
+        console.error("Form submission error:", error);
+        formStatus.textContent = "There was a problem submitting the form. Please email sparkitga@gmail.com.";
+        alert("There was a problem submitting the form. Please email sparkitga@gmail.com.");
+      })
+      .finally(function () {
+        submitButton.disabled = false;
+        submitButton.textContent = "Add Your Spark Here";
       });
     });
-  </script>
+  });
+</script>
 
 </body>
 </html>
