@@ -166,29 +166,22 @@
 
 <body id="top">
 
-  <!-- Hidden Netlify detection form -->
-  <form 
-    name="sparkit-reels-contact" 
-    method="POST" 
-    data-netlify="true" 
-    netlify-honeypot="bot-field" 
-    hidden
-  >
-    <input type="hidden" name="form-name" value="sparkit-reels-contact" />
-    <input type="text" name="business-or-social" />
-    <input type="text" name="name" />
-    <input type="email" name="email" />
-    <input type="tel" name="phone" />
-    <textarea name="message"></textarea>
-    <input type="text" name="bot-field" />
-  </form>
+<form 
+  name="sparkit-reels-contact" 
+  method="POST" 
+  data-netlify="true" 
+  netlify-honeypot="bot-field" 
+  hidden
+>
+  <input type="hidden" name="form-name" value="sparkit-reels-contact" />
+  <input type="text" name="business-or-social" />
+  <input type="text" name="name" />
+  <input type="email" name="email" />
+  <input type="tel" name="phone" />
+  <textarea name="message"></textarea>
+  <input type="text" name="bot-field" />
+</form>
 
-  <!-- Hidden iframe for Netlify submission -->
-  <iframe 
-    name="netlify-hidden-frame" 
-    id="netlify-hidden-frame" 
-    style="display:none;"
-  ></iframe>
 
   <!-- Popup notification -->
   <div class="sparkit-toast" id="sparkit-toast" role="status" aria-live="polite">
@@ -320,91 +313,107 @@
     </section>
 
     <!-- FORM -->
-    <section id="start" class="landing-final-cta">
-      <div class="container">
-        <div class="final-cta-card">
-          <p class="eyebrow">Add Your Spark Here</p>
+<section id="start" class="landing-final-cta">
+  <div class="container">
+    <div class="final-cta-card">
+      <p class="eyebrow">Add Your Spark Here</p>
 
-          <h2>What business should SparkIt look at?</h2>
+      <h2>What business should SparkIt look at?</h2>
 
-          <p>
-            Send your business name, website, or social handle. We’ll review it and follow up with the next step.
-          </p>
+      <p>
+        Send your business name, website, or social handle. We’ll review it and follow up with the next step.
+      </p>
 
-          <form 
-            name="sparkit-reels-contact" 
-            method="POST" 
-            data-netlify="true"
-            netlify-honeypot="bot-field"
-            action="/video-reels-offer"
-            target="netlify-hidden-frame"
-            class="sparkit-contact-form"
-            id="sparkit-reels-form"
-          >
-            <input type="hidden" name="form-name" value="sparkit-reels-contact" />
+      <!-- Hidden iframe keeps the visitor on this page after form submit -->
+      <iframe 
+        name="netlify-hidden-frame" 
+        id="netlify-hidden-frame" 
+        style="display:none;"
+      ></iframe>
 
-            <p class="hidden">
-              <label>Don’t fill this out: <input name="bot-field" /></label>
-            </p>
+      <form 
+        name="sparkit-reels-contact" 
+        method="POST" 
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        action="/video-reels-offer/"
+        target="netlify-hidden-frame"
+        class="sparkit-contact-form"
+        id="sparkit-reels-form"
+      >
+        <input type="hidden" name="form-name" value="sparkit-reels-contact" />
 
-            <div class="form-grid">
-              <label>
-                Business Name, Website, or Social Handle
-                <input 
-                  type="text" 
-                  name="business-or-social" 
-                  placeholder="@yourbusiness or yourbusiness.com" 
-                  required 
-                />
-              </label>
+        <p class="hidden">
+          <label>Don’t fill this out: <input name="bot-field" /></label>
+        </p>
 
-              <label>
-                Your Name
-                <input 
-                  type="text" 
-                  name="name" 
-                  placeholder="Your name" 
-                  required 
-                />
-              </label>
+        <div class="form-grid">
+          <label>
+            Business Name, Website, or Social Handle
+            <input 
+              type="text" 
+              name="business-or-social" 
+              placeholder="@yourbusiness or yourbusiness.com" 
+              required 
+            />
+          </label>
 
-              <label>
-                Email
-                <input 
-                  type="email" 
-                  name="email" 
-                  placeholder="you@email.com" 
-                  required 
-                />
-              </label>
+          <label>
+            Your Name
+            <input 
+              type="text" 
+              name="name" 
+              placeholder="Your name" 
+              required 
+            />
+          </label>
 
-              <label>
-                Phone
-                <input 
-                  type="tel" 
-                  name="phone" 
-                  placeholder="Optional" 
-                />
-              </label>
-            </div>
+          <label>
+            Email
+            <input 
+              type="email" 
+              name="email" 
+              placeholder="you@email.com" 
+              required 
+            />
+          </label>
 
-            <label>
-              What do you want videos about?
-              <textarea 
-                name="message" 
-                rows="4" 
-                placeholder="Example: services, customer questions, team, promo, brand story, or social media growth."
-              ></textarea>
-            </label>
+          <label>
+            Phone
+            <input 
+              type="tel" 
+              name="phone" 
+              placeholder="Optional" 
+            />
+          </label>
+        </div>
 
-            <button type="submit" class="button button-primary" id="sparkit-submit-button">
-              Add Your Spark Here
-            </button>
+        <label>
+          What do you want videos about?
+          <textarea 
+            name="message" 
+            rows="4" 
+            placeholder="Example: services, customer questions, team, promo, brand story, or social media growth."
+          ></textarea>
+        </label>
 
-            <p class="sparkit-form-status" id="sparkit-form-status">
-              Sending your message...
-            </p>
-          </form>
+        <button type="submit" class="button button-primary" id="sparkit-submit-button">
+          Add Your Spark Here
+        </button>
+
+        <p class="sparkit-form-status" id="sparkit-form-status">
+          Sending your message...
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<iframe 
+  name="netlify-hidden-frame" 
+  id="netlify-hidden-frame" 
+  style="display:none;"
+></iframe>
 
         </div>
       </div>
@@ -424,84 +433,83 @@
     </div>
   </footer>
 
-  <!-- Netlify hidden iframe submission + popup notification -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const form = document.getElementById("sparkit-reels-form");
-      const iframe = document.getElementById("netlify-hidden-frame");
-      const toast = document.getElementById("sparkit-toast");
-      const toastClose = document.getElementById("sparkit-toast-close");
-      const submitButton = document.getElementById("sparkit-submit-button");
-      const formStatus = document.getElementById("sparkit-form-status");
 
-      let formWasSubmitted = false;
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("sparkit-reels-form");
+    const iframe = document.getElementById("netlify-hidden-frame");
+    const toast = document.getElementById("sparkit-toast");
+    const toastClose = document.getElementById("sparkit-toast-close");
+    const submitButton = document.getElementById("sparkit-submit-button");
+    const formStatus = document.getElementById("sparkit-form-status");
 
-      if (!form) {
-        console.error("SparkIt form not found.");
-        return;
-      }
+    let formWasSubmitted = false;
 
-      function showToast() {
-        if (!toast) return;
+    if (!form) {
+      console.error("SparkIt form not found.");
+      return;
+    }
 
-        toast.classList.add("is-visible");
+    function showToast() {
+      if (!toast) return;
 
-        window.setTimeout(function () {
-          toast.classList.remove("is-visible");
-        }, 7000);
-      }
+      toast.classList.add("is-visible");
 
-      if (toastClose && toast) {
-        toastClose.addEventListener("click", function () {
-          toast.classList.remove("is-visible");
-        });
-      }
+      window.setTimeout(function () {
+        toast.classList.remove("is-visible");
+      }, 7000);
+    }
 
-      form.addEventListener("submit", function () {
-        formWasSubmitted = true;
-
-        if (submitButton) {
-          submitButton.disabled = true;
-          submitButton.textContent = "Sending...";
-        }
-
-        if (formStatus) {
-          formStatus.textContent = "Sending your message...";
-          formStatus.classList.add("is-visible");
-        }
+    if (toastClose && toast) {
+      toastClose.addEventListener("click", function () {
+        toast.classList.remove("is-visible");
       });
+    }
 
-      if (iframe) {
-        iframe.addEventListener("load", function () {
-          if (!formWasSubmitted) return;
+    form.addEventListener("submit", function () {
+      formWasSubmitted = true;
 
-          form.reset();
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+      }
 
-          if (formStatus) {
-            formStatus.textContent = "Message received. SparkIt will follow up within the next 24 hours.";
-          }
-
-          showToast();
-
-          if (submitButton) {
-            submitButton.disabled = false;
-            submitButton.textContent = "Add Your Spark Here";
-          }
-
-          if (typeof fbq === "function") {
-            fbq("track", "Lead", {
-              content_name: "4 Reels for $50 Form Submission",
-              content_category: "Video Marketing",
-              value: 50.00,
-              currency: "USD"
-            });
-          }
-
-          formWasSubmitted = false;
-        });
+      if (formStatus) {
+        formStatus.textContent = "Sending your message...";
+        formStatus.classList.add("is-visible");
       }
     });
-  </script>
 
+    if (iframe) {
+      iframe.addEventListener("load", function () {
+        if (!formWasSubmitted) return;
+
+        form.reset();
+
+        if (formStatus) {
+          formStatus.textContent = "Message received. SparkIt will follow up within the next 24 hours.";
+        }
+
+        showToast();
+
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = "Add Your Spark Here";
+        }
+
+        if (typeof fbq === "function") {
+          fbq("track", "Lead", {
+            content_name: "4 Reels for $50 Form Submission",
+            content_category: "Video Marketing",
+            value: 50.00,
+            currency: "USD"
+          });
+        }
+
+        formWasSubmitted = false;
+      });
+    }
+  });
+</script>
 </body>
 </html>
