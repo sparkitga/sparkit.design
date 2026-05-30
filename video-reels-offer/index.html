@@ -331,16 +331,16 @@
             Send your business name, website, or social handle. We’ll review it and follow up with the next step.
           </p>
 
-<form 
-  name="sparkit-reels-contact" 
-  method="POST" 
-  data-netlify="true"
-  netlify-honeypot="bot-field"
-  action="/video-reels-offer/"
-  target="netlify-hidden-frame"
-  class="sparkit-contact-form"
-  id="sparkit-reels-form"
->
+          <form 
+            name="sparkit-reels-contact" 
+            method="POST" 
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            action="/video-reels-offer"
+            target="netlify-hidden-frame"
+            class="sparkit-contact-form"
+            id="sparkit-reels-form"
+          >
             <input type="hidden" name="form-name" value="sparkit-reels-contact" />
 
             <p class="hidden">
@@ -428,10 +428,13 @@
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const form = document.getElementById("sparkit-reels-form");
+      const iframe = document.getElementById("netlify-hidden-frame");
       const toast = document.getElementById("sparkit-toast");
       const toastClose = document.getElementById("sparkit-toast-close");
       const submitButton = document.getElementById("sparkit-submit-button");
       const formStatus = document.getElementById("sparkit-form-status");
+
+      let formWasSubmitted = false;
 
       if (!form) {
         console.error("SparkIt form not found.");
@@ -455,6 +458,8 @@
       }
 
       form.addEventListener("submit", function () {
+        formWasSubmitted = true;
+
         if (submitButton) {
           submitButton.disabled = true;
           submitButton.textContent = "Sending...";
@@ -464,8 +469,12 @@
           formStatus.textContent = "Sending your message...";
           formStatus.classList.add("is-visible");
         }
+      });
 
-        window.setTimeout(function () {
+      if (iframe) {
+        iframe.addEventListener("load", function () {
+          if (!formWasSubmitted) return;
+
           form.reset();
 
           if (formStatus) {
@@ -487,8 +496,10 @@
               currency: "USD"
             });
           }
-        }, 1200);
-      });
+
+          formWasSubmitted = false;
+        });
+      }
     });
   </script>
 
