@@ -45,7 +45,7 @@
   <!-- Meta Pixel Code -->
   <script>
     !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=fbq=function(){n.callMethod?
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
     if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
     n.queue=[];t=b.createElement(e);t.async=!0;
@@ -230,8 +230,8 @@
             method="POST" 
             data-netlify="true"
             netlify-honeypot="bot-field"
+            action="/thank-you/"
             class="sparkit-contact-form"
-            id="sparkit-reels-form"
           >
             <input type="hidden" name="form-name" value="sparkit-reels-contact" />
 
@@ -311,56 +311,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- Netlify form submission script -->
-  <script>
-    const form = document.getElementById("sparkit-reels-form");
-
-    function encodeFormData(data) {
-      return Object.keys(data)
-        .map(function(key) {
-          return encodeURIComponent(key) + "=" + encodeURIComponent(data[key] || "");
-        })
-        .join("&");
-    }
-
-    form.addEventListener("submit", function(event) {
-      event.preventDefault();
-
-      const formData = new FormData(form);
-
-      const data = {
-        "form-name": "sparkit-reels-contact",
-        "business-or-social": formData.get("business-or-social"),
-        "name": formData.get("name"),
-        "email": formData.get("email"),
-        "phone": formData.get("phone"),
-        "message": formData.get("message"),
-        "bot-field": formData.get("bot-field") || ""
-      };
-
-      fetch(window.location.pathname, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-        body: encodeFormData(data)
-      })
-      .then(function(response) {
-        console.log("Netlify form response:", response.status, response.statusText);
-
-        if (response.ok) {
-          window.location.href = "/thank-you/";
-        } else {
-          alert("There was a problem submitting the form. Please email sparkitga@gmail.com.");
-        }
-      })
-      .catch(function(error) {
-        console.error("Form submission error:", error);
-        alert("There was a problem submitting the form. Please email sparkitga@gmail.com.");
-      });
-    });
-  </script>
 
 </body>
 </html>
