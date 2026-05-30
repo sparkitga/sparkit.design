@@ -24,7 +24,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>4 Reels for $50 | SparkIt</title>
-  <meta name="description" content="SparkIt helps local businesses get 4 short-form reels for $50." />
+  <meta name="description" content="SparkIt helps local businesses get 4 short-form reels for $50 so they can serve customers while we handle the content." />
   <link rel="canonical" href="https://sparkitdesign.com/video-reels-offer/" />
   <meta name="robots" content="index,follow" />
 
@@ -36,7 +36,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="4 Reels for $50 | SparkIt" />
-  <meta property="og:description" content="Send your business name or social handle to start." />
+  <meta property="og:description" content="Serve your customers at your best. We'll handle the content. Add your Spark here." />
   <meta property="og:url" content="https://sparkitdesign.com/video-reels-offer/" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://sparkitdesign.com/assets/images/tell-your-brand-story-video.png" />
@@ -115,10 +115,10 @@
         <div class="landing-hero-copy">
           <p class="eyebrow">SparkIt Starter Offer</p>
 
-          <h1>Get 4 reels for $50.</h1>
+          <h1>Serve your customers at your best.</h1>
 
           <p class="hero-text">
-            Send your business name or social handle. SparkIt will help turn your brand, services, or ideas into short-form video content.
+            We’ll handle the content. Start with 4 reels for $50 and add your Spark here.
           </p>
 
           <div class="landing-price-box">
@@ -128,7 +128,7 @@
 
           <div class="hero-actions">
             <a href="#start" class="button button-primary">
-              Start with Your Business
+              Add Your Spark Here
             </a>
 
             <a href="#process" class="button button-secondary">
@@ -143,33 +143,33 @@
       </div>
     </section>
 
-    <!-- SIMPLE VALUE -->
+    <!-- VALUE -->
     <section class="landing-trust-section">
       <div class="container">
         <div class="trust-copy">
-          <p class="eyebrow">Why It Works</p>
+          <p class="eyebrow">Simple Value</p>
 
-          <h2>Simple videos help people remember what you do.</h2>
+          <h2>Content that helps your business stay visible.</h2>
 
           <p>
-            Most businesses do not need more complicated marketing. They need to show up consistently with clear content their customers can understand.
+            SparkIt helps local brands turn ideas, services, and customer moments into simple short-form content.
           </p>
         </div>
 
         <div class="trust-stats-grid">
           <div class="trust-stat">
-            <strong>4</strong>
-            <span>short-form reels</span>
+            <strong>1,300+</strong>
+            <span>reels created</span>
           </div>
 
           <div class="trust-stat">
-            <strong>$50</strong>
-            <span>starter price</span>
+            <strong>5+</strong>
+            <span>brands sparked something new</span>
           </div>
 
           <div class="trust-stat">
-            <strong>1</strong>
-            <span>simple next step</span>
+            <strong>Available</strong>
+            <span>Facebook ads</span>
           </div>
         </div>
       </div>
@@ -209,7 +209,7 @@
     <section id="start" class="landing-final-cta">
       <div class="container">
         <div class="final-cta-card">
-          <p class="eyebrow">Start Here</p>
+          <p class="eyebrow">Add Your Spark Here</p>
 
           <h2>What business should SparkIt look at?</h2>
 
@@ -220,10 +220,16 @@
           <form 
             name="sparkit-reels-contact" 
             method="POST" 
-            action="/thank-you/index.html"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
             class="sparkit-contact-form"
+            id="sparkit-reels-form"
           >
             <input type="hidden" name="form-name" value="sparkit-reels-contact" />
+
+            <p class="hidden">
+              <label>Don’t fill this out: <input name="bot-field" /></label>
+            </p>
 
             <div class="form-grid">
               <label>
@@ -276,9 +282,10 @@
             </label>
 
             <button type="submit" class="button button-primary">
-              Start 4 Reels for $50
+              Add Your Spark Here
             </button>
           </form>
+
         </div>
       </div>
     </section>
@@ -296,5 +303,36 @@
       </div>
     </div>
   </footer>
+
+  <!-- Netlify form submission script -->
+  <script>
+    const form = document.getElementById("sparkit-reels-form");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+
+      fetch("/", {
+        method: "POST",
+        headers: { 
+          "Content-Type": "application/x-www-form-urlencoded" 
+        },
+        body: new URLSearchParams(formData).toString()
+      })
+      .then(function(response) {
+        if (response.ok) {
+          window.location.href = "/thank-you/";
+        } else {
+          throw new Error("Form submission failed");
+        }
+      })
+      .catch(function(error) {
+        alert("There was a problem submitting the form. Please email sparkitga@gmail.com.");
+        console.error(error);
+      });
+    });
+  </script>
+
 </body>
 </html>
