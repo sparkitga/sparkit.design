@@ -1517,3 +1517,18 @@ a {
     max-height: 240px !important;
   }
 }
+/* Portfolio Hero Image */
+
+.hero-image-wrap {
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image {
+  width: min(520px, 100%);
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
