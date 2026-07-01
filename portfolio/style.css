@@ -1007,3 +1007,36 @@ a {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+.print-section {
+  padding: 34px 0;
+}
+
+.print-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.print-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: #f6f8fb;
+  box-shadow: 0 10px 24px rgba(16, 24, 50, 0.08);
+}
+
+@media (max-width: 1080px) {
+  .print-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .print-grid {
+    grid-template-columns: 1fr;
+  }
+}
