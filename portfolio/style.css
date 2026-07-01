@@ -1404,3 +1404,32 @@ a {
     max-height: 175px !important;
   }
 }
+
+/* Show more of social images */
+
+.social-grid.compact-gallery img {
+  width: 100% !important;
+  height: 165px !important;
+  max-height: 165px !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  display: block !important;
+  border-radius: 10px !important;
+  border: 1px solid var(--border) !important;
+  background: #f6f8fb !important;
+  box-shadow: 0 6px 14px rgba(16, 24, 50, 0.06) !important;
+}
+
+@media (max-width: 1080px) {
+  .social-grid.compact-gallery img {
+    height: 180px !important;
+    max-height: 180px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .social-grid.compact-gallery img {
+    height: 195px !important;
+    max-height: 195px !important;
+  }
+}
