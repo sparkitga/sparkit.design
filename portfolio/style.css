@@ -946,3 +946,64 @@ a {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+.profile-photo {
+  width: 170px;
+  height: 170px;
+  border-radius: 999px;
+  object-fit: cover;
+  display: block;
+  background: #eaf4ec;
+  border: 1px solid #dfe6ef;
+}
+
+.reels-section {
+  padding: 34px 0;
+}
+
+.section-title {
+  max-width: 780px;
+  margin: 0;
+  color: var(--navy);
+  font-size: 1.75rem;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+}
+
+.section-intro {
+  max-width: 680px;
+  margin: 14px 0 26px;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  font-weight: 500;
+}
+
+.reels-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+
+.reels-grid img {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  display: block;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: #f6f8fb;
+  box-shadow: 0 10px 24px rgba(16, 24, 50, 0.08);
+}
+
+@media (max-width: 1080px) {
+  .reels-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .reels-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
