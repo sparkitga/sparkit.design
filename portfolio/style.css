@@ -1351,3 +1351,56 @@ a {
     max-height: 125px !important;
   }
 }
+
+/* Taller Compact Social Gallery */
+
+.social-section {
+  padding: 22px 0 28px !important;
+}
+
+.social-grid.compact-gallery {
+  display: grid !important;
+  grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+  align-items: start !important;
+}
+
+.social-grid.compact-gallery img {
+  width: 100% !important;
+  height: 145px !important;
+  max-height: 145px !important;
+  object-fit: cover !important;
+  object-position: top center !important;
+  display: block !important;
+  border-radius: 10px !important;
+  border: 1px solid var(--border) !important;
+  background: #f6f8fb !important;
+  box-shadow: 0 6px 14px rgba(16, 24, 50, 0.06) !important;
+}
+
+.social-grid.compact-gallery img:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(16, 24, 50, 0.09) !important;
+}
+
+@media (max-width: 1080px) {
+  .social-grid.compact-gallery {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+
+  .social-grid.compact-gallery img {
+    height: 160px !important;
+    max-height: 160px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .social-grid.compact-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .social-grid.compact-gallery img {
+    height: 175px !important;
+    max-height: 175px !important;
+  }
+}
