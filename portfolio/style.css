@@ -885,3 +885,13 @@ a {
     gap: 6px;
   }
 }
+
+.profile-photo {
+  width: 170px;
+  height: 170px;
+  border-radius: 999px;
+  object-fit: cover;
+  display: block;
+  background: #eaf4ec;
+  border: 1px solid #dfe6ef;
+}
