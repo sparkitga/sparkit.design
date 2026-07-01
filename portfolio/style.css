@@ -1532,3 +1532,22 @@ a {
   display: block;
   object-fit: contain;
 }
+
+/* Fix oversized hero image */
+
+.hero-image-wrap {
+  min-height: 320px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+}
+
+.hero-image {
+  width: 100% !important;
+  max-width: 420px !important;
+  height: auto !important;
+  max-height: 320px !important;
+  object-fit: contain !important;
+  display: block !important;
+}
