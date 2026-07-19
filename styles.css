@@ -2084,6 +2084,32 @@ a {
     align-items: center;
   }
 }
+Use your existing HTML `<head>`, tracking scripts, header, and footer. Replace only the current `<main id="main">...</main>` with the pricing HTML below, then paste the new CSS at the bottom of your existing stylesheet. This preserves your current SparkIt styling and variables. 
+
+## 1. Add Pricing to the navigation
+
+Add this link inside `.main-nav`:
+
+```html
+<a href="/pricing/">Pricing</a>
+```
+
+Your updated navigation would be:
+
+```html
+<nav class="main-nav" aria-label="Primary navigation">
+  <a href="/video/">Video</a>
+  <a href="/social-media/">Social Media</a>
+  <a href="/pricing/">Pricing</a>
+  <a href="/resources/">Resources</a>
+  <a href="/about/">About</a>
+  <a href="#contact">Contact</a>
+</nav>
+```
+
+## 2. Replace the current `<main>` with this HTML
+
+```html
 <main id="main">
 
   <!-- PRICING HERO -->
@@ -2516,3 +2542,498 @@ a {
   </section>
 
 </main>
+```
+
+## 3. Add this CSS at the bottom of `styles.css`
+
+```css
+/* =========================
+   SparkIt Pricing Page
+   ========================= */
+
+.pricing-hero {
+  padding: 56px 0 46px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+
+.pricing-hero-inner {
+  text-align: center;
+}
+
+.pricing-hero h1 {
+  max-width: 900px;
+  margin: 0 auto 20px;
+  color: var(--black);
+  font-size: 3rem;
+  line-height: 0.94;
+  letter-spacing: -0.055em;
+}
+
+.pricing-hero-text {
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.pricing-benefits {
+  display: grid;
+  gap: 10px;
+  margin: 28px auto 0;
+  max-width: 680px;
+}
+
+.pricing-benefits span {
+  border: 2px solid var(--black);
+  background: var(--soft);
+  padding: 11px 14px;
+  color: var(--black);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.pricing-benefits span::before {
+  content: "✓";
+  margin-right: 8px;
+  color: var(--accent-dark);
+}
+
+/* Plans */
+
+.pricing-plans-section {
+  padding: 54px 0;
+  background: var(--white);
+}
+
+.pricing-grid {
+  display: grid;
+  gap: 22px;
+}
+
+.pricing-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--black);
+  background: var(--white);
+  padding: 28px 22px;
+}
+
+.pricing-card-featured {
+  background: var(--soft);
+  box-shadow: 8px 8px 0 var(--accent);
+}
+
+.pricing-badge {
+  position: absolute;
+  top: -15px;
+  left: 20px;
+  border: 2px solid var(--black);
+  background: var(--white);
+  padding: 6px 10px;
+  color: var(--black);
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pricing-badge-featured {
+  background: var(--accent);
+}
+
+.pricing-card-top {
+  min-height: 104px;
+}
+
+.pricing-plan-name {
+  margin-bottom: 9px;
+  color: var(--accent-dark);
+  font-size: 1rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pricing-plan-description {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.pricing-video-count {
+  margin-top: 18px;
+}
+
+.pricing-video-count strong {
+  display: block;
+  color: var(--black);
+  font-size: 2rem;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.pricing-video-count span {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.pricing-price {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-top: 22px;
+}
+
+.pricing-price strong {
+  color: var(--black);
+  font-size: 2.2rem;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.pricing-price span {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.pricing-unit-price {
+  min-height: 24px;
+  margin: 8px 0 20px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.pricing-button {
+  width: 100%;
+}
+
+.pricing-features {
+  margin-top: 25px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+}
+
+.pricing-features-title {
+  margin-bottom: 14px;
+  color: var(--black);
+  font-size: 0.9rem;
+  font-weight: 900;
+}
+
+.pricing-features ul {
+  display: grid;
+  gap: 11px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pricing-features li {
+  position: relative;
+  padding-left: 25px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.pricing-features li::before {
+  content: "✓";
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--accent-dark);
+  font-weight: 900;
+}
+
+/* Custom Plan */
+
+.pricing-custom-card {
+  display: grid;
+  gap: 24px;
+  margin-top: 30px;
+  border: 3px solid var(--black);
+  background: var(--soft);
+  padding: 28px 22px;
+  box-shadow: 8px 8px 0 var(--accent);
+}
+
+.pricing-custom-copy h2 {
+  margin-bottom: 12px;
+  color: var(--black);
+  font-size: 2rem;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.pricing-custom-copy p:not(.eyebrow) {
+  color: var(--muted);
+  max-width: 580px;
+}
+
+.pricing-custom-features {
+  display: grid;
+  gap: 10px;
+}
+
+.pricing-custom-features span {
+  color: var(--black);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.pricing-custom-features span::before {
+  content: "✓";
+  margin-right: 8px;
+  color: var(--accent-dark);
+}
+
+/* Process */
+
+.pricing-process-section {
+  padding: 54px 0;
+  background: var(--soft);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.pricing-section-heading {
+  max-width: 760px;
+  margin-bottom: 30px;
+}
+
+.pricing-section-heading h2 {
+  margin-bottom: 14px;
+  color: var(--black);
+  font-size: 2.2rem;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.pricing-section-heading > p:not(.eyebrow) {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.pricing-process-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.pricing-process-card {
+  border: 2px solid var(--black);
+  background: var(--white);
+  padding: 24px 20px;
+}
+
+.pricing-process-card > span {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 18px;
+  border: 2px solid var(--black);
+  background: var(--accent);
+  color: var(--black);
+  font-weight: 900;
+}
+
+.pricing-process-card h3 {
+  margin-bottom: 10px;
+  color: var(--black);
+  font-size: 1.4rem;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.pricing-process-card p {
+  color: var(--muted);
+}
+
+/* FAQ */
+
+.pricing-faq-section {
+  padding: 54px 0;
+  background: var(--white);
+}
+
+.pricing-faq-heading {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.pricing-faq-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.pricing-faq-grid details {
+  border: 2px solid var(--black);
+  background: var(--white);
+}
+
+.pricing-faq-grid summary {
+  cursor: pointer;
+  padding: 18px;
+  color: var(--black);
+  font-size: 0.95rem;
+  font-weight: 900;
+  list-style: none;
+}
+
+.pricing-faq-grid summary::-webkit-details-marker {
+  display: none;
+}
+
+.pricing-faq-grid summary::after {
+  content: "+";
+  float: right;
+  color: var(--accent-dark);
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.pricing-faq-grid details[open] summary::after {
+  content: "−";
+}
+
+.pricing-faq-grid details p {
+  padding: 0 18px 18px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+/* Contact */
+
+.pricing-contact-layout {
+  display: grid;
+  gap: 26px;
+  align-items: center;
+}
+
+.pricing-contact-section .eyebrow {
+  margin-bottom: 12px;
+}
+
+.pricing-contact-section .privacy-note {
+  max-width: 620px;
+  font-size: 0.8rem;
+}
+
+.pricing-contact-section .privacy-note a {
+  color: var(--black);
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+/* Pricing Tablet */
+
+@media (min-width: 700px) {
+  .pricing-hero {
+    padding: 76px 0 60px;
+  }
+
+  .pricing-hero h1 {
+    font-size: 4.4rem;
+  }
+
+  .pricing-hero-text {
+    font-size: 1.1rem;
+  }
+
+  .pricing-benefits {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 900px;
+  }
+
+  .pricing-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pricing-process-grid,
+  .pricing-faq-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pricing-card,
+  .pricing-custom-card,
+  .pricing-process-card {
+    padding: 30px;
+  }
+
+  .pricing-section-heading h2 {
+    font-size: 3rem;
+  }
+}
+
+/* Pricing Desktop */
+
+@media (min-width: 980px) {
+  .pricing-hero {
+    padding: 96px 0 72px;
+  }
+
+  .pricing-hero h1 {
+    font-size: clamp(5rem, 7vw, 6.8rem);
+  }
+
+  .pricing-plans-section,
+  .pricing-process-section,
+  .pricing-faq-section {
+    padding: 84px 0;
+  }
+
+  .pricing-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: stretch;
+  }
+
+  .pricing-card {
+    min-height: 650px;
+    padding: 30px 24px;
+  }
+
+  .pricing-custom-card {
+    grid-template-columns: 1.2fr 0.9fr auto;
+    align-items: center;
+    padding: 38px;
+  }
+
+  .pricing-custom-copy h2 {
+    font-size: 2.8rem;
+  }
+
+  .pricing-custom-features {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-process-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .pricing-section-heading h2 {
+    font-size: 4rem;
+  }
+
+  .pricing-contact-layout {
+    display: flex;
+    justify-content: space-between;
+    gap: 48px;
+  }
+
+  .pricing-contact-layout .button {
+    flex-shrink: 0;
+  }
+}
