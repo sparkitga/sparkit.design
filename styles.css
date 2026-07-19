@@ -3185,3 +3185,16 @@ Your updated navigation would be:
     font-size: 2rem;
   }
 }
+
+/* Navigation update for additional Brands page */
+
+@media (min-width: 980px) {
+  .main-nav {
+    gap: 6px;
+  }
+
+  .main-nav a {
+    padding: 10px 9px;
+    font-size: 14px;
+  }
+}
