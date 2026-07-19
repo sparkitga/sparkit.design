@@ -3198,3 +3198,12 @@ Your updated navigation would be:
     font-size: 14px;
   }
 }
+
+.blog-card h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.blog-card h2 a:hover {
+  color: var(--accent-dark);
+}
