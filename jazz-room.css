@@ -1,30 +1,33 @@
 /* ========================================
-   The Jazz Room — Realtor-Style Listing Page
+   The Jazz Room — Clean Realtor Listing Page
    ======================================== */
 
 :root {
   --jazz-white: #ffffff;
-  --jazz-text: #1f1f1f;
-  --jazz-muted: #6f6f6f;
-  --jazz-border: #e6e6e6;
-  --jazz-soft: #f8f8f6;
+  --jazz-text: #1d1d1f;
+  --jazz-muted: #6f6f73;
+  --jazz-border: #e5e5e7;
+  --jazz-soft: #f7f7f5;
   --jazz-dark: #111111;
   --jazz-accent: #f5a623;
-  --jazz-green-bg: #eef7ef;
-  --jazz-green-text: #225b2a;
+}
+
+body {
+  background: var(--jazz-white);
+  color: var(--jazz-text);
 }
 
 .property-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.97);
-  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--jazz-border);
 }
 
 .property-header-inner {
-  min-height: 72px;
+  min-height: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -33,25 +36,21 @@
 
 .property-brand {
   color: var(--jazz-dark);
-  font-size: 1.08rem;
+  font-size: 1rem;
   font-weight: 800;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.02em;
 }
 
 .property-nav {
   display: flex;
   align-items: center;
   gap: 22px;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   font-weight: 700;
 }
 
-.property-nav a {
-  transition: opacity 0.2s ease;
-}
-
 .property-nav a:hover {
-  opacity: 0.62;
+  opacity: 0.58;
 }
 
 .property-nav-cta,
@@ -59,79 +58,44 @@
   background: var(--jazz-dark);
   color: var(--jazz-white);
   border-radius: 999px;
-  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .property-nav-cta {
-  padding: 11px 18px;
-}
-
-.property-nav-cta:hover,
-.tour-card-button:hover {
-  opacity: 0.88;
-  transform: translateY(-1px);
+  padding: 10px 17px;
 }
 
 .property-top {
-  padding: 56px 0 32px;
-  background: var(--jazz-white);
+  padding: 64px 0 28px;
 }
 
-.property-status-row {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 24px;
-}
-
-.property-status {
-  display: inline-flex;
-  align-items: center;
-  min-height: 32px;
-  padding: 6px 12px;
-  background: var(--jazz-green-bg);
-  color: var(--jazz-green-text);
-  border-radius: 999px;
-  font-size: 0.8rem;
-  font-weight: 800;
-}
-
-.property-kicker,
-.property-location,
-.property-price-block small,
-.property-section p,
-.attribute-grid span,
-.tour-card p,
-.tour-card-meta span,
-.property-footer span {
+.availability-line {
+  margin-bottom: 16px;
   color: var(--jazz-muted);
-}
-
-.property-kicker {
   font-size: 0.92rem;
+  font-weight: 650;
 }
 
 .property-title-row {
   display: grid;
-  gap: 26px;
+  gap: 28px;
   align-items: end;
-  padding-bottom: 34px;
+  padding-bottom: 38px;
 }
 
 .property-title-row h1 {
-  margin-bottom: 15px;
+  margin: 0 0 15px;
   max-width: 10ch;
   color: var(--jazz-dark);
-  font-size: clamp(3.2rem, 7vw, 6.6rem);
+  font-size: clamp(3.5rem, 7vw, 6.8rem);
   line-height: 0.93;
   letter-spacing: -0.065em;
 }
 
 .property-location {
-  max-width: 620px;
-  font-size: 1.08rem;
-  line-height: 1.55;
+  max-width: 680px;
+  color: var(--jazz-muted);
+  font-size: 1.06rem;
+  line-height: 1.65;
 }
 
 .property-price-block {
@@ -141,20 +105,21 @@
 
 .property-price-block strong {
   color: var(--jazz-dark);
-  font-size: clamp(3rem, 6vw, 5.1rem);
+  font-size: clamp(3rem, 6vw, 5rem);
   line-height: 0.9;
   letter-spacing: -0.06em;
 }
 
 .property-price-block span {
   margin-top: 7px;
-  font-size: 1rem;
+  font-size: 0.98rem;
   font-weight: 700;
 }
 
 .property-price-block small {
-  margin-top: 8px;
-  font-size: 0.88rem;
+  margin-top: 7px;
+  color: var(--jazz-muted);
+  font-size: 0.86rem;
 }
 
 .property-facts {
@@ -166,7 +131,7 @@
 
 .property-facts div {
   min-width: 0;
-  padding: 20px 0;
+  padding: 19px 0;
 }
 
 .property-facts div:nth-child(odd) {
@@ -184,65 +149,60 @@
 }
 
 .property-facts strong {
-  margin-bottom: 3px;
+  margin-bottom: 2px;
   color: var(--jazz-dark);
-  font-size: 1.35rem;
-  letter-spacing: -0.035em;
+  font-size: 1.25rem;
+  letter-spacing: -0.03em;
 }
 
 .property-facts span {
-  color: #777;
-  font-size: 0.84rem;
+  color: var(--jazz-muted);
+  font-size: 0.82rem;
 }
 
 .property-gallery-section {
-  padding: 28px 0 56px;
-  background: var(--jazz-white);
+  padding: 28px 0 64px;
 }
 
 .property-gallery {
   display: grid;
-  gap: 10px;
+  grid-template-columns: 1fr;
+  gap: 8px;
 }
 
 .property-photo {
   overflow: hidden;
-  min-height: 240px;
-  border-radius: 20px;
-  background: #f2f2f2;
+  min-height: 280px;
+  border-radius: 14px;
+  background: #f0f0ee;
 }
 
 .property-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.35s ease;
+  transition: transform 0.3s ease;
 }
 
 .property-photo:hover img {
-  transform: scale(1.015);
+  transform: scale(1.01);
 }
 
 .property-photo-main {
-  min-height: 420px;
+  min-height: 440px;
 }
 
 .property-content-section {
-  padding: 24px 0 90px;
-  background: var(--jazz-white);
+  padding: 8px 0 96px;
 }
 
 .property-content-grid {
   display: grid;
-  gap: 44px;
-}
-
-.property-main-column {
-  min-width: 0;
+  gap: 50px;
 }
 
 .property-section {
-  padding: 38px 0;
+  padding: 40px 0;
   border-top: 1px solid var(--jazz-border);
 }
 
@@ -251,28 +211,19 @@
   border-top: 0;
 }
 
-.section-label {
-  margin-bottom: 10px !important;
-  color: #7a7a7a !important;
-  font-size: 0.76rem !important;
-  line-height: 1;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 800;
-}
-
 .property-section h2 {
-  margin-bottom: 18px;
+  margin: 0 0 18px;
   color: var(--jazz-dark);
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  line-height: 1;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.02;
   letter-spacing: -0.045em;
 }
 
 .property-section p {
-  max-width: 730px;
+  max-width: 720px;
   margin-bottom: 14px;
-  font-size: 1.03rem;
+  color: var(--jazz-muted);
+  font-size: 1rem;
   line-height: 1.75;
 }
 
@@ -286,64 +237,56 @@
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  padding: 17px 0;
+  padding: 16px 0;
   border-bottom: 1px solid var(--jazz-border);
 }
 
 .attribute-grid span {
-  font-size: 0.93rem;
+  color: var(--jazz-muted);
+  font-size: 0.92rem;
 }
 
 .attribute-grid strong {
   max-width: 58%;
   color: var(--jazz-dark);
   text-align: right;
-  font-size: 0.95rem;
+  font-size: 0.94rem;
 }
 
 .amenity-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 9px;
 }
 
 .amenity-list span {
-  padding: 10px 14px;
-  border: 1px solid #dedede;
+  padding: 9px 13px;
+  border: 1px solid var(--jazz-border);
   border-radius: 999px;
   background: var(--jazz-white);
-  color: var(--jazz-text);
-  font-size: 0.9rem;
-  font-weight: 700;
+  font-size: 0.88rem;
+  font-weight: 650;
 }
 
 .tour-card {
-  border: 1px solid #dddddd;
-  border-radius: 22px;
-  padding: 28px;
+  border: 1px solid var(--jazz-border);
+  border-radius: 18px;
+  padding: 26px;
   background: var(--jazz-white);
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
-}
-
-.tour-card-label {
-  margin-bottom: 8px;
-  color: #777 !important;
-  font-size: 0.76rem;
-  text-transform: uppercase;
-  letter-spacing: 0.11em;
-  font-weight: 800;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.07);
 }
 
 .tour-card h2 {
-  margin-bottom: 12px;
+  margin: 0 0 12px;
   color: var(--jazz-dark);
-  font-size: 2.5rem;
+  font-size: 2.45rem;
   line-height: 1;
   letter-spacing: -0.05em;
 }
 
-.tour-card > p:not(.tour-card-label) {
+.tour-card > p {
   margin-bottom: 20px;
+  color: var(--jazz-muted);
   line-height: 1.6;
 }
 
@@ -352,11 +295,18 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 52px;
-  margin-bottom: 22px;
-  padding: 14px 18px;
+  min-height: 50px;
+  margin-bottom: 20px;
+  padding: 13px 18px;
   font-weight: 800;
   text-align: center;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.tour-card-button:hover,
+.property-nav-cta:hover {
+  opacity: 0.86;
+  transform: translateY(-1px);
 }
 
 .tour-card-meta {
@@ -364,26 +314,31 @@
 }
 
 .tour-card-meta span {
-  padding: 13px 0;
+  padding: 12px 0;
   border-top: 1px solid #ececec;
-  font-size: 0.9rem;
-  line-height: 1.45;
+  color: var(--jazz-muted);
+  font-size: 0.88rem;
+  line-height: 1.4;
 }
 
 .property-footer {
-  padding: 28px 0;
+  padding: 26px 0;
   border-top: 1px solid var(--jazz-border);
   background: var(--jazz-soft);
 }
 
 .property-footer-inner {
   display: grid;
-  gap: 7px;
+  gap: 6px;
 }
 
 .property-footer strong,
 .property-footer span {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
+}
+
+.property-footer span {
+  color: var(--jazz-muted);
 }
 
 @media (min-width: 700px) {
@@ -394,7 +349,7 @@
   .property-facts div,
   .property-facts div:nth-child(odd),
   .property-facts div:nth-child(even) {
-    padding: 22px 20px;
+    padding: 21px 20px;
     border-left: 1px solid var(--jazz-border);
   }
 
@@ -404,13 +359,25 @@
   }
 
   .property-gallery {
-    grid-template-columns: 1.55fr 0.8fr;
-    grid-template-rows: repeat(2, 230px);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 245px 245px;
   }
 
   .property-photo-main {
-    grid-row: 1 / 3;
-    min-height: 470px;
+    grid-column: span 2;
+    grid-row: span 2;
+    min-height: 498px;
+  }
+
+  .property-photo:nth-child(2),
+  .property-photo:nth-child(3),
+  .property-photo:nth-child(4),
+  .property-photo:nth-child(5) {
+    min-height: 245px;
+  }
+
+  .property-photo:nth-child(6) {
+    display: none;
   }
 
   .attribute-grid {
@@ -426,30 +393,26 @@
 }
 
 @media (min-width: 980px) {
-  .property-top {
-    padding-top: 72px;
-  }
-
   .property-title-row {
     grid-template-columns: minmax(0, 1fr) auto;
-    gap: 48px;
+    gap: 56px;
   }
 
   .property-price-block {
     justify-items: end;
-    padding-bottom: 6px;
+    padding-bottom: 5px;
     text-align: right;
   }
 
   .property-content-grid {
-    grid-template-columns: minmax(0, 1fr) 350px;
-    gap: 72px;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 78px;
     align-items: start;
   }
 
   .tour-card {
     position: sticky;
-    top: 104px;
+    top: 102px;
   }
 }
 
@@ -459,7 +422,7 @@
   }
 
   .property-header-inner {
-    min-height: 66px;
+    min-height: 64px;
   }
 
   .property-title-row h1 {
@@ -470,12 +433,16 @@
     padding-top: 18px;
   }
 
+  .property-photo {
+    min-height: 300px;
+  }
+
   .property-photo-main {
-    min-height: 340px;
+    min-height: 390px;
   }
 
   .tour-card {
-    border-radius: 18px;
     padding: 22px;
+    border-radius: 16px;
   }
 }
