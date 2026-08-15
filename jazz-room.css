@@ -1,0 +1,481 @@
+/* ========================================
+   The Jazz Room — Realtor-Style Listing Page
+   ======================================== */
+
+:root {
+  --jazz-white: #ffffff;
+  --jazz-text: #1f1f1f;
+  --jazz-muted: #6f6f6f;
+  --jazz-border: #e6e6e6;
+  --jazz-soft: #f8f8f6;
+  --jazz-dark: #111111;
+  --jazz-accent: #f5a623;
+  --jazz-green-bg: #eef7ef;
+  --jazz-green-text: #225b2a;
+}
+
+.property-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--jazz-border);
+}
+
+.property-header-inner {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.property-brand {
+  color: var(--jazz-dark);
+  font-size: 1.08rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+.property-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.property-nav a {
+  transition: opacity 0.2s ease;
+}
+
+.property-nav a:hover {
+  opacity: 0.62;
+}
+
+.property-nav-cta,
+.tour-card-button {
+  background: var(--jazz-dark);
+  color: var(--jazz-white);
+  border-radius: 999px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.property-nav-cta {
+  padding: 11px 18px;
+}
+
+.property-nav-cta:hover,
+.tour-card-button:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.property-top {
+  padding: 56px 0 32px;
+  background: var(--jazz-white);
+}
+
+.property-status-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.property-status {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 6px 12px;
+  background: var(--jazz-green-bg);
+  color: var(--jazz-green-text);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.property-kicker,
+.property-location,
+.property-price-block small,
+.property-section p,
+.attribute-grid span,
+.tour-card p,
+.tour-card-meta span,
+.property-footer span {
+  color: var(--jazz-muted);
+}
+
+.property-kicker {
+  font-size: 0.92rem;
+}
+
+.property-title-row {
+  display: grid;
+  gap: 26px;
+  align-items: end;
+  padding-bottom: 34px;
+}
+
+.property-title-row h1 {
+  margin-bottom: 15px;
+  max-width: 10ch;
+  color: var(--jazz-dark);
+  font-size: clamp(3.2rem, 7vw, 6.6rem);
+  line-height: 0.93;
+  letter-spacing: -0.065em;
+}
+
+.property-location {
+  max-width: 620px;
+  font-size: 1.08rem;
+  line-height: 1.55;
+}
+
+.property-price-block {
+  display: grid;
+  justify-items: start;
+}
+
+.property-price-block strong {
+  color: var(--jazz-dark);
+  font-size: clamp(3rem, 6vw, 5.1rem);
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+}
+
+.property-price-block span {
+  margin-top: 7px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.property-price-block small {
+  margin-top: 8px;
+  font-size: 0.88rem;
+}
+
+.property-facts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid var(--jazz-border);
+  border-bottom: 1px solid var(--jazz-border);
+}
+
+.property-facts div {
+  min-width: 0;
+  padding: 20px 0;
+}
+
+.property-facts div:nth-child(odd) {
+  padding-right: 18px;
+}
+
+.property-facts div:nth-child(even) {
+  padding-left: 18px;
+  border-left: 1px solid var(--jazz-border);
+}
+
+.property-facts strong,
+.property-facts span {
+  display: block;
+}
+
+.property-facts strong {
+  margin-bottom: 3px;
+  color: var(--jazz-dark);
+  font-size: 1.35rem;
+  letter-spacing: -0.035em;
+}
+
+.property-facts span {
+  color: #777;
+  font-size: 0.84rem;
+}
+
+.property-gallery-section {
+  padding: 28px 0 56px;
+  background: var(--jazz-white);
+}
+
+.property-gallery {
+  display: grid;
+  gap: 10px;
+}
+
+.property-photo {
+  overflow: hidden;
+  min-height: 240px;
+  border-radius: 20px;
+  background: #f2f2f2;
+}
+
+.property-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.property-photo:hover img {
+  transform: scale(1.015);
+}
+
+.property-photo-main {
+  min-height: 420px;
+}
+
+.property-content-section {
+  padding: 24px 0 90px;
+  background: var(--jazz-white);
+}
+
+.property-content-grid {
+  display: grid;
+  gap: 44px;
+}
+
+.property-main-column {
+  min-width: 0;
+}
+
+.property-section {
+  padding: 38px 0;
+  border-top: 1px solid var(--jazz-border);
+}
+
+.property-section:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.section-label {
+  margin-bottom: 10px !important;
+  color: #7a7a7a !important;
+  font-size: 0.76rem !important;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 800;
+}
+
+.property-section h2 {
+  margin-bottom: 18px;
+  color: var(--jazz-dark);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.property-section p {
+  max-width: 730px;
+  margin-bottom: 14px;
+  font-size: 1.03rem;
+  line-height: 1.75;
+}
+
+.attribute-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-top: 1px solid var(--jazz-border);
+}
+
+.attribute-grid div {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 17px 0;
+  border-bottom: 1px solid var(--jazz-border);
+}
+
+.attribute-grid span {
+  font-size: 0.93rem;
+}
+
+.attribute-grid strong {
+  max-width: 58%;
+  color: var(--jazz-dark);
+  text-align: right;
+  font-size: 0.95rem;
+}
+
+.amenity-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.amenity-list span {
+  padding: 10px 14px;
+  border: 1px solid #dedede;
+  border-radius: 999px;
+  background: var(--jazz-white);
+  color: var(--jazz-text);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.tour-card {
+  border: 1px solid #dddddd;
+  border-radius: 22px;
+  padding: 28px;
+  background: var(--jazz-white);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
+}
+
+.tour-card-label {
+  margin-bottom: 8px;
+  color: #777 !important;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  font-weight: 800;
+}
+
+.tour-card h2 {
+  margin-bottom: 12px;
+  color: var(--jazz-dark);
+  font-size: 2.5rem;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.tour-card > p:not(.tour-card-label) {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.tour-card-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 52px;
+  margin-bottom: 22px;
+  padding: 14px 18px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.tour-card-meta {
+  display: grid;
+}
+
+.tour-card-meta span {
+  padding: 13px 0;
+  border-top: 1px solid #ececec;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.property-footer {
+  padding: 28px 0;
+  border-top: 1px solid var(--jazz-border);
+  background: var(--jazz-soft);
+}
+
+.property-footer-inner {
+  display: grid;
+  gap: 7px;
+}
+
+.property-footer strong,
+.property-footer span {
+  font-size: 0.9rem;
+}
+
+@media (min-width: 700px) {
+  .property-facts {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .property-facts div,
+  .property-facts div:nth-child(odd),
+  .property-facts div:nth-child(even) {
+    padding: 22px 20px;
+    border-left: 1px solid var(--jazz-border);
+  }
+
+  .property-facts div:first-child {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .property-gallery {
+    grid-template-columns: 1.55fr 0.8fr;
+    grid-template-rows: repeat(2, 230px);
+  }
+
+  .property-photo-main {
+    grid-row: 1 / 3;
+    min-height: 470px;
+  }
+
+  .attribute-grid {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 34px;
+  }
+
+  .property-footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 980px) {
+  .property-top {
+    padding-top: 72px;
+  }
+
+  .property-title-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 48px;
+  }
+
+  .property-price-block {
+    justify-items: end;
+    padding-bottom: 6px;
+    text-align: right;
+  }
+
+  .property-content-grid {
+    grid-template-columns: minmax(0, 1fr) 350px;
+    gap: 72px;
+    align-items: start;
+  }
+
+  .tour-card {
+    position: sticky;
+    top: 104px;
+  }
+}
+
+@media (max-width: 699px) {
+  .property-nav a:not(.property-nav-cta) {
+    display: none;
+  }
+
+  .property-header-inner {
+    min-height: 66px;
+  }
+
+  .property-title-row h1 {
+    font-size: 3.5rem;
+  }
+
+  .property-gallery-section {
+    padding-top: 18px;
+  }
+
+  .property-photo-main {
+    min-height: 340px;
+  }
+
+  .tour-card {
+    border-radius: 18px;
+    padding: 22px;
+  }
+}
