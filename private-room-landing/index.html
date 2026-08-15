@@ -17,7 +17,7 @@
       <nav class="property-nav" aria-label="Property navigation">
         <a href="#overview">Overview</a>
         <a href="#features">Details</a>
-        <a href="sms:+17703178410" class="property-nav-cta" data-track="property-manager-message" data-message-location="header">
+        <a href="sms:+17703178410" class="property-nav-cta message-link" data-track="property-manager-message" data-message-location="header">
           Message (770) 317-8410
         </a>
       </nav>
@@ -119,13 +119,13 @@
         <aside class="tour-card" id="contact">
           <h2>$850/month</h2>
           <p>Private furnished room. Utilities included except Wi-Fi. Available now in Marietta, GA 30066.</p>
-          <a class="tour-card-button" href="sms:+17703178410" data-track="property-manager-message" data-message-location="main-card">
+          <a class="tour-card-button message-link" href="sms:+17703178410" data-track="property-manager-message" data-message-location="main-card">
             Message Property Manager
           </a>
 
           <div class="phone-contact">
             <p>Interested in The Jazz Room?</p>
-            <a href="sms:+17703178410" class="phone-number" data-track="property-manager-message" data-message-location="visible-number">
+            <a href="sms:+17703178410" class="phone-number message-link" data-track="property-manager-message" data-message-location="visible-number">
               (770) 317-8410
             </a>
             <small>Send the property manager a text message</small>
@@ -147,5 +147,46 @@
       <span>$850/month · Utilities included except Wi-Fi</span>
     </div>
   </footer>
+
+  <dialog class="interest-dialog" id="interest-dialog" aria-labelledby="interest-dialog-title">
+    <button class="interest-dialog-close" type="button" aria-label="Close confirmation">×</button>
+    <div class="interest-dialog-icon" aria-hidden="true">✓</div>
+    <h2 id="interest-dialog-title">Thanks for your interest.</h2>
+    <p>We'll follow up as soon as we can!</p>
+    <button class="interest-dialog-continue" type="button">Continue to message</button>
+  </dialog>
+
+  <script>
+    (() => {
+      const dialog = document.getElementById('interest-dialog');
+      const messageLinks = document.querySelectorAll('.message-link');
+      const closeButton = dialog.querySelector('.interest-dialog-close');
+      const continueButton = dialog.querySelector('.interest-dialog-continue');
+      let pendingHref = 'sms:+17703178410';
+
+      const openDialog = (event) => {
+        event.preventDefault();
+        pendingHref = event.currentTarget.href;
+        if (typeof dialog.showModal === 'function') {
+          dialog.showModal();
+        } else {
+          window.location.href = pendingHref;
+        }
+      };
+
+      messageLinks.forEach((link) => link.addEventListener('click', openDialog));
+
+      closeButton.addEventListener('click', () => dialog.close());
+
+      continueButton.addEventListener('click', () => {
+        dialog.close();
+        window.location.href = pendingHref;
+      });
+
+      dialog.addEventListener('click', (event) => {
+        if (event.target === dialog) dialog.close();
+      });
+    })();
+  </script>
 </body>
 </html>
