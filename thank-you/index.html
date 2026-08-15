@@ -11,48 +11,137 @@
   </script>
   <!-- End Google Tag Manager -->
 
-  <!-- Google tag -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-94JDJYFKGY"></script>
+
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
     gtag('js', new Date());
     gtag('config', 'G-94JDJYFKGY');
   </script>
 
-  <!-- Meta Pixel Code -->
+  <!-- Meta Pixel -->
   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
+    !function(f,b,e,v,n,t,s) {
+      if (f.fbq) return;
+
+      n = f.fbq = function() {
+        n.callMethod
+          ? n.callMethod.apply(n, arguments)
+          : n.queue.push(arguments);
+      };
+
+      if (!f._fbq) f._fbq = n;
+
+      n.push = n;
+      n.loaded = true;
+      n.version = '2.0';
+      n.queue = [];
+
+      t = b.createElement(e);
+      t.async = true;
+      t.src = v;
+
+      s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s);
+
+    }(
+      window,
+      document,
+      'script',
+      'https://connect.facebook.net/en_US/fbevents.js'
+    );
 
     fbq('init', '1514182786778527');
     fbq('track', 'PageView');
-    fbq('track', 'Lead', {
-      content_name: '4 Reels for $50 Thank You Page',
-      content_category: 'Video Marketing',
-      value: 50.00,
-      currency: 'USD'
-    });
   </script>
 
   <noscript>
-    <img height="1" width="1" style="display:none"
-         src="https://www.facebook.com/tr?id=1514182786778527&ev=PageView&noscript=1" />
+    <img
+      height="1"
+      width="1"
+      style="display:none"
+      src="https://www.facebook.com/tr?id=1514182786778527&ev=PageView&noscript=1"
+      alt=""
+    />
   </noscript>
-  <!-- End Meta Pixel Code -->
+  <!-- End Meta Pixel -->
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Thank You | SparkIt</title>
-  <meta name="description" content="Thanks for contacting SparkIt about the 4 reels for $50 offer. We’ll follow up within the next day." />
+  <title>Thanks | SparkIt</title>
+
+  <meta
+    name="description"
+    content="Thanks for contacting SparkIt. Your inquiry has been received."
+  />
+
+  <link
+    rel="canonical"
+    href="https://sparkitdesign.com/thank-you/"
+  />
+
   <meta name="robots" content="noindex,follow" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="/assets/favicon/favicon.ico" />
+
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="/assets/favicon/favicon-50x50.png"
+  />
+
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="/assets/favicon/favicon-32x32.png"
+  />
+
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="/assets/favicon/favicon-16x16.png"
+  />
+
+  <link
+    rel="apple-touch-icon"
+    href="/assets/favicon/apple-touch-icon.png"
+  />
+
+  <!-- Open Graph -->
+  <meta
+    property="og:title"
+    content="Realtor Video Pricing | SparkIt"
+  />
+
+  <meta
+    property="og:description"
+    content="Choose a SparkIt realtor video plan and turn listing photos into ready-to-post short-form content."
+  />
+
+  <meta
+    property="og:url"
+    content="https://sparkitdesign.com/pricing/"
+  />
+
+  <meta property="og:type" content="website" />
+
+  <meta
+    property="og:image"
+    content="https://sparkitdesign.com/assets/images/hero-apple.jpg"
+  />
+
+  <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="stylesheet" href="/styles.css" />
 </head>
@@ -60,29 +149,90 @@
 <body id="top">
   <!-- Google Tag Manager noscript -->
   <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKBD5PZQ"
-      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-PKBD5PZQ"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden"
+    ></iframe>
   </noscript>
 
-  <main class="thank-you-page">
-    <section class="thank-you-section">
-      <div class="container">
-        <div class="thank-you-card">
-          <p class="eyebrow">Message Sent</p>
+  <a class="skip-link" href="#main">
+    Skip to content
+  </a>
 
-          <h1>Thanks for reaching out.</h1>
-
-          <p>
-            We received your request for 4 reels for $50. We’ll review your message and follow up within the next day.
-          </p>
-
-          <div class="thank-you-actions">
-            <a href="/" class="button button-primary">Back to SparkIt</a>
-            <a href="mailto:sparkitga@gmail.com" class="button button-secondary">Email SparkIt</a>
-          </div>
-        </div>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-top">
+        <a
+          href="/"
+          class="logo"
+          aria-label="SparkIt Home"
+        >
+          <img
+            src="/assets/logos/SparkIt Logo (2).png"
+            alt="SparkIt logo"
+          />
+        </a>
       </div>
-    </section>
-  </main>
+
+<nav class="main-nav" aria-label="Primary navigation">
+  <a href="/video/">Video</a>
+  <a href="/social-media/">Social Media</a>
+  <a href="/pricing/">Pricing</a>
+  <a href="/brands/">Brands</a>
+  <a href="/resources/">Resources</a>
+  <a href="/about/">About</a>
+  <a href="#contact">Contact</a>
+</nav>
+    </div>
+  </header>
+<main id="main">
+  <section class="hero page-hero">
+    <div class="container">
+      <p class="eyebrow">Inquiry Received</p>
+      <h1>Thanks. SparkIt has your request.</h1>
+      <p class="hero-text">
+        We’ll review what you sent and follow up about the simplest next step for your listing or content plan.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="/pricing/">Back to Pricing</a>
+        <a class="button button-secondary" href="/">Visit SparkIt</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+  <!--
+    OPENAI CONVERSION EVENT:
+    Add this only after the OpenAI base pixel has been installed site-wide.
+
+    <script>
+      oaiq(
+        "measure",
+        "lead_created",
+        { type: "customer_action" }
+      );
+    </script>
+  -->
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>
+        © 2026 SparkIt. Think with your hands.
+      </p>
+
+<div class="footer-links">
+  <a href="/brands/">Brands</a>
+  <a href="/privacy/">Privacy</a>
+  <a href="/pricing/">Pricing</a>
+  <a href="tel:+14706021753">Call</a>
+  <a href="mailto:sparkitga@gmail.com">Email</a>
+</div>
+    </div>
+  </footer>
 </body>
 </html>

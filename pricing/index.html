@@ -190,45 +190,44 @@
   </header>
 <main id="main">
 
-  <!-- PRICING HERO -->
-  <section class="pricing-hero">
-    <div class="container pricing-hero-inner">
-      <p class="eyebrow">SparkIt Realtor Videos</p>
-
-      <h1>Choose the right video plan for your listings.</h1>
-
-      <p class="pricing-hero-text">
-        Send SparkIt 3–5 property photos. We turn them into branded
-        short-form videos so you can stay visible while focusing on
-        clients, showings, negotiations, and referrals.
+  <section class="pricing-focus-head">
+    <div class="container">
+      <p class="eyebrow">SparkIt Realtor Video Pricing</p>
+      <h1>Simple video pricing for busy realtors.</h1>
+      <p>
+        Start free, choose an annual plan, or request custom volume pricing.
       </p>
-
-      <div class="pricing-benefits">
-        <span>Start with 2 free videos</span>
-        <span>Credits available for 12 months</span>
-        <span>Built for busy realtors</span>
-      </div>
+      <a class="button button-primary" href="#pricing-rfp">Request Pricing</a>
     </div>
   </section>
 
-  <section id="pricing-lead-top" class="pricing-lead-section">
-    <div class="container pricing-lead-wrap">
-      <div class="pricing-lead-copy">
-        <p class="eyebrow">Start With Your Listing</p>
-        <h2>Tell us what you need before choosing a plan.</h2>
-        <p>Share a few details and SparkIt can point you toward the simplest fit. No long intake form and no commitment required.</p>
+
+  <section id="pricing-rfp" class="pricing-rfp-section">
+    <div class="container pricing-rfp-layout">
+      <div class="pricing-rfp-copy">
+        <p class="eyebrow">Request Pricing</p>
+        <h2>Tell SparkIt what you need.</h2>
+        <p>
+          Share your listing volume, team size, or video goals. We’ll respond
+          with the best-fit plan or a custom quote.
+        </p>
+
+        <div class="pricing-rfp-points" aria-label="What happens next">
+          <span>Simple request</span>
+          <span>No commitment</span>
+          <span>Plan or custom quote</span>
+        </div>
       </div>
 
       <form
-        class="pricing-lead-form"
-        name="sparkit-pricing-lead"
+        class="pricing-rfp-form"
+        name="sparkit-pricing-rfp"
         method="POST"
         action="/thank-you/"
         data-netlify="true"
         netlify-honeypot="bot-field"
       >
-        <input type="hidden" name="form-name" value="sparkit-pricing-lead" />
-        <input type="hidden" name="source_location" value="before-pricing" />
+        <input type="hidden" name="form-name" value="sparkit-pricing-rfp" />
 
         <input type="hidden" name="utm_source" value="" />
         <input type="hidden" name="utm_medium" value="" />
@@ -246,7 +245,7 @@
           </label>
         </p>
 
-        <div class="pricing-lead-form-grid">
+        <div class="pricing-rfp-grid">
           <label class="pricing-form-field">
             <span>Name *</span>
             <input type="text" name="name" autocomplete="name" required />
@@ -268,43 +267,49 @@
           </label>
 
           <label class="pricing-form-field">
-            <span>What are you interested in?</span>
+            <span>Plan</span>
             <select name="plan_interest">
-              <option value="">Choose an option</option>
+              <option value="">Help me choose</option>
               <option value="2 Free Videos">2 Free Videos</option>
               <option value="Essential">Essential</option>
               <option value="Growth">Growth</option>
               <option value="Pro">Pro</option>
               <option value="Custom">Custom Team Plan</option>
-              <option value="Not Sure">Not sure yet</option>
             </select>
           </label>
 
           <label class="pricing-form-field">
-            <span>Listing address or URL</span>
-            <input type="text" name="listing" />
+            <span>Approx. videos needed per year</span>
+            <select name="annual_video_volume">
+              <option value="">Select volume</option>
+              <option value="1-25">1–25</option>
+              <option value="26-100">26–100</option>
+              <option value="101-200">101–200</option>
+              <option value="200+">200+</option>
+            </select>
           </label>
 
           <label class="pricing-form-field pricing-form-field-full">
-            <span>What would make content easier right now?</span>
+            <span>What are you looking for?</span>
             <textarea
               name="message"
-              placeholder="Example: I need faster listing reels, open-house videos, or help staying consistent."
+              placeholder="Example: listing videos for 3 agents, about 8 listings per month."
             ></textarea>
           </label>
         </div>
 
-        <button type="submit" class="button button-dark pricing-form-submit">
-          Help Me Choose
+        <button type="submit" class="button button-dark pricing-rfp-submit">
+          Request Pricing
         </button>
 
         <p class="pricing-form-note">
-          By submitting, you agree that SparkIt may use this information to
-          respond to your inquiry. See the <a href="/privacy/">Privacy Policy</a>.
+          SparkIt will use this information only to respond to your request.
+          See the <a href="/privacy/">Privacy Policy</a>.
         </p>
       </form>
     </div>
   </section>
+
 
   <!-- PRICING PLANS -->
   <section class="pricing-plans-section">
@@ -337,7 +342,7 @@
           </p>
 
           <a
-            href="#pricing-lead-bottom" data-plan-value="2 Free Videos"
+            href="#pricing-rfp" data-plan-value="2 Free Videos"
             class="button button-secondary pricing-button"
           >
             Claim 2 Free Videos
@@ -383,7 +388,7 @@
           </p>
 
           <a
-            href="#pricing-lead-bottom" data-plan-value="Essential"
+            href="#pricing-rfp" data-plan-value="Essential"
             class="button button-primary pricing-button"
           >
             Choose Essential
@@ -434,7 +439,7 @@
           </p>
 
           <a
-            href="#pricing-lead-bottom" data-plan-value="Growth"
+            href="#pricing-rfp" data-plan-value="Growth"
             class="button button-primary pricing-button"
           >
             Choose Growth
@@ -481,7 +486,7 @@
           </p>
 
           <a
-            href="#pricing-lead-bottom" data-plan-value="Pro"
+            href="#pricing-rfp" data-plan-value="Pro"
             class="button button-primary pricing-button"
           >
             Choose Pro
@@ -526,7 +531,7 @@
         </div>
 
         <a
-          href="#pricing-lead-bottom" data-plan-value="Custom"
+          href="#pricing-rfp" data-plan-value="Custom"
           class="button button-dark"
         >
           Request Custom Plan
@@ -535,280 +540,6 @@
 
     </div>
   </section>
-
-  <section id="pricing-lead-bottom" class="pricing-lead-section pricing-lead-section-bottom">
-    <div class="container pricing-lead-wrap">
-      <div class="pricing-lead-copy">
-        <p class="eyebrow">Ready When You Are</p>
-        <h2>Turn your next listing into content.</h2>
-        <p>Choose a plan or send the basics. SparkIt can follow up with the next step so you can stay focused on clients, closings, and the rest of your day.</p>
-      </div>
-
-      <form
-        class="pricing-lead-form"
-        name="sparkit-pricing-lead"
-        method="POST"
-        action="/thank-you/"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-      >
-        <input type="hidden" name="form-name" value="sparkit-pricing-lead" />
-        <input type="hidden" name="source_location" value="after-pricing" />
-
-        <input type="hidden" name="utm_source" value="" />
-        <input type="hidden" name="utm_medium" value="" />
-        <input type="hidden" name="utm_campaign" value="" />
-        <input type="hidden" name="utm_content" value="" />
-        <input type="hidden" name="campaign_id" value="" />
-        <input type="hidden" name="ad_group_id" value="" />
-        <input type="hidden" name="ad_id" value="" />
-        <input type="hidden" name="oppref" value="" />
-
-        <p class="pricing-form-honeypot">
-          <label>
-            Do not fill this out:
-            <input name="bot-field" />
-          </label>
-        </p>
-
-        <div class="pricing-lead-form-grid">
-          <label class="pricing-form-field">
-            <span>Name *</span>
-            <input type="text" name="name" autocomplete="name" required />
-          </label>
-
-          <label class="pricing-form-field">
-            <span>Email *</span>
-            <input type="email" name="email" autocomplete="email" required />
-          </label>
-
-          <label class="pricing-form-field">
-            <span>Phone</span>
-            <input type="tel" name="phone" autocomplete="tel" />
-          </label>
-
-          <label class="pricing-form-field">
-            <span>Brokerage / Team</span>
-            <input type="text" name="brokerage" autocomplete="organization" />
-          </label>
-
-          <label class="pricing-form-field">
-            <span>What are you interested in?</span>
-            <select name="plan_interest">
-              <option value="">Choose an option</option>
-              <option value="2 Free Videos">2 Free Videos</option>
-              <option value="Essential">Essential</option>
-              <option value="Growth">Growth</option>
-              <option value="Pro">Pro</option>
-              <option value="Custom">Custom Team Plan</option>
-              <option value="Not Sure">Not sure yet</option>
-            </select>
-          </label>
-
-          <label class="pricing-form-field">
-            <span>Listing address or URL</span>
-            <input type="text" name="listing" />
-          </label>
-
-          <label class="pricing-form-field pricing-form-field-full">
-            <span>What would make content easier right now?</span>
-            <textarea
-              name="message"
-              placeholder="Example: I need faster listing reels, open-house videos, or help staying consistent."
-            ></textarea>
-          </label>
-        </div>
-
-        <button type="submit" class="button button-dark pricing-form-submit">
-          Start My First Reel
-        </button>
-
-        <p class="pricing-form-note">
-          By submitting, you agree that SparkIt may use this information to
-          respond to your inquiry. See the <a href="/privacy/">Privacy Policy</a>.
-        </p>
-      </form>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section class="pricing-process-section">
-    <div class="container">
-      <div class="pricing-section-heading">
-        <p class="eyebrow">How It Works</p>
-
-        <h2>From listing photos to ready-to-post video.</h2>
-
-        <p>
-          SparkIt handles the content production so you can focus on
-          relationships, listings, and closing business.
-        </p>
-      </div>
-
-      <div class="pricing-process-grid">
-
-        <article class="pricing-process-card">
-          <span>1</span>
-
-          <h3>Send your photos</h3>
-
-          <p>
-            Share 3–5 property images, the listing details, and your
-            preferred call to action.
-          </p>
-        </article>
-
-        <article class="pricing-process-card">
-          <span>2</span>
-
-          <h3>SparkIt creates the reel</h3>
-
-          <p>
-            We turn the property into a branded short-form video designed
-            for social media.
-          </p>
-        </article>
-
-        <article class="pricing-process-card">
-          <span>3</span>
-
-          <h3>Post and stay visible</h3>
-
-          <p>
-            Share the finished video on Instagram, Facebook, LinkedIn,
-            TikTok, or in listing updates.
-          </p>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="pricing-faq-section">
-    <div class="container">
-
-      <div class="pricing-section-heading pricing-faq-heading">
-        <p class="eyebrow">Pricing Questions</p>
-
-        <h2>Clear answers before you commit.</h2>
-
-        <p>
-          Annual credits provide flexibility across busy and slower
-          listing seasons.
-        </p>
-      </div>
-
-      <div class="pricing-faq-grid">
-
-        <details>
-          <summary>Are videos included in the subscription?</summary>
-
-          <p>
-            Yes. Each plan includes the annual number of videos displayed
-            in the pricing table.
-          </p>
-        </details>
-
-        <details>
-          <summary>Why choose an annual plan?</summary>
-
-          <p>
-            Annual plans give you video credits that can be used throughout
-            the year instead of requiring the same volume every month.
-          </p>
-        </details>
-
-        <details>
-          <summary>Can I purchase one video without subscribing?</summary>
-
-          <p>
-            Yes. One-time realtor reels are available. Email your listing
-            photos and project details for current one-time pricing.
-          </p>
-        </details>
-
-        <details>
-          <summary>What happens to unused credits?</summary>
-
-          <p>
-            Paid-plan credits remain available during the active 12-month
-            plan period.
-          </p>
-        </details>
-
-        <details>
-          <summary>What is included in the free offer?</summary>
-
-          <p>
-            You receive two starter listing videos so you can test the
-            process and video style before selecting a paid plan.
-          </p>
-        </details>
-
-        <details>
-          <summary>Can the videos match my brand?</summary>
-
-          <p>
-            Paid plans can include your logo, brand colors, name,
-            brokerage, contact information, and preferred call to action.
-          </p>
-        </details>
-
-        <details>
-          <summary>What types of videos can SparkIt create?</summary>
-
-          <p>
-            Listing launches, open houses, price updates, under-contract
-            posts, sold posts, neighborhood highlights, and agent-brand
-            videos.
-          </p>
-        </details>
-
-        <details>
-          <summary>How do I get started?</summary>
-
-          <p>
-            Email 3–5 listing photos, the property address, your name,
-            brokerage information, and the action you want viewers to take.
-          </p>
-        </details>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="contact-section pricing-contact-section">
-    <div class="container pricing-contact-layout">
-
-      <div>
-        <p class="eyebrow">Start Your First Reel</p>
-
-        <h2>Send 3–5 listing photos.</h2>
-
-        <p>
-          SparkIt will turn the work you are already doing into content
-          that keeps your name visible.
-        </p>
-
-        <p class="privacy-note">
-          By contacting SparkIt, you agree that we may use your information
-          to respond to your inquiry.
-          View our <a href="/privacy/">Privacy Policy</a>.
-        </p>
-      </div>
-
-      <a
-        href="#pricing-lead-bottom"
-        class="button button-dark"
-      >
-        Email Listing Photos
-      </a>
-
-    </div>
-  </section>
-
 </main>
 
 <script>
@@ -825,46 +556,31 @@
       "oppref"
     ];
 
-    document.querySelectorAll('form[name="sparkit-pricing-lead"]').forEach(function (form) {
+    const form = document.querySelector('form[name="sparkit-pricing-rfp"]');
+
+    if (form) {
       attributionKeys.forEach(function (key) {
         const field = form.querySelector('[name="' + key + '"]');
         if (field && params.has(key)) {
           field.value = params.get(key);
         }
       });
-    });
+    }
 
     document.querySelectorAll("[data-plan-value]").forEach(function (link) {
       link.addEventListener("click", function () {
         const plan = link.getAttribute("data-plan-value");
-        const bottomForm = document.querySelector(
-          '#pricing-lead-bottom select[name="plan_interest"]'
+        const planField = document.querySelector(
+          '#pricing-rfp select[name="plan_interest"]'
         );
 
-        if (bottomForm && plan) {
-          bottomForm.value = plan;
+        if (planField && plan) {
+          planField.value = plan;
         }
       });
     });
   })();
 </script>
 
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>
-        © 2026 SparkIt. Think with your hands.
-      </p>
-
-<div class="footer-links">
-  <a href="/brands/">Brands</a>
-  <a href="/privacy/">Privacy</a>
-  <a href="/pricing/">Pricing</a>
-  <a href="tel:+14706021753">Call</a>
-  <a href="mailto:sparkitga@gmail.com">Email</a>
-</div>
-    </div>
-  </footer>
 </body>
 </html>
