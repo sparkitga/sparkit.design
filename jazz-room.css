@@ -379,6 +379,90 @@ body {
   color: var(--jazz-muted);
 }
 
+/* Message confirmation */
+.interest-dialog {
+  width: min(92vw, 430px);
+  margin: auto;
+  padding: 34px 30px 30px;
+  border: 0;
+  border-radius: 22px;
+  background: var(--jazz-white);
+  color: var(--jazz-text);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.22);
+  text-align: center;
+}
+
+.interest-dialog::backdrop {
+  background: rgba(17, 17, 17, 0.52);
+  backdrop-filter: blur(4px);
+}
+
+.interest-dialog-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--jazz-muted);
+  font-size: 1.7rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.interest-dialog-close:hover {
+  background: var(--jazz-soft);
+  color: var(--jazz-dark);
+}
+
+.interest-dialog-icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background: var(--jazz-dark);
+  color: var(--jazz-white);
+  font-size: 1.35rem;
+  font-weight: 900;
+}
+
+.interest-dialog h2 {
+  margin: 0 0 10px;
+  color: var(--jazz-dark);
+  font-size: 1.75rem;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.interest-dialog p {
+  margin: 0 0 24px;
+  color: var(--jazz-muted);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.interest-dialog-continue {
+  width: 100%;
+  min-height: 50px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--jazz-dark);
+  color: var(--jazz-white);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.interest-dialog-continue:hover {
+  opacity: 0.87;
+  transform: translateY(-1px);
+}
+
 @media (min-width: 700px) {
   .property-facts {
     grid-template-columns: repeat(4, 1fr);
