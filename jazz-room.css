@@ -309,6 +309,40 @@ body {
   transform: translateY(-1px);
 }
 
+.phone-contact {
+  margin: 0 0 22px;
+  padding: 18px 0;
+  border-top: 1px solid var(--jazz-border);
+  border-bottom: 1px solid var(--jazz-border);
+}
+
+.phone-contact p {
+  margin: 0 0 7px;
+  color: var(--jazz-muted);
+  font-size: 0.9rem;
+}
+
+.phone-number {
+  display: inline-block;
+  color: var(--jazz-dark);
+  font-size: 1.45rem;
+  line-height: 1.1;
+  font-weight: 850;
+  letter-spacing: -0.035em;
+}
+
+.phone-number:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.phone-contact small {
+  display: block;
+  margin-top: 7px;
+  color: var(--jazz-muted);
+  font-size: 0.8rem;
+}
+
 .tour-card-meta {
   display: grid;
 }
@@ -319,6 +353,10 @@ body {
   color: var(--jazz-muted);
   font-size: 0.88rem;
   line-height: 1.4;
+}
+
+.tour-card-meta span:first-child {
+  border-top: 0;
 }
 
 .property-footer {
@@ -444,5 +482,10 @@ body {
   .tour-card {
     padding: 22px;
     border-radius: 16px;
+  }
+
+  .property-nav-cta {
+    padding: 10px 13px;
+    font-size: 0.84rem;
   }
 }
