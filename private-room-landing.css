@@ -1,0 +1,444 @@
+/* ========================================
+   The Jazz Room — Realtor-Style Landing Page
+   ======================================== */
+
+.property-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.property-header-inner {
+  min-height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.property-brand {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.property-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  font-size: 0.94rem;
+  font-weight: 700;
+}
+
+.property-nav a:hover {
+  opacity: 0.65;
+}
+
+.property-nav-cta,
+.tour-card-button {
+  background: #111;
+  color: #fff;
+  border-radius: 999px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.property-nav-cta {
+  padding: 11px 18px;
+}
+
+.property-nav-cta:hover,
+.tour-card-button:hover {
+  opacity: 0.86;
+  transform: translateY(-1px);
+}
+
+.property-top {
+  padding: 54px 0 30px;
+  background: #fff;
+}
+
+.property-status-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.property-status {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 6px 12px;
+  background: #eef7ef;
+  color: #225b2a;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.property-kicker,
+.property-location,
+.property-price-block small,
+.property-section p,
+.attribute-grid span,
+.tour-card p,
+.tour-card-meta span,
+.property-footer span {
+  color: #686868;
+}
+
+.property-kicker {
+  font-size: 0.92rem;
+}
+
+.property-title-row {
+  display: grid;
+  gap: 26px;
+  align-items: end;
+  padding-bottom: 34px;
+}
+
+.property-title-row h1 {
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  line-height: 0.94;
+  letter-spacing: -0.065em;
+  margin-bottom: 16px;
+  max-width: 9ch;
+}
+
+.property-location {
+  font-size: 1.08rem;
+  max-width: 610px;
+}
+
+.property-price-block {
+  display: grid;
+  justify-items: start;
+}
+
+.property-price-block strong {
+  font-size: clamp(2.9rem, 6vw, 5rem);
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+}
+
+.property-price-block span {
+  margin-top: 7px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.property-price-block small {
+  margin-top: 8px;
+  font-size: 0.88rem;
+}
+
+.property-facts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.property-facts div {
+  padding: 20px 0;
+  min-width: 0;
+}
+
+.property-facts div:nth-child(odd) {
+  padding-right: 18px;
+}
+
+.property-facts div:nth-child(even) {
+  padding-left: 18px;
+  border-left: 1px solid #e5e5e5;
+}
+
+.property-facts strong,
+.property-facts span {
+  display: block;
+}
+
+.property-facts strong {
+  font-size: 1.35rem;
+  letter-spacing: -0.035em;
+  margin-bottom: 3px;
+}
+
+.property-facts span {
+  font-size: 0.84rem;
+  color: #777;
+}
+
+.property-gallery-section {
+  padding: 26px 0 54px;
+  background: #fff;
+}
+
+.property-gallery {
+  display: grid;
+  gap: 10px;
+}
+
+.property-photo {
+  overflow: hidden;
+  border-radius: 18px;
+  background: #f2f2f2;
+  min-height: 240px;
+}
+
+.property-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.property-photo-main {
+  min-height: 420px;
+}
+
+.property-content-section {
+  padding: 24px 0 90px;
+  background: #fff;
+}
+
+.property-content-grid {
+  display: grid;
+  gap: 44px;
+}
+
+.property-main-column {
+  min-width: 0;
+}
+
+.property-section {
+  padding: 38px 0;
+  border-top: 1px solid #e6e6e6;
+}
+
+.property-section:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.section-label {
+  margin-bottom: 10px !important;
+  font-size: 0.78rem !important;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  font-weight: 800;
+  color: #777 !important;
+}
+
+.property-section h2 {
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: -0.045em;
+  margin-bottom: 18px;
+}
+
+.property-section p {
+  max-width: 720px;
+  font-size: 1.04rem;
+  line-height: 1.75;
+  margin-bottom: 14px;
+}
+
+.attribute-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-top: 1px solid #e5e5e5;
+}
+
+.attribute-grid div {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 17px 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.attribute-grid span {
+  font-size: 0.94rem;
+}
+
+.attribute-grid strong {
+  max-width: 56%;
+  text-align: right;
+  font-size: 0.95rem;
+}
+
+.amenity-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.amenity-list span {
+  padding: 10px 14px;
+  border: 1px solid #dedede;
+  border-radius: 999px;
+  background: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.tour-card {
+  border: 1px solid #dedede;
+  border-radius: 22px;
+  padding: 28px;
+  background: #fff;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.08);
+}
+
+.tour-card-label {
+  margin-bottom: 8px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 800;
+}
+
+.tour-card h2 {
+  font-size: 2.4rem;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  margin-bottom: 12px;
+}
+
+.tour-card > p:not(.tour-card-label) {
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.tour-card-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 52px;
+  padding: 14px 18px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.tour-card-meta {
+  display: grid;
+}
+
+.tour-card-meta span {
+  padding: 13px 0;
+  border-top: 1px solid #ececec;
+  font-size: 0.9rem;
+}
+
+.property-footer {
+  border-top: 1px solid #e5e5e5;
+  background: #fafafa;
+  padding: 28px 0;
+}
+
+.property-footer-inner {
+  display: grid;
+  gap: 7px;
+}
+
+.property-footer strong,
+.property-footer span {
+  font-size: 0.9rem;
+}
+
+@media (min-width: 700px) {
+  .property-facts {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .property-facts div,
+  .property-facts div:nth-child(odd),
+  .property-facts div:nth-child(even) {
+    padding: 22px 20px;
+    border-left: 1px solid #e5e5e5;
+  }
+
+  .property-facts div:first-child {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .property-gallery {
+    grid-template-columns: 1.55fr 0.8fr;
+    grid-template-rows: repeat(2, 230px);
+  }
+
+  .property-photo-main {
+    grid-row: 1 / 3;
+    min-height: 470px;
+  }
+
+  .attribute-grid {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 34px;
+  }
+
+  .property-footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 980px) {
+  .property-top {
+    padding-top: 70px;
+  }
+
+  .property-title-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 48px;
+  }
+
+  .property-price-block {
+    justify-items: end;
+    text-align: right;
+    padding-bottom: 6px;
+  }
+
+  .property-content-grid {
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 70px;
+    align-items: start;
+  }
+
+  .tour-card {
+    position: sticky;
+    top: 104px;
+  }
+}
+
+@media (max-width: 699px) {
+  .property-nav a:not(.property-nav-cta) {
+    display: none;
+  }
+
+  .property-header-inner {
+    min-height: 66px;
+  }
+
+  .property-title-row h1 {
+    font-size: 3.6rem;
+  }
+
+  .property-gallery-section {
+    padding-top: 18px;
+  }
+
+  .property-photo-main {
+    min-height: 340px;
+  }
+}
