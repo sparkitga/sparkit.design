@@ -538,38 +538,261 @@ body {
   }
 }
 
+/* Mobile-first refinements */
 @media (max-width: 699px) {
+  .container {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .property-header {
+    position: sticky;
+    top: 0;
+  }
+
+  .property-header-inner {
+    min-height: 60px;
+    gap: 12px;
+  }
+
+  .property-brand {
+    font-size: 0.92rem;
+    white-space: nowrap;
+  }
+
+  .property-nav {
+    margin-left: auto;
+  }
+
   .property-nav a:not(.property-nav-cta) {
     display: none;
   }
 
-  .property-header-inner {
-    min-height: 64px;
+  .property-nav-cta {
+    min-height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 12px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+
+  .property-top {
+    padding: 34px 0 14px;
+  }
+
+  .availability-line {
+    margin-bottom: 11px;
+    font-size: 0.82rem;
+  }
+
+  .property-title-row {
+    gap: 22px;
+    padding-bottom: 26px;
   }
 
   .property-title-row h1 {
-    font-size: 3.5rem;
+    max-width: none;
+    margin-bottom: 10px;
+    font-size: clamp(2.8rem, 15vw, 4rem);
+    line-height: 0.96;
+    letter-spacing: -0.055em;
+  }
+
+  .property-location {
+    font-size: 0.96rem;
+    line-height: 1.55;
+  }
+
+  .property-price-block {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    column-gap: 7px;
+    row-gap: 4px;
+  }
+
+  .property-price-block strong {
+    font-size: 2.8rem;
+  }
+
+  .property-price-block span {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .property-price-block small {
+    width: 100%;
+    margin-top: 2px;
+    font-size: 0.8rem;
+  }
+
+  .property-facts {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .property-facts div,
+  .property-facts div:nth-child(odd),
+  .property-facts div:nth-child(even) {
+    padding: 14px 10px;
+  }
+
+  .property-facts div:nth-child(odd) {
+    padding-left: 0;
+  }
+
+  .property-facts div:nth-child(even) {
+    padding-right: 0;
+  }
+
+  .property-facts strong {
+    font-size: 1.05rem;
+  }
+
+  .property-facts span {
+    font-size: 0.74rem;
+    line-height: 1.35;
   }
 
   .property-gallery-section {
-    padding-top: 18px;
+    padding: 16px 0 40px;
+  }
+
+  .property-gallery {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
   }
 
   .property-photo {
-    min-height: 300px;
+    min-height: 150px;
+    border-radius: 12px;
   }
 
   .property-photo-main {
-    min-height: 390px;
+    grid-column: 1 / -1;
+    min-height: 330px;
+  }
+
+  .property-photo:nth-child(2),
+  .property-photo:nth-child(3),
+  .property-photo:nth-child(4),
+  .property-photo:nth-child(5),
+  .property-photo:nth-child(6) {
+    min-height: 155px;
+  }
+
+  .property-content-section {
+    padding: 0 0 42px;
+  }
+
+  .property-content-grid {
+    gap: 26px;
+  }
+
+  .property-section {
+    padding: 28px 0;
+  }
+
+  .property-section h2 {
+    margin-bottom: 14px;
+    font-size: 1.8rem;
+    line-height: 1.05;
+  }
+
+  .property-section p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .attribute-grid div {
+    align-items: flex-start;
+    gap: 14px;
+    padding: 13px 0;
+  }
+
+  .attribute-grid span,
+  .attribute-grid strong {
+    font-size: 0.86rem;
+  }
+
+  .attribute-grid strong {
+    max-width: 60%;
+  }
+
+  .amenity-list {
+    gap: 7px;
+  }
+
+  .amenity-list span {
+    padding: 8px 11px;
+    font-size: 0.8rem;
   }
 
   .tour-card {
-    padding: 22px;
+    padding: 20px;
     border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
   }
 
-  .property-nav-cta {
-    padding: 10px 13px;
-    font-size: 0.84rem;
+  .tour-card h2 {
+    font-size: 2.1rem;
+  }
+
+  .tour-card > p {
+    margin-bottom: 16px;
+    font-size: 0.92rem;
+  }
+
+  .tour-card-button {
+    min-height: 54px;
+    margin-bottom: 14px;
+    font-size: 0.95rem;
+  }
+
+  .phone-contact {
+    margin-bottom: 16px;
+    padding: 14px 0;
+  }
+
+  .phone-number {
+    font-size: 1.25rem;
+  }
+
+  .interest-dialog {
+    width: calc(100vw - 28px);
+    padding: 30px 20px 22px;
+    border-radius: 18px;
+  }
+
+  .interest-dialog h2 {
+    font-size: 1.5rem;
+  }
+
+  .interest-dialog p {
+    font-size: 0.94rem;
+  }
+
+  .interest-dialog-continue {
+    min-height: 52px;
+  }
+
+  .property-footer {
+    padding: 22px 0 92px;
+  }
+
+  .property-footer-inner {
+    gap: 4px;
+  }
+
+  .property-footer strong,
+  .property-footer span {
+    font-size: 0.8rem;
+  }
+
+  body::after {
+    content: "";
+    display: block;
+    height: env(safe-area-inset-bottom, 0px);
   }
 }
