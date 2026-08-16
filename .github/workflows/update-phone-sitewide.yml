@@ -1,0 +1,48 @@
+name: Update phone sitewide
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  update-phone:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Replace old SparkIt phone number everywhere
+        shell: bash
+        run: |
+          set -euo pipefail
+          find . -type f \
+            ! -path './.git/*' \
+            \( -name '*.html' -o -name '*.css' -o -name '*.js' -o -name '*.json' -o -name '*.md' -o -name '*.txt' -o -name '*.xml' -o -name '*.yml' -o -name '*.yaml' \) \
+            -print0 | xargs -0 sed -i \
+              -e 's/470-602-1753/678-221-7721/g' \
+              -e 's/+14706021753/+16782217721/g' \
+              -e 's/14706021753/16782217721/g' \
+              -e 's/4706021753/6782217721/g'
+
+      - name: Remove one-time workflow
+        run: rm -f .github/workflows/update-phone-sitewide.yml
+
+      - name: Commit site-wide phone update
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo 'No remaining phone references required changes.'
+            exit 0
+          fi
+          git commit -m 'Update SparkIt phone number site-wide'
+          git push origin HEAD:main
