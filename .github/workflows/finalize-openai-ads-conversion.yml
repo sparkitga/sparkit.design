@@ -1,0 +1,79 @@
+name: Finalize OpenAI Ads conversion flow
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  finalize-conversion:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fix thank-you redirects and verify OpenAI Ads conversion
+        shell: python
+        run: |
+          from pathlib import Path
+
+          repo = Path('.')
+          changed = []
+
+          # Make every HTML form/link use the actual thank-you directory page.
+          for path in repo.rglob('*.html'):
+              if '.git' in path.parts:
+                  continue
+              text = path.read_text(encoding='utf-8')
+              updated = text.replace('/thank-you.html', '/thank-you/')
+              if updated != text:
+                  path.write_text(updated, encoding='utf-8')
+                  changed.append(str(path))
+
+          thank_you = repo / 'thank-you' / 'index.html'
+          if not thank_you.exists():
+              raise SystemExit('Missing thank-you/index.html; cannot finalize lead conversion.')
+
+          thank_text = thank_you.read_text(encoding='utf-8')
+          pixel_id = 'LMNCCJ7qzpZQXrt35AcfTV'
+          sdk = 'https://bzrcdn.openai.com/sdk/oaiq.min.js'
+          lead_call = 'window.oaiq("measure", "lead_created", { type: "customer_action" });'
+
+          if pixel_id not in thank_text or sdk not in thank_text:
+              raise SystemExit('OpenAI Ads base pixel is missing from thank-you/index.html.')
+
+          if lead_call not in thank_text:
+              conversion = '''\n  <!-- OpenAI Ads lead conversion -->\n  <script>\n    if (typeof window.oaiq === 'function') {\n      window.oaiq("measure", "lead_created", { type: "customer_action" });\n    }\n  </script>\n'''
+              thank_text = thank_text.replace('</body>', conversion + '</body>', 1)
+              thank_you.write_text(thank_text, encoding='utf-8')
+              changed.append(str(thank_you))
+
+          print('Files changed:')
+          for p in changed:
+              print(p)
+
+          print('Verified OpenAI Ads Pixel ID:', pixel_id)
+          print('Verified lead_created event on thank-you/index.html')
+
+      - name: Remove one-time workflow
+        run: rm -f .github/workflows/finalize-openai-ads-conversion.yml
+
+      - name: Commit finalized conversion flow
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo 'No conversion-flow changes required.'
+            exit 0
+          fi
+          git commit -m 'Finalize OpenAI Ads lead conversion flow'
+          git push origin HEAD:main
