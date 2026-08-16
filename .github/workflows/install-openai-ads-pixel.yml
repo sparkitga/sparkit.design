@@ -1,0 +1,84 @@
+name: Install OpenAI Ads pixel site-wide
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  install-pixel:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Add OpenAI Ads Measurement Pixel to HTML pages
+        shell: python
+        run: |
+          from pathlib import Path
+
+          pixel_id = "LMNCCJ7qzpZQXrt35AcfTV"
+          marker = "https://bzrcdn.openai.com/sdk/oaiq.min.js"
+          snippet = f'''  <!-- OpenAI Ads Measurement Pixel -->
+          <script>
+            (function (w, d, s, u) {{
+              if (w.oaiq) return;
+              var q = function () {{
+                q.q.push(arguments);
+              }};
+              q.q = [];
+              w.oaiq = q;
+              var js = d.createElement(s);
+              js.async = true;
+              js.src = u;
+              var f = d.getElementsByTagName(s)[0];
+              f.parentNode.insertBefore(js, f);
+            }})(window, document, "script", "https://bzrcdn.openai.com/sdk/oaiq.min.js");
+
+            oaiq("init", {{
+              pixelId: "{pixel_id}",
+            }});
+          </script>
+          <!-- End OpenAI Ads Measurement Pixel -->
+
+          '''
+
+          changed = []
+          for path in Path('.').rglob('*.html'):
+              if '.git' in path.parts:
+                  continue
+              text = path.read_text(encoding='utf-8')
+              if marker in text:
+                  continue
+              if '<head>' not in text:
+                  continue
+              text = text.replace('<head>', '<head>\n' + snippet, 1)
+              path.write_text(text, encoding='utf-8')
+              changed.append(str(path))
+
+          print(f'Updated {len(changed)} HTML files')
+          for path in changed:
+              print(path)
+
+      - name: Remove one-time workflow
+        run: rm -f .github/workflows/install-openai-ads-pixel.yml
+
+      - name: Commit OpenAI Ads pixel installation
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo 'No HTML pages required changes.'
+            exit 0
+          fi
+          git commit -m 'Install OpenAI Ads measurement pixel site-wide'
+          git push origin HEAD:main
