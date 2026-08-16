@@ -253,49 +253,37 @@
           </label>
 
           <label class="pricing-form-field">
+            <span>Phone *</span>
+            <input type="tel" name="phone" autocomplete="tel" required />
+          </label>
+
+          <label class="pricing-form-field">
             <span>Email *</span>
             <input type="email" name="email" autocomplete="email" required />
           </label>
 
           <label class="pricing-form-field">
-            <span>Phone</span>
-            <input type="tel" name="phone" autocomplete="tel" />
-          </label>
-
-          <label class="pricing-form-field">
-            <span>Brokerage / Team</span>
-            <input type="text" name="brokerage" autocomplete="organization" />
-          </label>
-
-          <label class="pricing-form-field">
-            <span>What are you interested in?</span>
-            <select name="plan_interest">
-              <option value="">Choose an option</option>
-              <option value="2 Free Videos">2 Free Videos</option>
-              <option value="Essential">Essential</option>
-              <option value="Growth">Growth</option>
-              <option value="Pro">Pro</option>
-              <option value="Custom">Custom Team Plan</option>
-              <option value="Not Sure">Not sure yet</option>
-            </select>
-          </label>
-
-          <label class="pricing-form-field">
-            <span>Listing address or URL</span>
-            <input type="text" name="listing" />
+            <span>Company</span>
+            <input type="text" name="company" autocomplete="organization" />
           </label>
 
           <label class="pricing-form-field pricing-form-field-full">
-            <span>What would make content easier right now?</span>
-            <textarea
-              name="message"
-              placeholder="Example: I need faster listing reels, open-house videos, or help staying consistent."
-            ></textarea>
+            <span>How many videos do you need? *</span>
+            <select name="videos_needed" required>
+              <option value="">Select an amount</option>
+              <option value="1-4">1–4 videos</option>
+              <option value="5-12">5–12 videos</option>
+              <option value="13-25">13–25 videos</option>
+              <option value="26-50">26–50 videos</option>
+              <option value="51-100">51–100 videos</option>
+              <option value="100+">100+ videos</option>
+              <option value="Not sure">Not sure yet</option>
+            </select>
           </label>
         </div>
 
         <button type="submit" class="button button-dark pricing-form-submit">
-          Help Me Choose
+          Request Pricing
         </button>
 
         <p class="pricing-form-note">
@@ -337,7 +325,7 @@
           </p>
 
           <a
-            href="#pricing-lead-bottom" data-plan-value="2 Free Videos"
+            href="#pricing-lead-bottom"
             class="button button-secondary pricing-button"
           >
             Claim 2 Free Videos
@@ -383,7 +371,7 @@
           </p>
 
           <a
-            href="#pricing-lead-bottom" data-plan-value="Essential"
+            href="#pricing-lead-bottom"
             class="button button-primary pricing-button"
           >
             Choose Essential
@@ -434,7 +422,7 @@
           </p>
 
           <a
-            href="#pricing-lead-bottom" data-plan-value="Growth"
+            href="#pricing-lead-bottom"
             class="button button-primary pricing-button"
           >
             Choose Growth
@@ -481,7 +469,7 @@
           </p>
 
           <a
-            href="#pricing-lead-bottom" data-plan-value="Pro"
+            href="#pricing-lead-bottom"
             class="button button-primary pricing-button"
           >
             Choose Pro
@@ -526,7 +514,7 @@
         </div>
 
         <a
-          href="#pricing-lead-bottom" data-plan-value="Custom"
+          href="#pricing-lead-bottom"
           class="button button-dark"
         >
           Request Custom Plan
@@ -578,49 +566,37 @@
           </label>
 
           <label class="pricing-form-field">
+            <span>Phone *</span>
+            <input type="tel" name="phone" autocomplete="tel" required />
+          </label>
+
+          <label class="pricing-form-field">
             <span>Email *</span>
             <input type="email" name="email" autocomplete="email" required />
           </label>
 
           <label class="pricing-form-field">
-            <span>Phone</span>
-            <input type="tel" name="phone" autocomplete="tel" />
-          </label>
-
-          <label class="pricing-form-field">
-            <span>Brokerage / Team</span>
-            <input type="text" name="brokerage" autocomplete="organization" />
-          </label>
-
-          <label class="pricing-form-field">
-            <span>What are you interested in?</span>
-            <select name="plan_interest">
-              <option value="">Choose an option</option>
-              <option value="2 Free Videos">2 Free Videos</option>
-              <option value="Essential">Essential</option>
-              <option value="Growth">Growth</option>
-              <option value="Pro">Pro</option>
-              <option value="Custom">Custom Team Plan</option>
-              <option value="Not Sure">Not sure yet</option>
-            </select>
-          </label>
-
-          <label class="pricing-form-field">
-            <span>Listing address or URL</span>
-            <input type="text" name="listing" />
+            <span>Company</span>
+            <input type="text" name="company" autocomplete="organization" />
           </label>
 
           <label class="pricing-form-field pricing-form-field-full">
-            <span>What would make content easier right now?</span>
-            <textarea
-              name="message"
-              placeholder="Example: I need faster listing reels, open-house videos, or help staying consistent."
-            ></textarea>
+            <span>How many videos do you need? *</span>
+            <select name="videos_needed" required>
+              <option value="">Select an amount</option>
+              <option value="1-4">1–4 videos</option>
+              <option value="5-12">5–12 videos</option>
+              <option value="13-25">13–25 videos</option>
+              <option value="26-50">26–50 videos</option>
+              <option value="51-100">51–100 videos</option>
+              <option value="100+">100+ videos</option>
+              <option value="Not sure">Not sure yet</option>
+            </select>
           </label>
         </div>
 
         <button type="submit" class="button button-dark pricing-form-submit">
-          Start My First Reel
+          Request Pricing
         </button>
 
         <p class="pricing-form-note">
@@ -833,18 +809,6 @@
         }
       });
     });
-
-    document.querySelectorAll("[data-plan-value]").forEach(function (link) {
-      link.addEventListener("click", function () {
-        const plan = link.getAttribute("data-plan-value");
-        const bottomForm = document.querySelector(
-          '#pricing-lead-bottom select[name="plan_interest"]'
-        );
-
-        if (bottomForm && plan) {
-          bottomForm.value = plan;
-        }
-      });
     });
   })();
 </script>
