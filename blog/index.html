@@ -321,18 +321,17 @@
           <form 
             name="sparkit-reels-contact" 
             method="POST" 
-            action="https://formsubmit.co/sparkitga@gmail.com"
+            action="https://api.web3forms.com/submit"
             class="sparkit-contact-form"
             onsubmit="fbq('track', 'Lead', {content_name: '4 Reels for $50 Inquiry', value: 50.00, currency: 'USD'});"
           >
+            <input type="hidden" name="access_key" value="df10eef3-3dd9-4ec5-9396-55de50523ed7" />
             <input type="hidden" name="form-name" value="sparkit-reels-contact" />
-            <input type="hidden" name="_next" value="https://sparkitdesign.com/thank-you/" />
-            <input type="hidden" name="_subject" value="New SparkIt 4 Reels Lead" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_url" value="https://sparkitdesign.com/blog/" />
+            <input type="hidden" name="redirect" value="https://sparkitdesign.com/thank-you/" />
+            <input type="hidden" name="subject" value="New SparkIt 4 Reels Lead" />
 
             <p class="hidden">
-              <label>Don’t fill this out: <input name="_honey" /></label>
+              <label>Don’t fill this out: <input type="checkbox" name="botcheck" /></label>
             </p>
 
             <div class="form-grid">
@@ -384,7 +383,7 @@
   </footer>
 
   <script>
-    document.querySelectorAll('form[action^="https://formsubmit.co/"]').forEach(function (form) {
+    document.querySelectorAll('form[action="https://api.web3forms.com/submit"]').forEach(function (form) {
       form.addEventListener("submit", function () {
         try {
           window.sessionStorage.setItem("sparkit_pending_lead", JSON.stringify({
