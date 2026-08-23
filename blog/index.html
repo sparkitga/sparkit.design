@@ -380,5 +380,20 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    document.querySelectorAll('form[action="/thank-you/"]').forEach(function (form) {
+      form.addEventListener("submit", function () {
+        try {
+          window.sessionStorage.setItem("sparkit_pending_lead", JSON.stringify({
+            submittedAt: Date.now(),
+            formName: form.getAttribute("name") || "contact"
+          }));
+        } catch (error) {
+          // Measurement state must never interrupt the form submission.
+        }
+      });
+    });
+  </script>
 </body>
 </html>
