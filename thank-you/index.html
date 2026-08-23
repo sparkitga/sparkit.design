@@ -230,11 +230,27 @@
   </footer>
 
   <!-- OpenAI Ads lead conversion.
-       Fires only if the OpenAI base pixel has already loaded oaiq. -->
+       Fires once after a recent form submission reaches this success page. -->
   <script>
-    if (typeof window.oaiq === 'function') {
-      window.oaiq("measure", "lead_created", { type: "customer_action" });
-    }
+    (function () {
+      try {
+        const markerKey = "sparkit_pending_lead";
+        const markerValue = window.sessionStorage.getItem(markerKey);
+        window.sessionStorage.removeItem(markerKey);
+
+        if (!markerValue || typeof window.oaiq !== "function") return;
+
+        const marker = JSON.parse(markerValue);
+        const markerAge = Date.now() - Number(marker.submittedAt);
+        const isRecentSubmission = markerAge >= 0 && markerAge < 10 * 60 * 1000;
+
+        if (isRecentSubmission) {
+          window.oaiq("measure", "lead_created", { type: "customer_action" });
+        }
+      } catch (error) {
+        // Conversion measurement must never interrupt the thank-you page.
+      }
+    })();
   </script>
 </body>
 </html>
