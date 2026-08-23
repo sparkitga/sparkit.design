@@ -831,7 +831,17 @@
           field.value = params.get(key);
         }
       });
-    });
+
+      form.addEventListener("submit", function () {
+        try {
+          window.sessionStorage.setItem("sparkit_pending_lead", JSON.stringify({
+            submittedAt: Date.now(),
+            formName: form.getAttribute("name") || "contact"
+          }));
+        } catch (error) {
+          // Measurement state must never interrupt the form submission.
+        }
+      });
     });
   })();
 </script>
