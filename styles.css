@@ -13421,4 +13421,11 @@ a {
   }
 }
 
-
+/* Breadcrumbs intentionally disabled site-wide */
+.breadcrumb,
+.breadcrumbs,
+[class*="breadcrumb"],
+nav[aria-label="Breadcrumb"],
+nav[aria-label="breadcrumbs"] {
+  display: none !important;
+}
