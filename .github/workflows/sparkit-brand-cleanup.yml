@@ -15,13 +15,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Update slogan and remove breadcrumb markup
+      - name: Update slogan, email, and remove breadcrumb markup
         run: |
           python - <<'PY'
           from pathlib import Path
           import re
 
           new_slogan = "Content Families Can Count On"
+          old_email = "sparkitga@gmail.com"
+          new_email = "welcome@sparkitdesign.com"
           changed = []
 
           for path in Path('.').rglob('*.html'):
@@ -36,6 +38,7 @@ jobs:
                   'Think with your hands': new_slogan,
                   'Content Families Count On.': f'{new_slogan}.',
                   'Content Families Count On': new_slogan,
+                  old_email: new_email,
               }
               for old, new in replacements.items():
                   text = text.replace(old, new)
@@ -76,5 +79,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "Apply SparkIt slogan and breadcrumb cleanup"
+          git commit -m "Update SparkIt site email and brand cleanup"
           git push
