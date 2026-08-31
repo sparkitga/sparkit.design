@@ -15,80 +15,50 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Update navbar, slogan, email, and remove breadcrumb markup
+      - name: Update SparkIt sitewide
         run: |
           python - <<'PY'
           from pathlib import Path
           import re
 
-          new_slogan = "Content Families Can Count On"
-          old_email = "sparkitga@gmail.com"
-          new_email = "welcome@sparkitdesign.com"
+          nav_lines = [
+              '<nav class="main-nav" aria-label="Primary navigation">',
+              '  <a href="/video/">Video</a>',
+              '  <a href="/social-media/">Social Media</a>',
+              '  <a href="/georgia-highlights/">Georgia Highlights</a>',
+              '  <a href="/realtor-resources/">Realtor Resources</a>',
+              '  <a href="/parent-support/">Parent Support</a>',
+              '  <a href="/about/">About</a>',
+              '  <a href="#contact">Contact</a>',
+              '</nav>',
+          ]
+          new_nav = '\n'.join(nav_lines)
           changed = []
-
-          new_nav = '''<nav class="main-nav" aria-label="Primary navigation">
-  <a href="/video/">Video</a>
-  <a href="/social-media/">Social Media</a>
-  <a href="/georgia-highlights/">Georgia Highlights</a>
-  <a href="/realtor-resources/">Realtor Resources</a>
-  <a href="/parent-support/">Parent Support</a>
-  <a href="/about/">About</a>
-  <a href="#contact">Contact</a>
-</nav>'''
 
           for path in Path('.').rglob('*.html'):
               text = path.read_text(encoding='utf-8')
               original = text
 
-              replacements = {
-                  'Sales Made Simple With Video and Social Media': f'{new_slogan} | Video and Social Media',
-                  'Sales Made Simple.': f'{new_slogan}.',
-                  'Sales Made Simple': new_slogan,
-                  'Think with your hands.': f'{new_slogan}.',
-                  'Think with your hands': new_slogan,
-                  'Content Families Count On.': f'{new_slogan}.',
-                  'Content Families Count On': new_slogan,
-                  old_email: new_email,
-              }
-              for old, new in replacements.items():
-                  text = text.replace(old, new)
+              text = text.replace('sparkitga@gmail.com', 'welcome@sparkitdesign.com')
+              text = text.replace('Content Families Count On', 'Content Families Can Count On')
 
-              # Standardize the primary navbar sitewide.
               text = re.sub(
-                  r'<nav\b[^>]*class=["\'][^"\']*main-nav[^"\']*["\'][^>]*aria-label=["\']Primary navigation["\'][^>]*>.*?</nav>',
+                  r'<nav\b[^>]*class=["\'][^"\']*main-nav[^"\']*["\'][^>]*>.*?</nav>',
                   new_nav,
                   text,
                   flags=re.I | re.S,
               )
 
-              # Remove breadcrumb navigation blocks if they exist now or are added later.
-              patterns = [
-                  r'<nav\b[^>]*(?:class=["\'][^"\']*breadcrumb[^"\']*["\']|aria-label=["\'][^"\']*breadcrumb[^"\']*["\'])[^>]*>.*?</nav>',
-                  r'<ol\b[^>]*class=["\'][^"\']*breadcrumb[^"\']*["\'][^>]*>.*?</ol>',
-                  r'<ul\b[^>]*class=["\'][^"\']*breadcrumb[^"\']*["\'][^>]*>.*?</ul>',
-                  r'<div\b[^>]*class=["\'][^"\']*breadcrumb[^"\']*["\'][^>]*>.*?</div>',
-              ]
-              for pattern in patterns:
-                  text = re.sub(pattern, '', text, flags=re.I | re.S)
-
               if text != original:
                   path.write_text(text, encoding='utf-8')
                   changed.append(str(path))
-
-          css_path = Path('styles.css')
-          if css_path.exists():
-              css = css_path.read_text(encoding='utf-8')
-              guard = '''\n\n/* Breadcrumbs intentionally disabled site-wide */\n.breadcrumb,\n.breadcrumbs,\n[class*="breadcrumb"],\nnav[aria-label="Breadcrumb"],\nnav[aria-label="breadcrumbs"] {\n  display: none !important;\n}\n'''
-              if 'Breadcrumbs intentionally disabled site-wide' not in css:
-                  css_path.write_text(css.rstrip() + guard, encoding='utf-8')
-                  changed.append(str(css_path))
 
           print('Changed files:')
           for item in changed:
               print('-', item)
           PY
 
-      - name: Commit site cleanup
+      - name: Commit sitewide updates
         run: |
           if git diff --quiet; then
             echo "No changes needed."
@@ -97,5 +67,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "Apply SparkIt navbar and site cleanup"
+          git commit -m "Apply SparkIt navbar sitewide"
           git push
