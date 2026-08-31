@@ -33,6 +33,9 @@ jobs:
               '</nav>',
           ]
           new_nav = '\n'.join(nav_lines)
+          hubspot = '''<!-- Start of HubSpot Embed Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/245298507.js"></script>
+<!-- End of HubSpot Embed Code -->'''
           changed = []
 
           for path in Path('.').rglob('*.html'):
@@ -48,6 +51,9 @@ jobs:
                   text,
                   flags=re.I | re.S,
               )
+
+              if 'js-na2.hs-scripts.com/245298507.js' not in text and '</body>' in text:
+                  text = text.replace('</body>', hubspot + '\n</body>', 1)
 
               if text != original:
                   path.write_text(text, encoding='utf-8')
@@ -67,5 +73,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "Apply SparkIt navbar sitewide"
+          git commit -m "Add HubSpot tracking sitewide"
           git push
