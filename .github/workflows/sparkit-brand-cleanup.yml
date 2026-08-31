@@ -33,9 +33,11 @@ jobs:
               '</nav>',
           ]
           new_nav = '\n'.join(nav_lines)
-          hubspot = '''<!-- Start of HubSpot Embed Code -->
-<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/245298507.js"></script>
-<!-- End of HubSpot Embed Code -->'''
+          hubspot = (
+              '<!-- Start of HubSpot Embed Code -->\n'
+              '<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/245298507.js"></script>\n'
+              '<!-- End of HubSpot Embed Code -->'
+          )
           changed = []
 
           for path in Path('.').rglob('*.html'):
