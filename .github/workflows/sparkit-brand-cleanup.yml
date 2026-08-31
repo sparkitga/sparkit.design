@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Update slogan, email, and remove breadcrumb markup
+      - name: Update navbar, slogan, email, and remove breadcrumb markup
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -25,6 +25,16 @@ jobs:
           old_email = "sparkitga@gmail.com"
           new_email = "welcome@sparkitdesign.com"
           changed = []
+
+          new_nav = '''<nav class="main-nav" aria-label="Primary navigation">
+  <a href="/video/">Video</a>
+  <a href="/social-media/">Social Media</a>
+  <a href="/georgia-highlights/">Georgia Highlights</a>
+  <a href="/realtor-resources/">Realtor Resources</a>
+  <a href="/parent-support/">Parent Support</a>
+  <a href="/about/">About</a>
+  <a href="#contact">Contact</a>
+</nav>'''
 
           for path in Path('.').rglob('*.html'):
               text = path.read_text(encoding='utf-8')
@@ -42,6 +52,14 @@ jobs:
               }
               for old, new in replacements.items():
                   text = text.replace(old, new)
+
+              # Standardize the primary navbar sitewide.
+              text = re.sub(
+                  r'<nav\b[^>]*class=["\'][^"\']*main-nav[^"\']*["\'][^>]*aria-label=["\']Primary navigation["\'][^>]*>.*?</nav>',
+                  new_nav,
+                  text,
+                  flags=re.I | re.S,
+              )
 
               # Remove breadcrumb navigation blocks if they exist now or are added later.
               patterns = [
@@ -79,5 +97,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "Update SparkIt site email and brand cleanup"
+          git commit -m "Apply SparkIt navbar and site cleanup"
           git push
