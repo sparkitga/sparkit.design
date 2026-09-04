@@ -33,19 +33,38 @@ jobs:
               '</nav>',
           ]
           new_nav = '\n'.join(nav_lines)
+
           hubspot = (
               '<!-- Start of HubSpot Embed Code -->\n'
               '<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/245298507.js"></script>\n'
               '<!-- End of HubSpot Embed Code -->'
           )
+
+          phone_display = '678-586-1190'
+          phone_tel = '+16785861190'
           changed = []
 
           for path in Path('.').rglob('*.html'):
               text = path.read_text(encoding='utf-8')
               original = text
 
+              # SparkIt contact + brand standards
               text = text.replace('sparkitga@gmail.com', 'welcome@sparkitdesign.com')
-              text = text.replace('Content Families Count On', 'Content Families Can Count On')
+              text = text.replace('Content Families Can Count On', 'Content Families Count On')
+
+              # Standardize clickable phone links and visibly formatted US phone numbers.
+              text = re.sub(
+                  r'href=(["\'])tel:[^"\']+\1',
+                  f'href="tel:{phone_tel}"',
+                  text,
+                  flags=re.I,
+              )
+              text = re.sub(
+                  r'(?<!\d)(?:\+?1[ .-]?)?\(?\d{3}\)?[ .-]\d{3}[ .-]\d{4}(?!\d)',
+                  phone_display,
+                  text,
+              )
+
               text = re.sub(
                   r'SparkIt helps realtors and local brands turn listings,\s*services, customer questions, and everyday work into clear\s*content that supports visibility, trust, and sales\s*conversations\.',
                   'We help local heroes, like you, serve your family, your team, and your clients with greater focus.',
@@ -60,6 +79,7 @@ jobs:
                   flags=re.I | re.S,
               )
 
+              # HubSpot CRM tracking on every HTML page.
               if 'js-na2.hs-scripts.com/245298507.js' not in text and '</body>' in text:
                   text = text.replace('</body>', hubspot + '\n</body>', 1)
 
@@ -81,5 +101,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "Update SparkIt hero message"
+          git commit -m "Standardize SparkIt phone, tagline, and HubSpot tracking"
           git push
