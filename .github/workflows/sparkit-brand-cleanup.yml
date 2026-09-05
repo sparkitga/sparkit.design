@@ -30,8 +30,13 @@ jobs:
           ]
           social_nav = '\n'.join(social_nav_lines)
 
+          nav_toggle = (
+              '<button class="nav-toggle" type="button" aria-expanded="false" '
+              'aria-controls="sparkit-primary-nav">Menu</button>'
+          )
+
           nav_lines = [
-              '<nav class="main-nav" aria-label="Primary navigation">',
+              '<nav id="sparkit-primary-nav" class="main-nav" aria-label="Primary navigation">',
               '  <a href="/video/">Video</a>',
               '  <a href="/social-media/">Social Media</a>',
               '  <a href="/social-media/#contact">AI Advertising</a>',
@@ -89,6 +94,12 @@ jobs:
               if 'class="social-nav-bar"' not in text:
                   text = text.replace(new_nav, social_nav + '\n' + new_nav, 1)
 
+              if 'class="nav-toggle"' not in text:
+                  text = text.replace(new_nav, nav_toggle + '\n' + new_nav, 1)
+
+              if '/assets/nav.js' not in text and '</body>' in text:
+                  text = text.replace('</body>', '<script src="/assets/nav.js" defer></script>\n</body>', 1)
+
               # HubSpot CRM tracking on every HTML page.
               if 'js-na2.hs-scripts.com/245298507.js' not in text and '</body>' in text:
                   text = text.replace('</body>', hubspot + '\n</body>', 1)
@@ -111,5 +122,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "Add SparkIt social bar sitewide"
+          git commit -m "Deploy modern mobile navigation sitewide"
           git push
