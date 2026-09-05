@@ -106,6 +106,19 @@ a {
   background: var(--soft);
 }
 
+.main-nav .nav-cta {
+  grid-column: 1 / -1;
+  border: 2px solid var(--black);
+  background: var(--accent);
+  color: var(--black);
+  white-space: nowrap;
+}
+
+.main-nav .nav-cta:hover {
+  background: var(--black);
+  color: var(--white);
+}
+
 /* Hero */
 .hero {
   padding: 48px 0 40px;
@@ -325,8 +338,12 @@ a {
   }
 
   .main-nav {
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(5, auto);
     justify-content: end;
+  }
+
+  .main-nav .nav-cta {
+    grid-column: auto;
   }
 
   .hero {
