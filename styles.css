@@ -67,6 +67,27 @@ a {
 }
 
 /* Header */
+.social-nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  padding: 8px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--black);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.social-nav-bar span {
+  color: rgba(255,255,255,0.68);
+}
+
+.social-nav-bar a:hover {
+  color: var(--accent);
+}
+
 .site-header {
   background: var(--white);
   border-bottom: 1px solid var(--border);
@@ -108,10 +129,12 @@ a {
 
 .main-nav .nav-cta {
   grid-column: 1 / -1;
-  border: 2px solid var(--black);
+  border: 3px solid var(--accent);
   background: var(--accent);
   color: var(--black);
+  padding: 10px 18px;
   white-space: nowrap;
+  box-shadow: 3px 3px 0 var(--black);
 }
 
 .main-nav .nav-cta:hover {
